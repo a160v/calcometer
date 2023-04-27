@@ -12,7 +12,16 @@
       <ul class="navbar-nav me-auto">
         <% if user_signed_in? %>
           <li class="nav-item active">
-            <%= link_to "Today", "#", class: "nav-link" %>
+            <%= link_to "Patients", "/patients", class: "nav-link" %>
+          </li>
+          <li class="nav-item active">
+            <%= link_to "Treatments", "/treatments", class: "nav-link" %>
+          </li>
+          <li class="nav-item active">
+            <%= link_to "Vehicles", "/vehicles", class: "nav-link" %>
+          </li>
+          <li class="nav-item active">
+            <%= link_to "Clients", "/clients", class: "nav-link" %>
           </li>
           <li class="nav-item dropdown">
           <a href="#" class="avatar" id="navbarDropdown" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">

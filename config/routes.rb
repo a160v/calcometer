@@ -1,8 +1,11 @@
 Rails.application.routes.draw do
-  devise_for :users
   root to: "pages#home"
-  # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
-  # Defines the root path route ("/")
-  # root "articles#index"
+  # User for creating, updating and deleting users -> Inside of the registrations_controller
+  devise_for :users
+
+  resources :patients, only: [:index, :show]
+  resources :treatments, only: [:index, :show]
+  resources :vehicles, only: [:index, :show]
+  resources :clients, only: [:index, :show]
 end
