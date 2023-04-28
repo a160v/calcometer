@@ -17,7 +17,6 @@ class PatientsController < ApplicationController
 
   def create
     @patient = Patient.new(patient_params)
-    @patient.user = current_user
 
     if @patient.save
       redirect_to patients_path, notice: 'Patient was successfully created.'
@@ -36,7 +35,7 @@ class PatientsController < ApplicationController
 
   def destroy
     @patient.destroy
-    redirect_to patients_path, notice: 'Patient was successfully destroyed.'
+    redirect_to patients_path, notice: 'Patient was successfully deleted.'
   end
 
   private
@@ -46,6 +45,6 @@ class PatientsController < ApplicationController
     end
 
     def patient_params
-      params.require(:patient).permit(:name, :address)
+      params.require(:patient).permit(:name, :address, :client_id)
     end
 end

@@ -1,0 +1,26 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-6 offset-md-3">
+      <%= simple_form_for(@patient) do |f| %>
+        <%= f.error_notification %>
+
+        <div class="form-group">
+          <%= f.label :name, "Patient Name" %>
+          <%= f.text_field :name, class: 'form-control' %>
+        </div>
+
+        <div class="form-group">
+          <%= f.label :address, "Patient Address" %>
+          <%= f.text_field :address, class: 'form-control' %>
+        </div>
+
+        <div class="form-group">
+          <%= f.label :client_id, "Select Client" %>
+          <%= f.collection_select :client_id, Client.all, :id, :name, {}, { class: 'form-control' } %>
+        </div>
+
+        <%= f.submit "Submit", class: 'btn btn-primary' %>
+      <% end %>
+    </div>
+  </div>
+</div>

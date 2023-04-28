@@ -1,2 +1,11 @@
-<h1>Patients#show</h1>
-<p>Find me in app/views/patients/show.html.erb</p>
+<p style="color: green"><%= notice %></p>
+
+<%= render @patient %>
+
+<div>
+  <%= link_to "Edit this patient", edit_patient_path(@patient), class:"btn btn-primary" %> |
+
+  <%= link_to "Back to patients", patients_path, class:"btn btn-secondary" %>
+
+  <%= button_to "Destroy this patient", @patient, method: :delete, class:"btn btn-danger" %>
+</div>

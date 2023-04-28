@@ -1,2 +1,11 @@
-<h1>Clients#show</h1>
-<p>Find me in app/views/clients/show.html.erb</p>
+<p style="color: green"><%= notice %></p>
+
+<%= render @client %>
+
+<div>
+  <%= link_to "Edit this client", edit_client_path(@client), class:"btn btn-primary" %> |
+
+  <%= link_to "Back to clients", clients_path, class:"btn btn-secondary" %>
+
+  <%= button_to "Destroy this client", @client, method: :delete, class:"btn btn-danger" %>
+</div>

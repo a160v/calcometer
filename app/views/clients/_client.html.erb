@@ -1,0 +1,16 @@
+<div id="<%= dom_id client %>" class="card h-100">
+  <%= link_to client, class: "text-decoration-none" do %>
+    <div class="card-body">
+      <h5 class="card-title">
+        <strong>Name:</strong>
+        <%= client.name %>
+      </h5>
+
+      <p class="card-text">
+        <strong>Email:</strong>
+        <%= client.email %>
+      </p>
+
+    </div>
+  <% end %>
+</div>

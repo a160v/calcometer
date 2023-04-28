@@ -3,7 +3,6 @@ class TreatmentsController < ApplicationController
 
   def index
     @treatments = Treatment.where(user: current_user).where('DATE(start_time) = ?', Date.today)
-    # Add logic for total_distance calculation
   end
 
   def show

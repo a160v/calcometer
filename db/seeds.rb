@@ -1,8 +1,11 @@
 # This file should contain all the record creation needed to seed the database with its default values.
 # The data can then be loaded with the bin/rails db:seed command (or created alongside the database with db:setup).
 #
-# Create a client
-client = Client.create(name: Faker::Company.name)
+# Create one client
+name = Faker::Company.name
+email = Faker::Internet.email
+client = Client.create(name: name, email: email)
+puts "Created client #{client.name}"
 
 # Create 5 patients with addresses between Winterthur and Volketswil
 patient_addresses = [
@@ -14,11 +17,18 @@ patient_addresses = [
 ]
 
 patient_addresses.each do |address|
-  Patient.create(
+  patient = client.patients.build(
     name: Faker::Name.name,
-    address: address,
+    address: address
   )
+  if patient.save
+    puts "Created patient #{patient.name}"
+  else
+    puts "Failed to create patient: #{patient.errors.full_messages.join(', ')}"
+  end
 end
+
+
 
 # Create 3 users with addresses between Winterthur and Volketswil
 user_addresses = [
@@ -28,12 +38,17 @@ user_addresses = [
 ]
 
 user_addresses.each do |address|
-  User.create(
+  user = User.create(
     email: Faker::Internet.email,
     password: 'aleks1',
     password_confirmation: 'aleks1',
     address: address
   )
+  if user.persisted?
+    puts "Created user #{user.email} - pw: #{user.password}"
+  else
+    puts "Failed to create user: #{user.errors.full_messages.join(', ')}"
+  end
 end
 
 # Create 5 treatments per day between April 1st and April 7th
@@ -46,11 +61,20 @@ patients = Patient.all
     start_time = date + rand(8..18).hours + rand(0..59).minutes
     end_time = start_time + rand(30..120).minutes
 
-    Treatment.create(
-      user: users.sample,
-      patient: patients.sample,
-      start_time: start_time,
-      end_time: end_time
-    )
+    user = users.sample
+    patient = patients.sample
+
+    # Check if both user and patient are present
+    if user && patient
+      Treatment.create(
+        user: user,
+        patient: patient,
+        start_time: start_time,
+        end_time: end_time
+      )
+      puts "Created a treatment by #{user.email} to #{patient.name} between #{start_time} and #{end_time}"
+    else
+      puts "Failed to create a treatment due to missing user or patient"
+    end
   end
 end
