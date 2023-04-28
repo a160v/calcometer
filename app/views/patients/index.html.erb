@@ -1,2 +1,11 @@
-<h1>Patients#index</h1>
-<p>Find me in app/views/patients/index.html.erb</p>
+<%= link_to "New patient", new_patient_path, class:"btn btn-primary mb-3" %>
+
+<h1>All patients</h1>
+
+<div id="patients" class="row">
+  <% @patients.each do |patient| %>
+    <div class="col-md-4 mb-3">
+      <%= render patient, patient: patient %>
+    </div>
+  <% end %>
+</div>
