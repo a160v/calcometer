@@ -4,7 +4,6 @@ Rails.application.routes.draw do
 
   # User for creating, updating and deleting users -> Inside of the registrations_controller
   devise_for :users
-
   resources :patients
   resources :treatments
   resources :clients
