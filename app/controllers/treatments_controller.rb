@@ -75,7 +75,7 @@ class TreatmentsController < ApplicationController
     coordinates2 = geocode(address2)
 
     # Calculate driving time and distance using Mapbox Directions API
-    access_token = "your_mapbox_access_token"
+    access_token = ENV['MAPBOX_API_KEY']
     base_url = "https://api.mapbox.com/directions/v5/mapbox/driving"
     coordinates_string = "#{coordinates1[:lon]},#{coordinates1[:lat]};#{coordinates2[:lon]},#{coordinates2[:lat]}"
     query_params = {
@@ -101,7 +101,7 @@ class TreatmentsController < ApplicationController
     coordinates2 = geocode(address2)
 
     # Calculate driving time and distance using Mapbox Directions API
-    access_token = "your_mapbox_access_token"
+    access_token = ENV['MAPBOX_API_KEY']
     base_url = "https://api.mapbox.com/directions/v5/mapbox/driving"
     coordinates_string = "#{coordinates1[:lon]},#{coordinates1[:lat]};#{coordinates2[:lon]},#{coordinates2[:lat]}"
     query_params = {
