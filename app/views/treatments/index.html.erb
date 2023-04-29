@@ -2,6 +2,7 @@
 
 <h1>Treatments for today, <%= Time.current.strftime("%B %d, %Y") %></h1>
 
+
 <div id="treatments" class="row">
   <% @treatments.each do |treatment| %>
     <div class="col-md-4 mb-3">
@@ -10,7 +11,7 @@
   <% end %>
 </div>
 
-<div class="sticky-bottom bg-light py-2">
-  <h3>Driven distance today: <%= @total_distance %> km</h3>
-  <h3>Driven time today: <%= @total_time %> minutes</h3>
+<div id="total-distance-time" class="sticky-bottom bg-light py-2">
+  <h3>Total driven distance today: <span id="total-distance">0</span> km</h3>
+  <h3>Total driven time today: <span id="total-time">0</span> minutes</h3>
 </div>
