@@ -39,9 +39,11 @@ user_addresses = [
 
 user_addresses.each do |address|
   user = User.create(
+    name: Faker::Name.name,
+    last_name: Faker::Name.last_name,
     email: Faker::Internet.email,
-    password: 'aleks1',
-    password_confirmation: 'aleks1',
+    password: 'stropass123',
+    password_confirmation: 'stropass123',
     address: address
   )
   if user.persisted?
