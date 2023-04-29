@@ -6,7 +6,8 @@
     "@hotwired/turbo-rails": "^7.3.0",
     "@popperjs/core": "^2.11.7",
     "bootstrap": "^5.2.3",
-    "esbuild": "^0.17.18"
+    "esbuild": "^0.17.18",
+    "mapbox-gl": "^2.14.1"
   },
   "scripts": {
     "build": "esbuild app/javascript/*.* --bundle --sourcemap --outdir=app/assets/builds --public-path=assets"
