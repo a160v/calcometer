@@ -8,9 +8,18 @@
     tomorrow = Time.current.end_of_day
 
     @treatments = Treatment.where(user_id: current_user.id).where("start_time >= ? AND end_time <= ?", today, tomorrow)
+    if @treatments.length >= 2
+      @treatments = Treatment.where(user_id: current_user.id).where("start_time >= ? AND end_time <= ?", today, tomorrow)
+      @total_distance = 0
+
+      @treatments.each_cons(2) do |treatment1, treatment2|
+      @total_distance += calculate_distance(treatment1.patient.address, treatment2.patient.address)
+        end
+    else
+      @total_distance = 0
+    end
 
   end
-
 
   def show
   end
@@ -29,6 +38,7 @@
     if @treatment.save
       redirect_to treatments_path, notice: 'Treatment was successfully created.'
     else
+      flash.now[:error] = @treatment.errors.full_messages.to_sentence
       render :new
     end
   end
@@ -46,20 +56,24 @@
     redirect_to treatments_path, notice: 'Treatment was successfully destroyed.'
   end
 
-  ##Render patient address in json format for Stimulus API call to Mapbox.######
-  def address
-    patient_id = @treatment.patient_id
-    patient = Patient.find(patient_id)
-    address = patient.address
-    render plain: patient_id
-  end
+  # Implement a method to calculate distance between two addresses
+  def calculate_distance(address1, address2)
+    # Configure Geocoder to use OpenStreetMap
+    Geocoder.configure(lookup: :nominatim, use_https: true, timeout: 5, units: :km)
 
-  def previous_address
-    patient = Patient.find(params[:id])
-    previous_patient = Patient.where('id > ?', patient.id).first
-    previous_patient = Patient.first if previous_patient.nil? # Wrap around to the first patient if at the end of the list
+    # Geocoding the addresses to get coordinates
+    coordinates1 = Geocoder.coordinates(address1)
+    coordinates2 = Geocoder.coordinates(address2)
 
-    render plain: previous_patient.address
+    # Check if coordinates are available
+    if coordinates1.nil? || coordinates2.nil?
+      raise "Coordinates not found for one or both addresses: #{address1}, #{address2}"
+    end
+
+    # Calculate distance using Geocoder::Calculations.distance_between
+    distance = Geocoder::Calculations.distance_between(coordinates1, coordinates2)
+
+    return distance
   end
   #PRIVATE######################################################################
 
