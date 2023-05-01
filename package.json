@@ -9,7 +9,8 @@
     "bootstrap-sass": "^3.3.7",
     "esbuild": "^0.17.18",
     "mapbox-gl": "^2.14.1",
-    "sass": "^1.62.1"
+    "sass": "^1.62.1",
+    "tailwindcss-stimulus-components": "^3.0.4"
   },
   "scripts": {
     "build": "esbuild app/javascript/*.* --bundle --sourcemap --outdir=app/assets/builds"
