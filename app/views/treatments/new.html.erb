@@ -1,14 +1,16 @@
 <div class="container">
   <div class="row">
     <div class="col-md-6 offset-md-3">
-      <%= simple_form_for(@treatment, html: { class: "form-horizontal" }) do |f| %>
+      <%= simple_form_for(@treatment, local: true, data: { turbo: false }, html: { class: "form-horizontal" }) do |f| %>
+      <%# <%= simple_form_for(@treatment, html: { class: "form-horizontal" }) do |f| %>
+
         <%= f.input :user_id, as: :hidden, input_html: { value: current_user.id } %>
 
         <%= f.association :patient, label: "Select Patient", collection: Patient.all, label_method: :name, value_method: :id %>
 
-        <%= f.input :start_time, label: "Start Time", as: :time, input_html: { value: Time.current.strftime("%H:%M"), min: Time.current.strftime("%H:%M") } %>
+        <%= f.input :start_time, label: "Start Time", as: :time, :minute_step => 15, input_html: { value: Time.current.strftime("%H:%M"), min: Time.current.strftime("%H:%M") } %>
 
-        <%= f.input :end_time, label: "End Time", as: :time, input_html: { value: Time.current.strftime("%H:%M") } %>
+        <%= f.input :end_time, label: "End Time", as: :time, :minute_step => 15, input_html: { value: Time.current.strftime("%H:%M") } %>
 
         <%# <div data-controller="distance-calculator" data-action="click->distance-calculator#calculateDistance"> %>
           <%= f.button :submit, "Create Treatment", class: "btn btn-primary" %>

@@ -1,4 +1,4 @@
- class TreatmentsController < ApplicationController
+class TreatmentsController < ApplicationController
   before_action :set_treatment, only: [:show, :edit, :update, :destroy]
 
   #CRUD#########################################################################
@@ -8,18 +8,17 @@
     tomorrow = Time.current.end_of_day
 
     @treatments = Treatment.where(user_id: current_user.id).where("start_time >= ? AND end_time <= ?", today, tomorrow)
+    @total_distance = 0
+    @total_time = 0
+
     if @treatments.length >= 2
-      @treatments = Treatment.where(user_id: current_user.id).where("start_time >= ? AND end_time <= ?", today, tomorrow)
-      @total_distance = 0
-
       @treatments.each_cons(2) do |treatment1, treatment2|
-      @total_distance += calculate_distance(treatment1.patient.address, treatment2.patient.address)
-        end
-    else
-      @total_distance = 0
+        @total_distance += calculate_distance(treatment1.patient.address, treatment2.patient.address)
+      end
+      @total_time = calculate_driving_time(@total_distance)
     end
-
   end
+
 
   def show
   end
@@ -76,6 +75,20 @@
 
     return distance
   end
+
+  def calculate_driving_time(distance)
+    # Average driving speed in Switzerland (in km/h)
+    average_speed = 50.0
+
+    # Calculate driving time in hours
+    time_in_hours = distance.round(2) / average_speed
+
+    # Convert driving time to minutes
+    time_in_minutes = (time_in_hours * 60).round
+
+    return time_in_minutes
+  end
+
   #PRIVATE######################################################################
 
   private
