@@ -56,7 +56,8 @@
     redirect_to treatments_path, notice: 'Treatment was successfully destroyed.'
   end
 
-  # Implement a method to calculate distance between two addresses
+  # Fetch the total distance driven by car between each treatment;
+  # reiterate with all treatments for a given day
   def calculate_distance(address1, address2)
     # Configure Geocoder to use OpenStreetMap
     Geocoder.configure(lookup: :nominatim, use_https: true, timeout: 5, units: :km)

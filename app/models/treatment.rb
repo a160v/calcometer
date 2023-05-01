@@ -8,7 +8,7 @@ class Treatment < ApplicationRecord
 
   def end_time_after_start_time
     if end_time.present? && start_time.present? && end_time < start_time
-      errors.add(:end_time, "End date must after the start date")
+      errors.add(:end_time, "must be after the start date")
     end
   end
 end
