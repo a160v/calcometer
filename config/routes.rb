@@ -4,12 +4,12 @@ Rails.application.routes.draw do
 
   # User for creating, updating and deleting users -> Inside of the registrations_controller
   devise_for :users
-  resources :patients do
+  resources :patients
+  resources :treatments do
     member do
       get 'address'
-      get 'next_patient_address'
+      get 'previous_address'
     end
   end
-  resources :treatments
   resources :clients
 end

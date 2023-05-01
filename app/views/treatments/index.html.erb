@@ -4,7 +4,7 @@
 
 
 <div id="treatments" class="row">
-  <% @treatments.each do |treatment| %>
+  <% @treatments.sort_by(&:start_time).each do |treatment| %>
     <div class="col-md-4 mb-3">
       <%= render treatment, treatment: treatment %>
     </div>

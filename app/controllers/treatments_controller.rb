@@ -1,4 +1,4 @@
-class TreatmentsController < ApplicationController
+ class TreatmentsController < ApplicationController
   before_action :set_treatment, only: [:show, :edit, :update, :destroy]
 
   #CRUD#########################################################################
@@ -46,6 +46,21 @@ class TreatmentsController < ApplicationController
     redirect_to treatments_path, notice: 'Treatment was successfully destroyed.'
   end
 
+  ##Render patient address in json format for Stimulus API call to Mapbox.######
+  def address
+    patient_id = @treatment.patient_id
+    patient = Patient.find(patient_id)
+    address = patient.address
+    render plain: patient_id
+  end
+
+  def previous_address
+    patient = Patient.find(params[:id])
+    previous_patient = Patient.where('id > ?', patient.id).first
+    previous_patient = Patient.first if previous_patient.nil? # Wrap around to the first patient if at the end of the list
+
+    render plain: previous_patient.address
+  end
   #PRIVATE######################################################################
 
   private
