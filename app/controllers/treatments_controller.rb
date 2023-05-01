@@ -1,8 +1,6 @@
 class TreatmentsController < ApplicationController
   before_action :set_treatment, only: [:show, :edit, :update, :destroy]
 
-  #CRUD#########################################################################
-
   def index
     today = Time.current.beginning_of_day
     tomorrow = Time.current.end_of_day
@@ -19,6 +17,7 @@ class TreatmentsController < ApplicationController
     end
   end
 
+  #CRUD#########################################################################
 
   def show
   end
@@ -58,8 +57,6 @@ class TreatmentsController < ApplicationController
   # Fetch the total distance driven by car between each treatment;
   # reiterate with all treatments for a given day
   def calculate_distance(address1, address2)
-    # Configure Geocoder to use OpenStreetMap
-    Geocoder.configure(lookup: :nominatim, use_https: true, timeout: 5, units: :km)
 
     # Geocoding the addresses to get coordinates
     coordinates1 = Geocoder.coordinates(address1)
