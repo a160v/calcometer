@@ -1,0 +1,38 @@
+<div class="content-container">
+  <h1 class="text-center my-4">Analytics</h1>
+
+  <div id="date-navigation" class="text-center my-4">
+    <%= link_to 'Previous Day', analytics_path(start_date: (@start_date - 1.day).strftime('%Y-%m-%d'), end_date: (@end_date - 1.day).strftime('%Y-%m-%d')), class: 'btn btn-outline-primary mr-2' %>
+    <%= link_to 'Today', analytics_path(start_date: Date.today.strftime('%Y-%m-%d'), end_date: Date.today.strftime('%Y-%m-%d')), class: 'btn btn-primary mr-2' %>
+    <%= link_to 'Next Day', analytics_path(start_date: (@start_date + 1.day).strftime('%Y-%m-%d'), end_date: (@end_date + 1.day).strftime('%Y-%m-%d')), class: 'btn btn-outline-primary' %>
+  </div>
+
+  <div id="analytics-overview" class="text-center my-4">
+    <h3>Total treatments: <%= @treatments.count %></h3>
+    <h3>Total distance: <%= @total_distance.round(2) %> km</h3>
+    <h3>Total time: <%= @total_time %> minutes</h3>
+  </div>
+
+  <div id="date-selection" data-controller="date-range" class="my-4">
+    <%= form_tag analytics_path, method: :get, class: 'form-inline justify-content-center' do %>
+      <div class="form-group">
+        <%= label_tag :start_date, 'Select start date:', class: 'mr-2' %>
+        <%= date_field_tag :start_date, @start_date, required: true, data: { action: "change->date-range#updateEndDateMin", date_range_target: "startDate" }, class: 'form-control mr-2' %>
+        <%= label_tag :end_date, 'Select end date:', class: 'mr-2' %>
+        <%= date_field_tag :end_date, @end_date, required: true, data: { date_range_target: "endDate" }, class: 'form-control mr-2' %>
+        <%= submit_tag 'Submit', class: 'btn btn-primary mt-2' %>
+      </div>
+    <% end %>
+  </div>
+
+  <h1 class="my-4">Treatments on <%= Time.current.strftime("%B %d") %></h1>
+
+  <div id="treatments" class="row">
+    <% @treatments.sort_by(&:start_time).each do |treatment| %>
+      <div class="col-md-4 mb-3 treatment-card">
+        <%= render treatment, treatment: treatment %>
+      </div>
+    <% end %>
+  </div>
+
+</div>
