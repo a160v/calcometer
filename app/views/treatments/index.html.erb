@@ -2,7 +2,6 @@
 
 <h1>Treatments on <%= Time.current.strftime("%B %d") %></h1>
 
-
 <div id="treatments" class="row">
   <% @treatments.sort_by(&:start_time).each do |treatment| %>
     <div class="col-md-4 mb-3">
@@ -11,7 +10,8 @@
   <% end %>
 </div>
 
-<div id="total-distance-time" class="sticky-bottom bg-light py-2">
+
+<div id="total-distance-time" class="fixed-bottom bg-light py-2 pt-2">
   <h3>Total distance: <%= @total_distance.round(2) %> km</h3>
   <h3>Total time: <%= @total_time %> minutes</h3>
 </div>

@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
   # get "pages#home"
-  root to: "treatments#index"
+  root to: "pages#home"
+  get 'analytics', to: 'analytics#index'
 
   # User for creating, updating and deleting users -> Inside of the registrations_controller
   devise_for :users
