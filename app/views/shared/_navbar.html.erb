@@ -4,25 +4,37 @@
       <%= image_tag "logo.svg", alt: "logo" %>
     <% end %>
 
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
+    <button
+      class="navbar-toggler"
+      type="button"
+      data-bs-toggle="collapse"
+      data-bs-target="#navbarSupportedContent"
+      aria-controls="navbarSupportedContent"
+      aria-expanded="false"
+      aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
     </button>
 
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav me-auto">
         <% if user_signed_in? %>
           <li class="nav-item active">
-            <%= link_to "Patients", "/patients", class: "nav-link" %>
+            <%= link_to "Treatments", "/treatments", class: "nav-link" %>
           </li>
           <li class="nav-item active">
-            <%= link_to "Treatments", "/treatments", class: "nav-link" %>
+            <%= link_to "Patients", "/patients", class: "nav-link" %>
           </li>
           <li class="nav-item active">
             <%= link_to "Clients", "/clients", class: "nav-link" %>
           </li>
           <li class="nav-item dropdown">
-          <a href="#" class="avatar" id="navbarDropdown" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            <%= image_tag "avatar.svg", class: "avatar", alt: "dropdown menu" %>
+          <a href="#"
+            class="avatar"
+            id="navbarDropdown"
+            data-bs-toggle="dropdown"
+            aria-haspopup="true"
+            aria-expanded="false">
+              <%= image_tag "avatar.svg", class: "avatar", alt: "dropdown menu" %>
           </a>
             <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
               <%= link_to "Edit profile", edit_user_registration_path , class: "dropdown-item" %>
