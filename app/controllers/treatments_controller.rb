@@ -37,8 +37,10 @@ class TreatmentsController < ApplicationController
     if @treatment.save
       redirect_to treatments_path, notice: 'Treatment was successfully created.'
     else
-      flash.now[:error] = @treatment.errors.full_messages.to_sentence
-      render :new
+      respond_to do |format|
+        format.html { render :new }
+        format.json { render json: { errors: @treatment.errors }, status: :unprocessable_entity }
+      end
     end
   end
 

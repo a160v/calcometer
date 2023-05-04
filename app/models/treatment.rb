@@ -4,11 +4,14 @@ class Treatment < ApplicationRecord
   has_many :addresses, through: :patients
 
   validates :start_time, :end_time, presence: true
-  validate :end_time_after_start_time
+  # validate :end_time_different_start_time, :start_time_unique
+  validate :validate_time
 
-  def end_time_after_start_time
-    if end_time.present? && start_time.present? && end_time < start_time
-      errors.add(:end_time, "must be after the start date")
-    end
+  def validate_time
+    errors.add(:end_time, "is not consistent with the start time") if
+      end_time <= start_time
+
+    errors.add(:start_time, message: "| You have already created another treatment for this time today.") if
+      Treatment.where(user_id: user_id, start_time: start_time).where.not(id: id).exists?
   end
 end

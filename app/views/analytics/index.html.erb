@@ -2,16 +2,13 @@
   <h1 class="text-center my-4">Analytics</h1>
 
   <div id="date-navigation" class="text-center my-4">
-    <%= link_to 'Previous Day', analytics_path
-      (start_date: (@start_date - 1.day).strftime('%Y-%m-%d'),
+    <%= link_to 'Previous Day', analytics_path(start_date: (@start_date - 1.day).strftime('%Y-%m-%d'),
       end_date: (@end_date - 1.day).strftime('%Y-%m-%d')),
       class: 'btn btn-outline-primary mr-2' %>
-    <%= link_to 'Today', analytics_path
-      (start_date: Date.today.strftime('%Y-%m-%d'),
+    <%= link_to 'Today', analytics_path(start_date: Date.today.strftime('%Y-%m-%d'),
       end_date: Date.today.strftime('%Y-%m-%d')),
       class: 'btn btn-primary mr-2' %>
-    <%= link_to 'Next Day', analytics_path
-      (start_date: (@start_date + 1.day).strftime('%Y-%m-%d'),
+    <%= link_to 'Next Day', analytics_path(start_date: (@start_date + 1.day).strftime('%Y-%m-%d'),
       end_date: (@end_date + 1.day).strftime('%Y-%m-%d')),
       class: 'btn btn-outline-primary' %>
   </div>
