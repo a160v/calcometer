@@ -39,7 +39,7 @@ class TreatmentsController < ApplicationController
     else
       respond_to do |format|
         format.html { render :new }
-        format.json { render json: { errors: @treatment.errors }, status: :unprocessable_entity }
+        format.json { render json: { errors: @treatment.errors[:base] }, status: :unprocessable_entity }
       end
     end
   end
