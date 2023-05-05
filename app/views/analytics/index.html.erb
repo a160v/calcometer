@@ -35,8 +35,6 @@
     <% end %>
   </div>
 
-  <h1 class="my-4">Treatments on <%= Time.current.strftime("%B %d") %></h1>
-
   <div id="treatments" class="row">
     <% @treatments.sort_by(&:start_time).each do |treatment| %>
       <div class="col-md-4 mb-3 treatment-card">
