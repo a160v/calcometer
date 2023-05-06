@@ -2,6 +2,7 @@ class TreatmentsController < ApplicationController
   include TreatmentsHelper
   before_action :set_treatment, only: %i[show edit update destroy]
 
+  # Display only today's treatments, sorted chronologically
   def index
     today = Time.current.beginning_of_day
     tomorrow = Time.current.end_of_day
@@ -10,6 +11,8 @@ class TreatmentsController < ApplicationController
     @total_distance = 0
     @total_time = 0
 
+    # Calculate total distance and time starting from the first treatment
+    # if there are more than two treatments
     return unless @treatments.length >= 2
 
     @treatments.each_cons(2) do |treatment1, treatment2|
@@ -30,6 +33,7 @@ class TreatmentsController < ApplicationController
   def edit
   end
 
+  # Create a new treatment with user_id = current_user.id
   def create
     @treatment = Treatment.new(treatment_params)
     @treatment.user = current_user
@@ -37,6 +41,7 @@ class TreatmentsController < ApplicationController
     if @treatment.save
       redirect_to treatments_path, notice: 'Treatment was successfully created.'
     else
+    # Render in HTML and JSON with error messages
       respond_to do |format|
         format.html { render :new }
         format.json { render json: { errors: @treatment.errors[:base] }, status: :unprocessable_entity }
