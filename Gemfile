@@ -86,3 +86,4 @@ gem "faker"
 gem 'httparty', '~> 0.21.0'
 gem 'bootstrap-sass', '~> 3.4.1'
 gem 'kaminari'
+gem "strong_migrations"
