@@ -16,10 +16,11 @@
 
         <div class="form-group">
           <%= f.label :client_id, "Select Client" %>
-          <%= f.collection_select :client_id, Client.all, :id, :name, {}, { class: 'form-control' } %>
+          <%= f.collection_select :client_id, Client.all, :id, :name, {}, { class: "form-control" } %>
         </div>
 
-        <%= f.submit "Submit", class: 'btn btn-primary' %>
+          <%= f.submit "Submit", class: 'btn btn-primary mt-3' %>
+
       <% end %>
     </div>
   </div>

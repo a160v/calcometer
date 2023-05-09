@@ -3,20 +3,14 @@
   <div id="<%= dom_id treatment %>" class="card h-100">
     <%= link_to treatment, class: "text-decoration-none" do %>
       <div class="card-body">
-        <h5 class="card-title">
-          <strong>Patient name:</strong>
-          <%= treatment.patient.name %>
-        </h5>
+        <div class="card-title">
+          <h4><strong><%= treatment.patient.name %></strong></h4>
+        </div>
 
-        <p class="card-text">
-          <strong>Start time:</strong>
-          <%= treatment.start_time.strftime("%H:%M") %>
-        </p>
-
-        <p class="card-text">
-          <strong>End time:</strong>
-          <%= treatment.end_time.strftime("%H:%M") %>
-        </p>
+        <div class="card-text">
+          <span>From: <strong><%= treatment.start_time.strftime("%H:%M") %></strong></span>
+          <span>To: <strong><%= treatment.end_time.strftime("%H:%M") %></strong></span>
+        </div>
       </div>
     <% end %>
   </div>
