@@ -21,7 +21,11 @@ class PatientsController < ApplicationController
     if @patient.save
       redirect_to patients_path, notice: 'Patient was successfully created.'
     else
-      render :new
+  # Render in HTML and JSON with error messages
+    respond_to do |format|
+      format.html { render :new }
+      format.json { render json: { errors: @patient.errors[:base] }, status: :unprocessable_entity }
+      end
     end
   end
 
