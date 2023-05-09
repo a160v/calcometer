@@ -1,7 +1,7 @@
 <div class="container">
   <div class="row">
     <div class="col-md-6 offset-md-3">
-      <%= simple_form_for(@client) do |f| %>
+      <%= simple_form_for(@client, local: true, data: { turbo: false }, html: { class: "form-horizontal" }) do |f| %>
         <%= f.error_notification %>
 
         <div class="form-group">
