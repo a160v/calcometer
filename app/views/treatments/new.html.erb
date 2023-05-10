@@ -5,7 +5,8 @@
 
         <%= f.input :user_id, as: :hidden, input_html: { value: current_user.id } %>
 
-        <%= f.association :patient, label: "Select Patient", collection: Patient.all, label_method: :name, value_method: :id %>
+        <%= f.label :patient_id, "Select Patient" %>
+        <%= f.select :patient_id, Patient.all.map { |p| [p.name, p.id] }, { include_blank: true }, class: "form-control" %>
 
         <%= f.input :start_time, label: "Start Time", as: :time, :minute_step => 15, input_html: { value: Time.current.strftime("%H:%M"), min: Time.current.strftime("%H:%M") } %>
 

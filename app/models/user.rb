@@ -3,7 +3,7 @@ class User < ApplicationRecord
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable, :recoverable, :rememberable, :validatable
 
-  has_many :treatments
+  has_many :treatments, dependent: :nullify
   validates :address, presence: true
 
   geocoded_by :address

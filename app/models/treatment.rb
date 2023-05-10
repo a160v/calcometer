@@ -1,7 +1,7 @@
 class Treatment < ApplicationRecord
-  belongs_to :user
-  belongs_to :patient
-  has_many :addresses, through: :patients
+  belongs_to :user, optional: true
+  belongs_to :patient, optional: true
+  has_one :address, through: :patient
 
   validates :start_time, :end_time, presence: true
   validate :validate_time, :no_overlapping_treatments

@@ -1,5 +1,5 @@
 class Patient < ApplicationRecord
-  has_many :treatments
+  has_many :treatments, dependent: :nullify
   belongs_to :client
   validates :address, :name, :client, presence: true
 
