@@ -1,20 +1,11 @@
 <div class="container">
   <div class="row">
+    <h3>You are creating a new client</h3>
     <div class="col-md-6 offset-md-3">
-      <%= simple_form_for(@client, local: true, data: { turbo: false }, html: { class: "form-horizontal" }) do |f| %>
-        <%= f.error_notification %>
-
-        <div class="form-group">
-          <%= f.label :name, "Client Name" %>
-          <%= f.text_field :name, class: 'form-control' %>
-        </div>
-
-        <div class="form-group">
-          <%= f.input :email, label: "Email", input_html: { class: "form-control", data: { "client-form-target": "email" } }, wrapper_html: { class: 'mb-3' } %>
-        </div>
-
-        <%= f.submit "Submit", class: 'btn btn-primary' %>
-      <% end %>
+      <%= render "form", client: @client %>
+    </div>
+    <div class="col-md-6 offset-md-3 mt-3">
+      <%= link_to "Back to clients", clients_path, class: "btn btn-secondary" %>
     </div>
   </div>
 </div>

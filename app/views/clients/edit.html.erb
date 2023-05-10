@@ -1,0 +1,9 @@
+<h1>You are editing <%= @client.name %></h1>
+
+<%= render "form", client: @client %>
+
+<br>
+
+<div>
+  <%= link_to "Back to clients", clients_path, class: "btn btn-secondary" %>
+</div>
