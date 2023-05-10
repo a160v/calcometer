@@ -1,6 +1,4 @@
 Rails.application.routes.draw do
-  # get "pages#home"
-  root to: "pages#home"
   get 'analytics', to: 'analytics#index'
 
   # User for creating, updating and deleting users -> Inside of the registrations_controller
@@ -13,4 +11,7 @@ Rails.application.routes.draw do
     end
   end
   resources :clients
+
+  # get "pages#home"
+  root to: "pages#home"
 end
