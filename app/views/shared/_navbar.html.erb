@@ -1,8 +1,6 @@
-<div class="navbar navbar-expand-sm navbar-light navbar-css">
+<nav class="navbar navbar-expand-sm navbar-light navbar-css">
   <div class="container-fluid">
-    <%= link_to "/", class: "navbar-brand" do %>
-      <%= image_tag "logo.svg", alt: "logo" %>
-    <% end %>
+    <%= link_to image_tag("logo.svg", alt: "logo"), "/", class: "navbar-brand" %>
 
     <button
       class="navbar-toggler"
@@ -52,4 +50,4 @@
       </ul>
     </div>
   </div>
-</div>
+</nav>
