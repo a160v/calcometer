@@ -59,7 +59,7 @@ class TreatmentsController < ApplicationController
 
   def destroy
     @treatment.destroy
-    redirect_to treatments_path, notice: 'Treatment was successfully destroyed.'
+    redirect_to treatments_path, notice: 'Treatment was successfully deleted.'
   end
 
   # PRIVATE ####################################################################

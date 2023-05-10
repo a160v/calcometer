@@ -1,11 +1,15 @@
+<h1 class="text-center my-4">All patients</h1>
+
 <%= link_to "New patient", new_patient_path, class:"btn btn-primary mb-3" %>
 
-<h1>All patients</h1>
-
-<div id="patients" class="row">
+<div id="patients" class="row mb-5">
   <% @patients.each do |patient| %>
     <div class="col-md-4 mb-3">
       <%= render patient, patient: patient %>
     </div>
   <% end %>
+</div>
+
+<div class="fixed-bottom bg-light p-4 pt-2 pb-2 mb-0">
+  <h3>You have <%= @patients.count %> patients</h3>
 </div>

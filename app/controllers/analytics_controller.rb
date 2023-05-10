@@ -4,15 +4,8 @@ class AnalyticsController < ApplicationController
 
   # Display only today's treatments, sorted chronologically
   def index
-    @start_date = params[:start_date]&.to_date || Time.current.to_date
-    @end_date = params[:end_date]&.to_date || Time.current.to_date
-
-    @treatments = Treatment.joins(:patient)
-                           .where(user_id: current_user.id)
-                           .where("start_time >= ? AND start_time <= ?",
-                            @start_date.beginning_of_day, @end_date.end_of_day)
-    @total_distance = 0
-    @total_time = 0
+    set_dates_to_today
+    set_time_and_distance_to_zero
 
     # Calculate total distance and time starting from the first treatment
     # if there are more than two treatments
@@ -31,5 +24,20 @@ class AnalyticsController < ApplicationController
   def set_dates
     @start_date = params[:start_date] ? Date.parse(params[:start_date]) : Time.current.beginning_of_day
     @end_date = params[:end_date] ? Date.parse(params[:end_date]) : Time.current.end_of_day
+  end
+
+  def set_dates_to_today
+    @start_date = params[:start_date]&.to_date || Time.current.to_date
+    @end_date = params[:end_date]&.to_date || Time.current.to_date
+
+    @treatments = Treatment.joins(:patient)
+                           .where(user_id: current_user.id)
+                           .where("start_time >= ? AND start_time <= ?",
+                            @start_date.beginning_of_day, @end_date.end_of_day)
+  end
+
+  def set_time_and_distance_to_zero
+    @total_distance = 0
+    @total_time = 0
   end
 end
