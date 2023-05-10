@@ -52,6 +52,18 @@ gem "devise"
 gem "autoprefixer-rails"
 gem "font-awesome-sass", "~> 6.1"
 gem "simple_form", github: "heartcombo/simple_form"
+gem 'bundler', '~> 2.4', '>= 2.4.12'
+gem 'bundler-audit', '~> 0.9.1'
+gem "geocoder"
+gem "faker"
+gem 'httparty', '~> 0.21.0'
+gem 'bootstrap-sass', '~> 3.4.1'
+gem 'kaminari'
+gem "strong_migrations"
+
+# Create beautiful static maps with one line of Ruby. No more fighting with mapping libraries!
+gem "mapkick-static"
+
 group :development, :test do
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem
   gem "debug", platforms: %i[ mri mingw x64_mingw ]
@@ -78,12 +90,3 @@ group :test do
   gem "selenium-webdriver"
   gem "webdrivers"
 end
-
-gem 'bundler', '~> 2.4', '>= 2.4.12'
-gem 'bundler-audit', '~> 0.9.1'
-gem "geocoder"
-gem "faker"
-gem 'httparty', '~> 0.21.0'
-gem 'bootstrap-sass', '~> 3.4.1'
-gem 'kaminari'
-gem "strong_migrations"

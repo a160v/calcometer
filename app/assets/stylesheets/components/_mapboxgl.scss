@@ -1,0 +1,16 @@
+.mapboxgl-ctrl-geocoder--input {
+  min-width: 100%;
+}
+
+.mapboxgl-ctrl-geocoder,
+.mapboxgl-ctrl-geocoder--input,
+.mapboxgl-ctrl-geocoder--suggestions {
+  width: 100%;
+  max-width: 100%;
+}
+
+.mapboxgl-ctrl-geocoder--suggestions {
+  display: block;
+  position: absolute;
+  z-index: 1000;
+}
