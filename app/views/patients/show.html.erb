@@ -1,29 +1,23 @@
 <%= notice %>
 
-<%= render @patient %>
-
-<div class="col-sl-6 p-2">
-  <%= static_map [{latitude: @patient.latitude, longitude: @patient.longitude}], width: 300, height: 300 %>
-  <a href="https://www.google.com/maps/dir/?api=1&destination=<%= @patient.latitude %>,<%= @patient.longitude %>&travelmode=driving" target="_blank">
-    <h3>Drive me to the patient</h3>
-  </a>
-</div>
-
-<div>
-  <div class="btn-group" role="group" aria-label="Button group with nested dropdown">
-    <%= link_to "Edit this patient", edit_patient_path(@patient), class: "btn btn-primary" %>
-    <%= link_to "Back to patients", patients_path, class: "btn btn-secondary" %>
-
-    <div class="btn-group" role="group">
-      <button type="button" class="btn btn-danger dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
-        More Options
-      </button>
-      <ul class="dropdown-menu">
-        <li>
-          <%= button_to "Delete this patient", @patient, method: :delete, class: "dropdown-item" %>
-        </li>
-      </ul>
-
-    </div>
+<div class="card">
+   <% if @patient.latitude.nil? || @patient.longitude.nil? %>
+      <h4>This patient has no valid location, please update it.</h4>
+    <% else %>
+    <div class="card-body">
+      <%= static_map([{latitude: @patient.latitude, longitude: @patient.longitude}], width: 300, height: 300) %>
+    <% end %>
+  <div class="card-body">
+    <h2 class="card-title">👤 <%= @patient.name %></h2>
+    <p class="card-text">📍 <%= @patient.address %></p>
+    <a href="https://www.google.com/maps/dir/?api=1&amp;destination=<%= @patient.latitude %>,
+      <%= @patient.longitude %>&amp;travelmode=driving" target="_blank" class="btn btn-primary mt-2">Drive me there
+      </a>
   </div>
+  <ul class="list-group list-group-flush">
+    <li class="list-group-item"></li>
+    <li class="list-group-item"><%= link_to "Back to patients", patients_path%></li>
+    <li class="list-group-item"><%= link_to "Edit patient", edit_patient_path(@patient) %></li>
+    <li class="list-group-item"><%= link_to "Delete this patient", @patient, method: :delete %></li>
+  </ul>
 </div>
