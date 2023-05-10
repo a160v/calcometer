@@ -1,5 +1,5 @@
 class PatientsController < ApplicationController
-  before_action :set_patient, only: [:show, :edit, :update, :destroy]
+  before_action :set_patient, only: %i[show edit update destroy]
 
   def index
     @patients = Patient.all
@@ -21,10 +21,10 @@ class PatientsController < ApplicationController
     if @patient.save
       redirect_to patients_path, notice: 'Patient was successfully created.'
     else
-  # Render in HTML and JSON with error messages
-    respond_to do |format|
-      format.html { render :new }
-      format.json { render json: { errors: @patient.errors[:base] }, status: :unprocessable_entity }
+      # Render in HTML and JSON with error messages
+      respond_to do |format|
+        format.html { render :new }
+        format.json { render json: { errors: @patient.errors[:base] }, status: :unprocessable_entity }
       end
     end
   end
@@ -44,11 +44,11 @@ class PatientsController < ApplicationController
 
   private
 
-    def set_patient
-      @patient = Patient.find(params[:id])
-    end
+  def set_patient
+    @patient = Patient.find(params[:id])
+  end
 
-    def patient_params
-      params.require(:patient).permit(:name, :address, :client_id)
-    end
+  def patient_params
+    params.require(:patient).permit(:name, :address, :client_id)
+  end
 end

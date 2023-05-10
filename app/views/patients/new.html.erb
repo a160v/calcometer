@@ -1,27 +1,11 @@
 <div class="container">
   <div class="row">
+    <h3 class="text-center my-4">You are creating a new patient</h3>
     <div class="col-md-6 offset-md-3">
-      <%= simple_form_for(@patient, local: true, data: { turbo: false }, html: { class: "form-horizontal" }) do |f| %>
-        <%= f.error_notification %>
-
-        <div class="form-group">
-          <%= f.label :name, "Patient Name" %>
-          <%= f.text_field :name, class: 'form-control' %>
-        </div>
-
-        <div class="form-group">
-          <%= f.label :address, "Patient Address" %>
-          <%= f.text_field :address, class: 'form-control' %>
-        </div>
-
-        <div class="form-group">
-          <%= f.label :client_id, "Select Client" %>
-          <%= f.collection_select :client_id, Client.all, :id, :name, {}, { class: "form-control" } %>
-        </div>
-
-          <%= f.submit "Submit", class: 'btn btn-primary mt-3' %>
-
-      <% end %>
+      <%= render "form", patient: @patient %>
+    </div>
+    <div class="col-md-6 offset-md-3 mt-3">
+      <%= link_to "Back to patients", patients_path, class: "btn btn-secondary" %>
     </div>
   </div>
 </div>

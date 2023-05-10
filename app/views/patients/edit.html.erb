@@ -1,0 +1,9 @@
+<h1>You are editing <%= @patient.name %></h1>
+
+<%= render "form", patient: @patient %>
+
+<br>
+
+<div>
+  <%= link_to "Back to patients", patients_path, class: "btn btn-secondary" %>
+</div>

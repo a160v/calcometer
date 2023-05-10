@@ -1,0 +1,31 @@
+<%= simple_form_for(@patient, local: true, data: { turbo: false }, html: { class: "form-horizontal" }) do |f| %>
+  <%= f.error_notification %>
+
+  <div class="form-group">
+    <%= f.label :name, "Patient name" %>
+    <%= f.text_field :name, class: 'form-control', placeholder: "Max Mustermann" %>
+  </div>
+  <div class="form-group">
+    <%= f.label :address, "Patient address" %>
+    <div
+      data-controller="mapbox-places-autocomplete"
+      data-action="load->mapbox-places-autocomplete#initAutocomplete"
+      data-mapbox-places-autocomplete-country-value='["ch"]'
+      data-mapbox-places-autocomplete-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>"
+    >
+      <%= f.text_field :address, id: "address-input",
+                                data: { action: "keydown->mapbox-places-autocomplete#preventSubmit",
+                                        mapbox_places_autocomplete_target: "address" },
+                                        placeholder: "Search a location",
+                                        class: 'form-control' %>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :client_id, "Whos it the client of this patient?" %>
+    <%= f.collection_select :client_id, Client.all, :id, :name, {}, { class: "form-control" } %>
+  </div>
+
+  <%= f.submit "Submit", class: 'btn btn-primary mt-3' %>
+
+<% end %>
