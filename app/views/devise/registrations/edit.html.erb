@@ -1,4 +1,4 @@
-<h2>Edit <%= resource_name.to_s.humanize %></h2>
+<h2>Edit my account</h2>
 
 <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
   <%= f.error_notification %>
@@ -25,14 +25,14 @@
             input_html: { autocomplete: "off" } %>
 
     <%= f.input :password,
-                hint: "Leave it blank if you don't want to change it",
+                hint: "Leave blank if you don't want to change it",
                 required: false,
                 input_html: { autocomplete: "off" } %>
     <%= f.input :password_confirmation,
                 required: false,
                 input_html: { autocomplete: "off" } %>
     <%= f.input :current_password,
-                hint: "We need your current password to confirm your changes",
+                hint: "Input your password to confirm the changes.",
                 required: true,
                 input_html: { autocomplete: "off" } %>
   </div>
@@ -50,13 +50,13 @@
 
 <div>
   <h4>Dangerous area</h4>
-  <p>⚠️ This action is not reversible⚠️</p>
+  <p>⚠️ This action is not reversible ⚠️</p>
 
   <%= button_to "Delete my account",
   registration_path(resource_name),
   data: { confirm: "Are you sure?",
   turbo_confirm: "Are you sure?" },
   method: :delete,
-  class: "btn btn-danger" %>
+  class: "btn btn-danger text-light mb-2" %>
 
 </div>
