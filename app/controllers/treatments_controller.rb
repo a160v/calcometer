@@ -7,7 +7,7 @@ class TreatmentsController < ApplicationController
     today = Time.current.beginning_of_day
     tomorrow = Time.current.end_of_day
 
-    @treatments = Treatment.where(user_id: current_user.id).where("start_time >= ? AND end_time <= ?", today, tomorrow)
+    @treatments = Treatment.where(user_id: current_user.id).where("start_time >= ? AND end_time <= ?", today, tomorrow).includes(:patient)
     @total_distance = 0
     @total_time = 0
 
@@ -16,7 +16,9 @@ class TreatmentsController < ApplicationController
     return unless @treatments.length >= 2
 
     @treatments.each_cons(2) do |treatment1, treatment2|
-      @total_distance += calculate_distance(treatment1.patient.address, treatment2.patient.address)
+      if treatment1.patient.present? && treatment2.patient.present?
+        @total_distance += calculate_distance(treatment1.patient.address, treatment2.patient.address)
+      end
     end
     @total_time = calculate_driving_time(@total_distance)
   end
@@ -41,7 +43,7 @@ class TreatmentsController < ApplicationController
     if @treatment.save
       redirect_to treatments_path, notice: 'Treatment was successfully created.'
     else
-    # Render in HTML and JSON with error messages
+      # Render in HTML and JSON with error messages
       respond_to do |format|
         format.html { render :new }
         format.json { render json: { errors: @treatment.errors[:base] }, status: :unprocessable_entity }
