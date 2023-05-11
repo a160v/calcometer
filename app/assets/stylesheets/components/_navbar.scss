@@ -1,13 +1,9 @@
 .navbar-css {
-  justify-content: space-between;
-  background: white;
-  margin-bottom: 1rem;
+  justify-content:space-evenly;
+  background: transparent;
+  backdrop-filter: blur(5px);
 }
 
 .navbar-css .navbar-collapse {
   flex-grow: 0;
-}
-
-.navbar-css .navbar-brand img {
-  width: 40px;
 }
