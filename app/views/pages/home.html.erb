@@ -1,32 +1,5 @@
-<h1>Hello, <%= current_user.name %> 👋</h1>
-<br>
-<h3 style="text-align: right;">Today is <%= Time.current.strftime("%B %d") %></h3>
-<br>
-<h3>What do you want to do?</h3>
-<div class="row p-1">
-<div class="col-sl-6 p-2">
-    <div class="card">
-        <a href="/treatments" class="btn btn-primary"><h2>Treatments</h2></a>
-    </div>
-  </div>
-  <div class="col-sm-6 p-2">
-    <div class="card border-primary">
-        <a href="/analytics" class="btn btn-light"><h2>Analytics</h2></a>
-    </div>
-  </div>
-  <div class="col-sm-6 p-2">
-    <div class="card border-primary">
-        <a href="/patients" class="btn btn-light"><h2>Patients</h2></a>
-    </div>
-  </div>
-  <div class="col-sm-6 p-2">
-    <div class="card border-primary">
-        <a href="/clients" class="btn btn-light"><h2>Clients</h2></a>
-    </div>
-  </div>
-  <div class="col-sm-6 p-2">
-    <div class="card border-primary">
-        <a href="/users/edit" class="btn btn-light"><h2>Edit my account</h2></a>
-    </div>
-  </div>
-</div>
+<% if user_signed_in? %>
+  <%= render "existing_user" %>
+<% else %>
+  <%= render "new_user" %>
+<% end %>

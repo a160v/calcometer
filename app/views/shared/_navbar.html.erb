@@ -1,53 +1,42 @@
-<nav class="navbar navbar-expand-sm navbar-light navbar-css">
+<nav class="navbar navbar-expand-sm border-bottom border-dark sticky-top navbar-css mb-3">
   <div class="container-fluid">
-    <%= link_to image_tag("logo.svg", alt: "logo"), "/", class: "navbar-brand" %>
-
+    <a href="/" class="navbar-brand"><strong>Home</strong></a>
     <button
-      class="navbar-toggler"
+      class="navbar-toggler text-dark"
       type="button"
       data-bs-toggle="collapse"
-      data-bs-target="#navbarSupportedContent"
-      aria-controls="navbarSupportedContent"
+      data-bs-target="#collapseWidthExample"
       aria-expanded="false"
-      aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
+      aria-controls="collapseWidthExample">
+      <strong>Menu</strong>
     </button>
-
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul class="navbar-nav me-auto">
+    <div class="collapse navbar-collapse" id="collapseWidthExample">
+      <div class="navbar-nav justify-content-end flex-grow-1 pe-3">
         <% if user_signed_in? %>
-          <li class="nav-item active">
-            <%= link_to "Treatments", "/treatments", class: "nav-link" %>
-          </li>
-          <li class="nav-item">
-            <%= link_to "Analytics", "/analytics", class: "nav-link" %>
-          </li>
-          <li class="nav-item active">
-            <%= link_to "Patients", "/patients", class: "nav-link" %>
-          </li>
-          <li class="nav-item active">
-            <%= link_to "Clients", "/clients", class: "nav-link" %>
-          </li>
-          <li class="nav-item dropdown">
-          <a href="#"
-            class="avatar"
-            id="navbarDropdown"
-            data-bs-toggle="dropdown"
-            aria-haspopup="true"
-            aria-expanded="false">
-              <%= image_tag "avatar.svg", class: "avatar", alt: "dropdown menu" %>
-          </a>
-            <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-              <%= link_to "Edit profile", edit_user_registration_path , class: "dropdown-item" %>
-              <%= link_to "Log out", destroy_user_session_path, data: {turbo_method: :delete}, class: "dropdown-item" %>
+          <ul class="nav col-12 col-md-auto">
+            <li class="nav-item"><a href="/treatments" class="nav-link text-dark"><strong>Treatments</strong></a></li>
+            <li class="nav-item"><a href="/analytics" class="nav-link text-dark">Analytics</a></li>
+            <li class="nav-item"><a href="/patients" class="nav-link text-dark">Patients</a></li>
+            <li class="nav-item"><a href="/clients" class="nav-link text-dark">Clients</a></li>
+            <li class="nav-item" class="nav-item dropdown">
+              <div class="dropdown">
+              <button class="btn btn-light-outline dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                <strong>My account</strong>
+              </button>
+              <ul class="dropdown-menu outline-dark">
+                <li><%= link_to "Edit profile", edit_user_registration_path, class: "dropdown-item" %></li>
+                <li><%= link_to "Log out", destroy_user_session_path, data: {turbo_method: :delete}, class: "dropdown-item"%></li>
+              </ul>
             </div>
-          </li>
+            </li>
+          </ul>
         <% else %>
-          <li class="nav-item">
-            <%= link_to "Login", new_user_session_path, class: "nav-link" %>
-          </li>
+          <ul class="nav col-12 col-md-auto">
+            <%= link_to "Login", new_user_session_path, class: "btn btn-outline-primary me-2" %>
+            <%= link_to "Sign-up", new_user_registration_path, class: "btn btn-primary" %>
+          </ul>
         <% end %>
-      </ul>
+      </div>
     </div>
   </div>
 </nav>

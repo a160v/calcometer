@@ -10,7 +10,9 @@
   <% end %>
 </div>
 
-<div id="total-distance-time" class="fixed-bottom bg-light p-4 mb-0">
-  <h3>Today you drove</h3>
-  <h3><strong><%= @total_distance.round(2) %> km & <%= @total_time %> minutes</strong></h3>
-</div>
+<footer class="fixed-bottom border-top border-dark footer-css">
+  <div class="container d-flex flex-column justify-content-center p-3">
+    <p class="">Today you drove</p>
+    <h4><strong><%= @total_distance.round(2) %> km & <%= @total_time %> minutes</strong></h4>
+  </div>
+</footer>
