@@ -1,37 +1,52 @@
-<h2>Sign up</h2>
-
 <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name), data: { turbo: :false }) do |f| %>
   <%= f.error_notification %>
-
-  <div class="form-inputs">
-    <%= f.input :name,
-                required: true,
-                autofocus: true,
-                input_html: { autocomplete: "off" } %>
-    <%= f.input :last_name,
-                required: false,
-                autofocus: true,
-                input_html: { autocomplete: "off" } %>
-    <%= f.input :email,
-                required: true,
-                autofocus: true,
-                input_html: { autocomplete: "off" } %>
-    <%= f.input :password,
-                required: true,
-                hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length),
-                input_html: { autocomplete: "off" } %>
-    <%= f.input :password_confirmation,
-                required: true,
-                input_html: { autocomplete: "off" } %>
-    <%= f.input :address,
-                required: true,
-                autofocus: true,
-                input_html: { autocomplete: "off" } %>
-  </div>
-
-  <div class="form-actions">
-    <%= f.button :submit, "Sign up", class: "btn btn-primary"%>
-  </div>
+  <main class="form-signin w-100 m-auto">
+    <form>
+    <h4 class="mb-3 fw-normal">You are creating a new account</h4>
+      <div class="form-floating">
+        <%= f.input :name,
+                    required: true,
+                    autofocus: true,
+                    input_html: { autocomplete: "off" },
+                    class: "form-control",
+                    id: "floatingInput",
+                    placeholder: "Max" %>
+        <%= f.input :last_name,
+                    required: false,
+                    autofocus: true,
+                    input_html: { autocomplete: "off" },
+                    class: "form-control",
+                    id: "floatingInput",
+                    placeholder: "Mustermann" %>
+        <%= f.input :email,
+                    required: true,
+                    autofocus: true,
+                    input_html: { autocomplete: "off" },
+                    class: "form-control",
+                    id: "floatingInput",
+                    placeholder: "name@email.com" %>
+        <%= f.input :password,
+                    required: true,
+                    hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length),
+                    input_html: { autocomplete: "off" },
+                    class: "form-control",
+                    id: "floatingInput",
+                    placeholder: "Password" %>
+        <%= f.input :password_confirmation,
+                    required: true,
+                    input_html: { autocomplete: "off" },
+                    class: "form-control",
+                    id: "floatingInput",
+                    placeholder: "Password" %>
+        <%= f.input :address,
+                    required: true,
+                    autofocus: true,
+                    input_html: { autocomplete: "off" },
+                    class: "form-control",
+                    id: "floatingInput",
+                    placeholder: "Alexanderplatz 16, 10178 Berlin, Germany" %>
+      </div>
+      <%= f.button :submit, "Sign up", class: "w-100 btn btn-lg btn-primary"%>
+    </form>
+  </main>
 <% end %>
-
-<%= render "devise/shared/links" %>
