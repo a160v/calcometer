@@ -1,53 +1,79 @@
-<div class="container px-4 py-5">
-  <div class="jumbotron text-center">
-    <h1 class="display-2">Calcometer</h1>
-  </div>
-  <div class="row g-4 py-5 row-cols-1 row-cols-lg-3">
-    <p>
-      Making life easier for homecare givers and salespeople on the go.
-    </p>
-    <div class="col d-flex align-items-start">
-      <div>
-        <h3 class="fs-2">Effortless time management</h3>
-        <p class="text-justify">
-          Manage with ease your travel distances, times, and treatment schedules.
-          With our intuitive and user-friendly interface, Calcometer seamlessly performs
-          automatic distance and time calculations between patients or customers, paving the way for a well-organized day.
-        </p>
+<div class="px-4 pt-3 text-center border-bottom">
+    <h1 class="display-4 fw-bold text-body-emphasis">Calcometer</h1>
+    <h4 class="lead pt-3 pb-3">Manage with ease your travel distances, times, and treatment schedules.</h4>
+    <div class="col-lg-6 mx-auto">
+      <div class="d-grid gap-2 d-sm-flex justify-content-sm-center mb-5">
+        <a class="btn btn-primary btn-lg px-4 me-sm-3" href="<%= new_user_registration_path %>" role="button">Sign Up</a>
+        <a class="btn btn-outline-secondary btn-lg px-4" href="<%= new_user_session_path %>" role="button">Sign in</a>
       </div>
     </div>
-    <div class="col d-flex align-items-start">
-      <div>
-        <h3 class="fs-2">Safe by design</h3>
-        <p class="text-justify">
-          Safety is our top priority.
-          Rest assured, your data is securely encrypted and meticulously protected,
-          giving you peace of mind as you navigate your daily tasks.
-        </p>
-        <a class="btn btn-primary" href="<%= new_user_registration_path %>" role="button">Sign Up</a>
-      </div>
-    </div>
-    <div class="col d-flex align-items-start">
-      <div>
-        <h3 class="fs-2">Clutter-free design</h3>
-        <p class="text-justify">
-          Our attractive, clutter-free design is not only aesthetically pleasing but
-          also thoughtfully crafted with a 'mobile-first' approach.
-          This ensures an optimal user experience across all platforms,
-          be it on your smartphone, tablet, or computer.
-        </p>
-      </div>
-    </div>
-    <div class="col d-flex align-items-start">
-      <div>
-        <h3 class="fs-2">Simplify your routine</h3>
-        <p class="text-justify">
-          Calcometer lets you focus on what truly matters - providing exceptional care
-          and service to your customers. Experience the ease of a multi-platform solution,
-          designed with you in mind, and elevate your efficiency to new heights.
-        </p>
-        <a class="btn btn-primary" href="<%= new_user_registration_path %>" role="button">Sign Up</a>
+    <div class="overflow-hidden" style="max-height: 30vh;">
+      <div class="container px-5">
+        <%= image_tag("screenshot-homepage-white.png",
+                      alt: "Calcometer homepage screenshot",
+                      style: "max-width: 100%; max-height: 100%;"
+                      ) %>
       </div>
     </div>
   </div>
-</div>
+<div>
+
+<div class="container py-5" id="icon-grid">
+    <h2 class="pb-2">Why Calcometer?</h2>
+    <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-3 g-4 py-5">
+      <div class="col d-flex align-items-start">
+        <svg class="bi text-body-secondary flex-shrink-0 me-3" width="1.75em" height="1.75em">
+          <%= render inline: Rails.root.join('public/speedometer.svg').read %>
+        </svg>
+        <div>
+          <h3 class="fw-bold mb-0 fs-4">Effortless time management</h3>
+          <p>Seamless automatic distance and time calculations between patients or customers.</p>
+        </div>
+      </div>
+      <div class="col d-flex align-items-start">
+        <svg class="bi text-body-secondary flex-shrink-0 me-3" width="1.75em" height="1.75em">
+          <%= render inline: Rails.root.join('public/safe.svg').read %>
+        </svg>
+        <div>
+          <h3 class="fw-bold mb-0 fs-4">Safe by design</h3>
+          <p>Your data is securely encrypted and meticulously protected.</p>
+        </div>
+      </div>
+      <div class="col d-flex align-items-start">
+        <svg class="bi text-body-secondary flex-shrink-0 me-3" width="1.75em" height="1.75em">
+          <%= render inline: Rails.root.join('public/magic.svg').read %>
+        </svg>
+        <div>
+          <h3 class="fw-bold mb-0 fs-4">Clutter-free design</h3>
+          <p>Intuitive and user-friendly interface for a pleasing experience.</p>
+        </div>
+      </div>
+      <div class="col d-flex align-items-start">
+        <svg class="bi text-body-secondary flex-shrink-0 me-3" width="1.75em" height="1.75em">
+          <%= render inline: Rails.root.join('public/peace.svg').read %>
+        </svg>
+        <div>
+          <h3 class="fw-bold mb-0 fs-4">Peace of mind</h3>
+          <p>Simplify your routines as you navigate your daily tasks.</p>
+        </div>
+      </div>
+      <div class="col d-flex align-items-start">
+        <svg class="bi text-body-secondary flex-shrink-0 me-3" width="1.75em" height="1.75em">
+          <%= render inline: Rails.root.join('public/person-bounding-box.svg').read %>
+        </svg>
+        <div>
+          <h3 class="fw-bold mb-0 fs-4">Patient tracker</h3>
+          <p>Experience the ease of a multi-platform solution, designed with you in mind, and elevate your efficiency to new heights.</p>
+        </div>
+      </div>
+      <div class="col d-flex align-items-start">
+        <svg class="bi text-body-secondary flex-shrink-0 me-3" width="1.75em" height="1.75em">
+          <%= render inline: Rails.root.join('public/phone.svg').read %>
+        </svg>
+        <div>
+          <h3 class="fw-bold mb-0 fs-4">Mobile-first approach</h3>
+          <p>Your phone is a primary tool at work, so Calcometer is designed to be mobile first and friendly.</p>
+        </div>
+      </div>
+    </div>
+  </div>
