@@ -1,7 +1,7 @@
 <%= notice %>
 
 <div class="card">
-   <% if @patient.latitude.nil? || @patient.longitude.nil? %>
+  <% if @patient.latitude.nil? || @patient.longitude.nil? %>
       <h4>This patient has no valid location, please update it.</h4>
     <% else %>
     <div class="card-body">
