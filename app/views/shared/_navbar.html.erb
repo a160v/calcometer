@@ -11,32 +11,30 @@
       <strong>Menu</strong>
     </button>
     <div class="collapse navbar-collapse" id="collapseWidthExample">
-      <div class="navbar-nav justify-content-end flex-grow-1 pe-3">
-        <% if user_signed_in? %>
-          <ul class="nav col-12 col-md-auto">
-            <li class="nav-item"><a href="/treatments" class="nav-link text-dark"><strong>Treatments</strong></a></li>
-            <li class="nav-item"><a href="/analytics" class="nav-link text-dark">Analytics</a></li>
-            <li class="nav-item"><a href="/patients" class="nav-link text-dark">Patients</a></li>
-            <li class="nav-item"><a href="/clients" class="nav-link text-dark">Clients</a></li>
-            <li class="nav-item" class="nav-item dropdown">
-              <div class="dropdown">
-              <button class="btn btn-light-outline dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+      <% if user_signed_in? %>
+        <ul class="nav">
+          <li class="nav-item"><a href="/treatments" class="nav-link text-dark"><strong>Treatments</strong></a></li>
+          <li class="nav-item"><a href="/analytics" class="nav-link text-dark">Analytics</a></li>
+          <li class="nav-item"><a href="/patients" class="nav-link text-dark">Patients</a></li>
+          <li class="nav-item"><a href="/clients" class="nav-link text-dark">Clients</a></li>
+          <li class="nav-item">
+            <div class="dropdown-center">
+              <a class="nav-link dropdown-toggle text-dark" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                 <strong>My account</strong>
-              </button>
-              <ul class="dropdown-menu outline-dark">
-                <li><%= link_to "Edit profile", edit_user_registration_path, class: "dropdown-item" %></li>
-                <li><%= link_to "Log out", destroy_user_session_path, data: {turbo_method: :delete}, class: "dropdown-item"%></li>
-              </ul>
+              </a>
+                <ul class="dropdown-menu outline-dark">
+                  <li><%= link_to "Edit profile", edit_user_registration_path, class: "dropdown-item" %></li>
+                  <li><%= link_to "Log out", destroy_user_session_path, data: {turbo_method: :delete}, class: "dropdown-item"%></li>
+                </ul>
             </div>
-            </li>
-          </ul>
-        <% else %>
-          <ul class="nav col-12 col-md-auto">
-            <%= link_to "Login", new_user_session_path, class: "btn btn-outline-primary me-2" %>
-            <%= link_to "Sign-up", new_user_registration_path, class: "btn btn-primary" %>
-          </ul>
-        <% end %>
-      </div>
+          </li>
+        </ul>
+      <% else %>
+        <ul class="nav col-12 col-md-auto">
+          <%= link_to "Login", new_user_session_path, class: "btn btn-outline-dark me-2" %>
+          <%= link_to "Sign-up", new_user_registration_path, class: "btn btn-primary" %>
+        </ul>
+      <% end %>
     </div>
   </div>
 </nav>
