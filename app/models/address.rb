@@ -7,7 +7,7 @@ class Address < ApplicationRecord
   has_many :patients
   has_many :users
 
-  geocoded_by :address
+  geocoded_by :full_address
 
   def found_address_presence
     return unless latitude.blank? || longitude.blank?
@@ -19,7 +19,18 @@ class Address < ApplicationRecord
     [street, number, zip_code, city, state, country].compact.join(', ')
   end
 
+  private
+
   def address_changed?
     street_changed? || number_changed? || zip_code_changed? || city_changed? || state_changed? || country_changed?
+  end
+  
+  def geocode
+    geo = Geocoder.search(full_address).first
+    if geo.present?
+      self.latitude, self.longitude = geo.coordinates
+    else
+      puts "Warning: Could not geocode address: #{full_address}"
+    end
   end
 end
