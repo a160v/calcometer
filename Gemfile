@@ -58,8 +58,6 @@ gem "geocoder"
 gem "faker"
 gem 'httparty', '~> 0.21.0'
 gem 'bootstrap-sass', '~> 3.4.1'
-gem 'kaminari'
-gem "strong_migrations"
 
 # Create beautiful static maps with one line of Ruby. No more fighting with mapping libraries!
 gem "mapkick-static"
@@ -69,7 +67,6 @@ group :development, :test do
   gem "debug", platforms: %i[ mri mingw x64_mingw ]
   gem "dotenv-rails"
   gem 'rubocop', require: true
-
 end
 
 group :development do
@@ -81,7 +78,6 @@ group :development do
 
   # Speed up commands on slow machines / big apps [https://github.com/rails/spring]
   # gem "spring"
-  gem "rails_live_reload"
 end
 
 group :test do
