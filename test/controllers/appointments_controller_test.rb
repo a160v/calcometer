@@ -1,6 +1,6 @@
 require 'test_helper'
 
-class TreatmentsControllerTest < ActionDispatch::IntegrationTest
+class AppointmentsControllerTest < ActionDispatch::IntegrationTest
   def setup
     @client = Client.create(name: 'Test Client', email: 'test@example.com')
     @patient = Patient.create(
@@ -16,7 +16,7 @@ class TreatmentsControllerTest < ActionDispatch::IntegrationTest
       name: 'User',
       last_name: 'Example'
     )
-    @treatment = Treatment.create(
+    @appointment = Appointment.create(
       start_time: Time.now,
       end_time: Time.now + 1.hour,
       user_id: @user.id,
@@ -25,12 +25,12 @@ class TreatmentsControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should get index" do
-    get treatments_url
+    get appointments_url
     assert_response :success
   end
 
   test "should get show" do
-    get treatment_url(@treatment)
+    get appointment_url(@appointment)
     assert_response :success
   end
 end

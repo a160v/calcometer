@@ -1,8 +1,8 @@
-module TreatmentsHelper
+module AppointmentsHelper
   AVERAGE_SPEED = 50.0 # Average driving speed in Switzerland (in km/h)
 
-  # Fetch the total distance driven by car between each treatment;
-  # reiterate with all treatments for a given day
+  # Fetch the total distance driven by car between each appointment;
+  # reiterate with all appointments for a given day
 
   def calculate_distance(address1, address2)
     # Geocoding the addresses to get coordinates

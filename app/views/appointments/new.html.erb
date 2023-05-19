@@ -1,8 +1,8 @@
 <div class="container">
   <div class="row">
-  <h3 class="text-center my-4">You are creating a new treatment</h3>
+  <h3 class="text-center my-4">You are creating a new appointment</h3>
     <div class="col-md-6 offset-md-3">
-      <%= simple_form_for(@treatment, local: true, data: { turbo: false }, html: { class: "form-horizontal" }) do |f| %>
+      <%= simple_form_for(@appointment, local: true, data: { turbo: false }, html: { class: "form-horizontal" }) do |f| %>
 
         <%= f.input :user_id, as: :hidden, input_html: { value: current_user.id } %>
 
@@ -18,7 +18,7 @@
       <% end %>
     </div>
     <div class="col-md-6 offset-md-3 mt-3">
-      <%= link_to "Back to treatments", treatments_path, class: "btn btn-secondary" %>
+      <%= link_to "Back to appointments", appointments_path, class: "btn btn-secondary" %>
     </div>
   </div>
 </div>

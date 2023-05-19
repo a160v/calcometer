@@ -31,13 +31,13 @@
 <div id="analytics-overview" class="text-center my-4">
   <h3>During this period, you drove</h3>
   <h3><strong><%= @total_distance.round(2) %> km & <%= @total_time %> minutes</strong></h3>
-  <h3>for <strong><%= @treatments.count %></strong> treatments</h3>
+  <h3>for <strong><%= @appointments.count %></strong> appointments</h3>
 </div>
 
-<div id="treatments" class="row">
-  <% @treatments.sort_by(&:start_time).each do |treatment| %>
-    <div class="col-md-4 mb-3 treatment-card">
-      <%= render treatment, treatment: treatment %>
+<div id="appointments" class="row">
+  <% @appointments.sort_by(&:start_time).each do |appointment| %>
+    <div class="col-md-4 mb-3 appointment-card">
+      <%= render appointment, appointment: appointment %>
     </div>
   <% end %>
 </div>

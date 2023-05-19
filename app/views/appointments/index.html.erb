@@ -1,11 +1,11 @@
-<h1 class="text-center my-4">Treatments on <%= Time.current.strftime("%B %d") %></h1>
+<h1 class="text-center my-4">Appointments on <%= Time.current.strftime("%B %d") %></h1>
 
-<%= link_to "New treatment", new_treatment_path, class:"btn btn-primary mb-3" %>
+<%= link_to "New appointment", new_appointment_path, class:"btn btn-primary mb-3" %>
 
-<div id="treatments" class="row">
-  <% @treatments.sort_by(&:start_time).each do |treatment| %>
+<div id="appointments" class="row">
+  <% @appointments.sort_by(&:start_time).each do |appointment| %>
     <div class="col-md-4 mb-3">
-      <%= render treatment, treatment: treatment %>
+      <%= render appointment, appointment: appointment %>
     </div>
   <% end %>
 </div>

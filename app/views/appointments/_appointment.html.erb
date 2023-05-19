@@ -1,0 +1,22 @@
+<div class="card">
+  <div id="<%= dom_id appointment %>" class="card h-100">
+    <%= link_to appointment, class: "text-decoration-none" do %>
+      <div class="card-body">
+        <div class="card-title">
+          <h4><strong><%=
+            unless appointment.patient
+              "Deleted patient"
+            else
+              appointment.patient.name
+            end %>
+            </strong></h4>
+        </div>
+
+        <div class="card-text">
+          <span>From: <strong><%= appointment.start_time.strftime("%H:%M") %></strong></span>
+          <span>To: <strong><%= appointment.end_time.strftime("%H:%M") %></strong></span>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>

@@ -1,12 +1,12 @@
 <%= notice %>
 
-<%= render @treatment %>
+<%= render @appointment %>
 
 <br>
 
 <div class="btn-group" role="group" aria-label="Button group with nested dropdown">
-  <%= link_to "Edit this treatment", edit_treatment_path(@treatment), class:"btn btn-primary" %>
-  <%= link_to "Back to treatments", treatments_path, class:"btn btn-secondary" %>
+  <%= link_to "Edit this appointment", edit_appointment_path(@appointment), class:"btn btn-primary" %>
+  <%= link_to "Back to appointments", appointments_path, class:"btn btn-secondary" %>
 
   <div class="btn-group" role="group">
     <button type="button" class="btn btn-danger dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
@@ -14,7 +14,7 @@
     </button>
     <ul class="dropdown-menu">
       <li>
-        <%= button_to "Delete this treatment", @treatment, method: :delete, class: "dropdown-item" %>
+        <%= button_to "Delete this appointment", @appointment, method: :delete, class: "dropdown-item" %>
       </li>
     </ul>
   </div>
