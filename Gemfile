@@ -56,6 +56,7 @@ gem 'bundler', '~> 2.4', '>= 2.4.12'
 gem 'bundler-audit', '~> 0.9.1'
 gem "geocoder"
 gem "faker"
+gem "kaminari"
 gem 'httparty', '~> 0.21.0'
 gem 'bootstrap-sass', '~> 3.4.1'
 
