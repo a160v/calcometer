@@ -8,41 +8,47 @@ email = Faker::Internet.email
 client = Client.create(name: name, email: email)
 puts "Created client #{client.name}"
 
-# Create 8 patients with addresses between Winterthur and Volketswil
-patient_addresses = [
-  'Webergasse 25, 8400 Winterthur, Switzerland',
-  'Hegmattenstrasse 6, 8404 Winterthur, Switzerland',
-  'Lindbergstrasse 10, 8302 Kloten, Switzerland',
-  'Rütistrasse 15, 8600 Dübendorf, Switzerland',
-  'Dorfstrasse 50, 8604 Volketswil, Switzerland',
-  'Feldstrasse 19, 8400 Winterthur, Switzerland',
-  'Dorfstrasse 23, 8600 Dübendorf, Switzerland',
-  'Bodenäckerstrasse 8, 8604 Volketswil, Switzerland'
+# Create 8 addresses with addresses between Winterthur and Volketswil
+addresses = [
+  'Poststrasse 7, 8610 Uster, Zurich, Switzerland',
+  'Hegmattenstrasse 6, 8404 Winterthur, Zurich, Switzerland',
+  'Lindbergstrasse 10, 8404 Winterthur, Zurich, Switzerland',
+  'Rütistrasse 15, 8600 Dübendorf, Zurich, Switzerland',
+  'Dorfstrasse 50, 8604 Volketswil, Zurich, Switzerland',
+  'Im Moos 5, 8307 Illnau-Effretikon, Zurich, Switzerland',
+  'Dorfstrasse 23, 8600 Dübendorf, Zurich, Switzerland',
+  'Bodenackerstrasse 8, 8304 Wallisellen, Zurich, Switzerland'
 ]
 
-patient_addresses.each do |full_address|
-  street, number, zip, city, state, country = full_address.split(/,| /)
+address_data = addresses.map do |full_address|
+  street_and_number, zip_and_city, _state, _country = full_address.split(', ')
 
-  address = Address.find_or_create_by(
-    street: street,
-    number: number,
-    zip: zip,
-    city: city,
-    state: state,
-    country: country
-  )
+  street = street_and_number.rpartition(' ')[0]
+  number = street_and_number.rpartition(' ')[-1]
+  zip_code = zip_and_city.split(' ')[0]
+  city = zip_and_city.split(' ')[1..].join(' ')
 
-  patient = client.patients.create(
-    name: Faker::Name.name,
-    address_id: address.id
-  )
-
-  if patient.save
-    puts "Created patient #{patient.name}"
-  else
-    puts "Failed to create patient: #{patient.errors.full_messages.join(', ')}"
-  end
+  { street: street.strip, number: number.strip, zip_code: zip_code, city: city, state: 'Zurich', country: 'Switzerland' }
 end
+
+  address_data.each do |data|
+    address = Address.find_or_create_by(data)
+
+    if address.persisted?
+      patient = client.patients.create(name: Faker::Name.name, address: address)
+
+      if patient.persisted?
+        puts "Created patient #{patient.name}"
+      else
+        puts "Failed to create patient: #{patient.errors.full_messages.join(', ')}"
+      end
+    else
+      puts "Failed to create address: #{address.errors.full_messages.join(', ')}"
+    end
+
+sleep(1.5) # Wait for 1 second
+end
+
 
 # Create 3 users
 3.times do
@@ -67,7 +73,7 @@ patients = Patient.all
 
 (1..15).each do |day|
   date = DateTime.new(2023, 5, day)
-  10.times do
+  3.times do
     start_time = date + rand(8..18).hours + rand(0..59).minutes
     end_time = start_time + rand(30..120).minutes
 
