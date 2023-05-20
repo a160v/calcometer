@@ -19,12 +19,12 @@ class Address < ApplicationRecord
     [street, number, zip_code, city, state, country].compact.join(', ')
   end
 
-  private
-
   def address_changed?
     street_changed? || number_changed? || zip_code_changed? || city_changed? || state_changed? || country_changed?
   end
-  
+
+  private
+
   def geocode
     geo = Geocoder.search(full_address).first
     if geo.present?

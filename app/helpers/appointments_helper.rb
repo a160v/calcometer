@@ -4,7 +4,7 @@ module AppointmentsHelper
   # Fetch the total distance driven by car between each appointment;
   # reiterate with all appointments for a given day
 
-  def calculate_distance(address1, address2)
+  def calculate_driving_distance(address1, address2)
     # Geocoding the addresses to get coordinates
     coordinates1 = fetch_coordinates(address1)
     coordinates2 = fetch_coordinates(address2)

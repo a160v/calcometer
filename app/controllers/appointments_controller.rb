@@ -7,7 +7,8 @@ class AppointmentsController < ApplicationController
     today = Time.current.beginning_of_day
     tomorrow = Time.current.end_of_day
 
-    @appointments = Appointment.where(user_id: current_user.id).where("start_time >= ? AND end_time <= ?", today, tomorrow).includes(:patient)
+    @appointments = Appointment.where(user_id: current_user.id)
+                               .where("start_time >= ? AND end_time <= ?", today, tomorrow).includes(:patient)
     @total_distance = 0
     @total_time = 0
 
@@ -17,7 +18,7 @@ class AppointmentsController < ApplicationController
 
     @appointments.each_cons(2) do |appointment1, appointment2|
       if appointment1.patient.present? && appointment2.patient.present?
-        @total_distance += calculate_distance(appointment1.patient.address, appointment2.patient.address)
+        @total_distance += calculate_driving_distance(appointment1.patient.address, appointment2.patient.address)
       end
     end
     @total_time = calculate_driving_time(@total_distance)

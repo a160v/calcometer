@@ -14,7 +14,7 @@ The application calculates the distance and time spent traveling between patient
 
 In the backend, different views and controllers to handle these calculations:
 
-- `calculate_distance`: Calculates the distance between two patient addresses using [Nominatim](https://wiki.openstreetmap.org/wiki/Nominatim).
+- `calculate_driving_distance`: Calculates the distance between two patient addresses using [Nominatim](https://wiki.openstreetmap.org/wiki/Nominatim).
 - `calculate_driving_time`: Calculates the time spent traveling between two patient addresses, based on the distance and an `average_speed` of 50 km/h.
 
 On the appointments view, the user sees the patient information, start time and end time, updated daily. The distance and time calculations are updated in real-time as the user updates their appointments.

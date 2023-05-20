@@ -12,7 +12,7 @@ class AnalyticsController < ApplicationController
     return unless @appointments.length >= 2
 
     @appointments.each_cons(2) do |appointment1, appointment2|
-      @total_distance += calculate_distance(appointment1.patient.address, appointment2.patient.address)
+      @total_distance += calculate_driving_distance(appointment1.patient.address, appointment2.patient.address)
     end
 
     @total_time = calculate_driving_time(@total_distance)
