@@ -19,10 +19,6 @@
     <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
       <p>Currently waiting confirmation for: <%= resource.unconfirmed_email %></p>
     <% end %>
-    <%= f.input :address,
-            required: true,
-            autofocus: true,
-            input_html: { autocomplete: "off" } %>
 
     <%= f.input :password,
                 hint: "Leave blank if you don't want to change it",

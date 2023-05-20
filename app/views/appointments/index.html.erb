@@ -13,6 +13,6 @@
 <footer class="fixed-bottom border-top border-dark footer-css">
   <div class="container d-flex flex-column justify-content-center p-3">
     <p class="">Today you drove</p>
-    <h4><strong><%= @total_distance.round(2) %> km & <%= @total_time %> minutes</strong></h4>
+    <h4><strong><%= @trips.total_driving_distance.round(2) %> km & <%= @trips.total_driving_time %> minutes</strong></h4>
   </div>
 </footer>

@@ -30,7 +30,7 @@
 
 <div id="analytics-overview" class="text-center my-4">
   <h3>During this period, you drove</h3>
-  <h3><strong><%= @total_distance.round(2) %> km & <%= @total_time %> minutes</strong></h3>
+  <h3><strong><%= @trips.total_driving_distance.round(2) %> km & <%= @trips.total_driving_time %> minutes</strong></h3>
   <h3>for <strong><%= @appointments.count %></strong> appointments</h3>
 </div>
 

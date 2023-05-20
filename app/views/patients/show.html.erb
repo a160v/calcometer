@@ -1,23 +1,40 @@
 <%= notice %>
 
 <div class="card">
-  <% if @patient.latitude.nil? || @patient.longitude.nil? %>
-      <h4>This patient has no valid location, please update it.</h4>
-    <% else %>
-    <div class="card-body">
-      <%= static_map([{latitude: @patient.latitude, longitude: @patient.longitude}], width: 300, height: 300) %>
-    <% end %>
+
   <div class="card-body">
     <h2 class="card-title">👤 <%= @patient.name %></h2>
-    <p class="card-text">📍 <%= @patient.address %></p>
-    <a href="https://www.google.com/maps/dir/?api=1&amp;destination=<%= @patient.latitude %>,
-      <%= @patient.longitude %>&amp;travelmode=driving" target="_blank" class="btn btn-primary mt-2">Drive me there
+      <% if @patient.address.latitude.nil? || @patient.address.longitude.nil? %>
+        <h4>This patient has no valid location, please update it.</h4>
+      <% else %>
+        <div class="card-body">
+          <%= static_map([{latitude: @patient.address.latitude, longitude: @patient.address.longitude}], width: 250, height: 300) %>
+        </div>
+      <% end %>
+    <p class="card-text">📍 <%= @patient.address.full_address %></p>
+    <a href="https://www.google.com/maps/dir/?api=1&amp;destination=<%= @patient.address.latitude %>,
+      <%= @patient.address.longitude %>&amp;travelmode=driving" target="_blank" class="btn btn-primary mb-3">Drive me there
       </a>
+    <p class="card-text">
+      <strong>🗓️ Total appointments:</strong> <%= @patient.appointments.count %>
+    </p>
+
+    <% total_distance = @patient.appointments.sum { |a| a.start_trip&.driving_distance.to_f + a.end_trip&.driving_distance.to_f } %>
+    <% total_time = @patient.appointments.sum { |a| a.start_trip&.driving_time.to_f + a.end_trip&.driving_time.to_f } %>
+
+    <p class="card-text">
+      <strong>🚗 Total driving distance:</strong> <%= total_distance.round(2) %> km
+    </p>
+
+    <p class="card-text">
+      <strong>⏱️ Total driving time:</strong> <%= total_time %> minutes
+    </p>
   </div>
+
   <ul class="list-group list-group-flush">
     <li class="list-group-item"></li>
     <li class="list-group-item"><%= link_to "Back to patients", patients_path%></li>
     <li class="list-group-item"><%= link_to "Edit patient", edit_patient_path(@patient) %></li>
-    <li class="list-group-item"><%= button_to "Delete this patient", @patient, method: :delete, data: { confirm: "Are you sure?" }, class: "btn btn-danger", title: "Delete" %></li>
+    <li class="list-group-item"><%= button_to "Delete this patient", @patient, method: :delete, data: { confirm: "Are you sure?" }, class: "btn btn-danger text-light", title: "Delete" %></li>
   </ul>
 </div>

@@ -15,6 +15,16 @@
         <div class="card-text">
           <span>From: <strong><%= appointment.start_time.strftime("%H:%M") %></strong></span>
           <span>To: <strong><%= appointment.end_time.strftime("%H:%M") %></strong></span>
+
+          <% if appointment.start_trip %>
+            <span>Driving distance to: <strong><%= appointment.start_trip.driving_distance.round(2) %> km</strong></span>
+            <span>Driving time to: <strong><%= appointment.start_trip.driving_time %> minutes</strong></span>
+          <% end %>
+
+          <% if appointment.end_trip %>
+            <span>Driving distance from: <strong><%= appointment.end_trip.driving_distance.round(2) %> km</strong></span>
+            <span>Driving time from: <strong><%= appointment.end_trip.driving_time %> minutes</strong></span>
+          <% end %>
         </div>
       </div>
     <% end %>
