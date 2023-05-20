@@ -1,5 +1,4 @@
 class AppointmentsController < ApplicationController
-  include AppointmentsHelper
   before_action :set_appointment, only: %i[show edit update destroy]
 
   # Display only today's appointments, sorted chronologically
@@ -9,19 +8,8 @@ class AppointmentsController < ApplicationController
 
     @appointments = Appointment.where(user_id: current_user.id)
                                .where("start_time >= ? AND end_time <= ?", today, tomorrow).includes(:patient)
-    @total_distance = 0
-    @total_time = 0
-
-    # Calculate total distance and time starting from the first appointment
-    # if there are more than two appointments
-    return unless @appointments.length >= 2
-
-    @appointments.each_cons(2) do |appointment1, appointment2|
-      if appointment1.patient.present? && appointment2.patient.present?
-        @total_distance += calculate_driving_distance(appointment1.patient.address, appointment2.patient.address)
-      end
-    end
-    @total_time = calculate_driving_time(@total_distance)
+    @total_distance = calculate_total_distance
+    @total_time = calculate_total_time
   end
 
   # CRUD ########################################################################
@@ -68,6 +56,19 @@ class AppointmentsController < ApplicationController
   # PRIVATE ####################################################################
 
   private
+
+  # Calculate the total distance and total time using Trip model
+  def calculate_total_distance
+    @appointments.each_cons(2).map do |appointment1, appointment2|
+      Trip.new(start_appointment: appointment1, end_appointment: appointment2).calculate_driving_distance
+    end.sum
+  end
+
+  def calculate_total_time
+    @appointments.each_cons(2).map do |appointment1, appointment2|
+      Trip.new(start_appointment: appointment1, end_appointment: appointment2).calculate_driving_time
+    end.sum
+  end
 
   def set_appointment
     @appointment = Appointment.find(params[:id])
