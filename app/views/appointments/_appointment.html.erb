@@ -1,31 +1,19 @@
 <div class="card">
-  <div id="<%= dom_id appointment %>" class="card h-100">
+  <div id="<%= dom_id appointment %>">
     <%= link_to appointment, class: "text-decoration-none" do %>
       <div class="card-body">
-        <div class="card-title">
-          <h4><strong><%=
+        <h2 class="card-title">
+        <%=
             unless appointment.patient
               "Deleted patient"
             else
               appointment.patient.name
             end %>
-            </strong></h4>
-        </div>
-
-        <div class="card-text">
-          <span>From: <strong><%= appointment.start_time.strftime("%H:%M") %></strong></span>
-          <span>To: <strong><%= appointment.end_time.strftime("%H:%M") %></strong></span>
-
-          <% if appointment.start_trip %>
-            <span>Driving distance to: <strong><%= appointment.start_trip.driving_distance.round(2) %> km</strong></span>
-            <span>Driving time to: <strong><%= appointment.start_trip.driving_time %> minutes</strong></span>
-          <% end %>
-
-          <% if appointment.end_trip %>
-            <span>Driving distance from: <strong><%= appointment.end_trip.driving_distance.round(2) %> km</strong></span>
-            <span>Driving time from: <strong><%= appointment.end_trip.driving_time %> minutes</strong></span>
-          <% end %>
-        </div>
+        </h2>
+          <ul class="list-group list-group-flush">
+            <li class="list-group-item">➡️ <%= appointment.start_time.strftime("%H:%M") %></li>
+            <li class="list-group-item">⬅️ <%= appointment.end_time.strftime("%H:%M") %></li>
+          </ul>
       </div>
     <% end %>
   </div>

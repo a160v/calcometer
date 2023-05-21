@@ -19,20 +19,9 @@
       <strong>🗓️ Total appointments:</strong> <%= @patient.appointments.count %>
     </p>
 
-    <% total_distance = @patient.appointments.sum { |a| a.start_trip&.driving_distance.to_f + a.end_trip&.driving_distance.to_f } %>
-    <% total_time = @patient.appointments.sum { |a| a.start_trip&.driving_time.to_f + a.end_trip&.driving_time.to_f } %>
-
-    <p class="card-text">
-      <strong>🚗 Total driving distance:</strong> <%= total_distance.round(2) %> km
-    </p>
-
-    <p class="card-text">
-      <strong>⏱️ Total driving time:</strong> <%= total_time %> minutes
-    </p>
   </div>
 
   <ul class="list-group list-group-flush">
-    <li class="list-group-item"></li>
     <li class="list-group-item"><%= link_to "Back to patients", patients_path%></li>
     <li class="list-group-item"><%= link_to "Edit patient", edit_patient_path(@patient) %></li>
     <li class="list-group-item"><%= button_to "Delete this patient", @patient, method: :delete, data: { confirm: "Are you sure?" }, class: "btn btn-danger text-light", title: "Delete" %></li>
