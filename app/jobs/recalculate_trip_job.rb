@@ -12,8 +12,8 @@ class RecalculateTripJob < ApplicationJob
       recalculate_trip(trip_as_start) if trip_as_start
 
       # Check for trips where appointment was the end_appointment
-      trip_as_end = Trip.find_by(end_appointment_id: appointment.id)
-      recalculate_trip(trip_as_end) if trip_as_end
+      end_trip = Trip.find_by(end_appointment_id: appointment.id)
+      recalculate_trip(end_trip) if end_trip
     end
   end
 
