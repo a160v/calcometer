@@ -24,5 +24,6 @@ module Calcometer
     config.time_zone = "Zurich"
     config.active_record.default_timezone = :local
     # config.eager_load_paths << Rails.root.join("extras")
+    config.eager_load_paths << Rails.root.join('app/services')
   end
 end

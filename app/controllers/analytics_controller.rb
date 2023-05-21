@@ -2,9 +2,19 @@ class AnalyticsController < ApplicationController
   before_action :set_dates, only: [:index]
 
   def index
+    # Enable user to select a date range
     set_dates_to_today
-    @total_distance = calculate_total_distance
-    @total_time = calculate_total_time
+
+    @total_driving_distance = 0
+    @total_driving_time = 0
+
+    start_date = params[:start_date]&.to_date || Time.current.to_date
+    end_date = params[:end_date]&.to_date || Time.current.to_date
+    service = AppointmentService.new(current_user, start_date.beginning_of_day, end_date.end_of_day)
+
+    @appointments = service.appointments
+    @total_distance = service.total_distance
+    @total_time = service.total_time
   end
 
   private
