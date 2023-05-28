@@ -2,7 +2,7 @@
 
 <%= link_to "New appointment", new_appointment_path, class:"btn btn-primary mb-3" %>
 
-<div id="appointments" class="row">
+<div id="appointments" class="row mb-5">
   <% @appointments.sort_by(&:start_time).each do |appointment| %>
     <div class="col-md-4 mb-3">
       <%= render appointment, appointment: appointment %>
@@ -12,7 +12,18 @@
 
 <footer class="fixed-bottom border-top border-dark footer-css">
   <div class="container d-flex flex-column justify-content-center p-3">
-    <p class="">Today you drove</p>
-    <h4><strong><%= @total_distance.round(2) %> km & <%= @total_time %> minutes</strong></h4>
+    <button
+      class="btn btn-primary text-light"
+      type="button"
+      data-bs-toggle="collapse"
+      data-bs-target="#collapseWidthButtonCalculator"
+      aria-expanded="false"
+      aria-controls="collapseWidthButtonCalculator">
+      <strong>Calculate distance and time</strong>
+    </button>
+    <div class="collapse mt-1" id="collapseWidthButtonCalculator">
+      <p class="mt-1 mb-1">Today you drove</p>
+      <h4><strong><%= @total_distance.round(2) %> km & <%= @total_time %> minutes</strong></h4>
+    </div>
   </div>
 </footer>
