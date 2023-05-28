@@ -1,5 +1,5 @@
 class AppointmentsController < ApplicationController
-  before_action :set_appointment, only: %i[show edit update destroy]
+  before_action :set_appointment, only: %i[show destroy]
 
   # Display only today's appointments, sorted chronologically
 
@@ -19,9 +19,6 @@ class AppointmentsController < ApplicationController
     @appointment = Appointment.new
   end
 
-  def edit
-  end
-
   # Create a new appointment with user_id = current_user.id
   def create
     @appointment = Appointment.new(appointment_params)
@@ -35,14 +32,6 @@ class AppointmentsController < ApplicationController
         format.html { render :new }
         format.json { render json: { errors: @appointment.errors[:base] }, status: :unprocessable_entity }
       end
-    end
-  end
-
-  def update
-    if @appointment.update(appointment_params)
-      redirect_to appointments_path, notice: 'Appointment was successfully updated.'
-    else
-      render :edit
     end
   end
 
