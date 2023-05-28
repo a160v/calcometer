@@ -4,11 +4,19 @@ class Address < ApplicationRecord
   has_many :users
 
   # Validations
-  validates :street, :number, :zip_code, :city, :state, :country, presence: true
+  validates :street, :number, :zip_code, :city, :state, :country, presence: { message: "This field is required" }
   validate :found_address_presence
 
   # Callbacks
-  before_save :geocode, if: :address_changed?
+  before_validation :geocode, if: :address_changed?
+  geocoded_by :full_address
+
+  # Validation method to check if the address is geocoded
+  def found_address_presence
+    return unless latitude.blank? || longitude.blank?
+
+    errors.add(:address, "wasn't found.")
+  end
 
   # Method to concatenate full address
   def full_address
@@ -20,22 +28,16 @@ class Address < ApplicationRecord
     street_changed? || number_changed? || zip_code_changed? || city_changed? || state_changed? || country_changed?
   end
 
-  private
-
   # Callback method to geocode address
   def geocode
+    Rails.logger.debug "Geocoding address: #{full_address}"
     geo = Geocoder.search(full_address).first
+    Rails.logger.debug "Geocoder result: #{geo.inspect}"
     if geo.present?
-      self.latitude, self.longitude = geo.coordinates
+      self.latitude = geo.latitude
+      self.longitude = geo.longitude
     else
       errors.add(:address, "wasn't found.")
     end
-  end
-
-  # Validation method to check if the address is geocoded
-  def found_address_presence
-    return unless latitude.blank? || longitude.blank?
-
-    errors.add(:address, "wasn't found.")
   end
 end
