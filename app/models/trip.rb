@@ -34,8 +34,8 @@ class Trip < ApplicationRecord
 
   # Method to calculate driving distance using Geocoder
   def calculate_driving_distance
-    coordinates1 = start_appointment.patient.address.latitude, start_appointment.patient.address.longitude
-    coordinates2 = end_appointment.patient.address.latitude, end_appointment.patient.address.longitude
+    coordinates1 = start_appointment.address.latitude, start_appointment.address.longitude
+    coordinates2 = end_appointment.address.latitude, end_appointment.address.longitude
     Geocoder::Calculations.distance_between(coordinates1, coordinates2) if coordinates1 && coordinates2
   end
 

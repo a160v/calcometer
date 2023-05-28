@@ -1,8 +1,6 @@
 class AppointmentsController < ApplicationController
   before_action :set_appointment, only: %i[show destroy]
 
-  # Display only today's appointments, sorted chronologically
-
   def index
     service = AppointmentService.new(current_user)
     @appointments = service.appointments
@@ -23,6 +21,7 @@ class AppointmentsController < ApplicationController
   def create
     @appointment = Appointment.new(appointment_params)
     @appointment.user = current_user
+    @appointment.address = @appointment.patient.address
 
     if @appointment.save
       redirect_to appointments_path, notice: 'Appointment was successfully created.'
