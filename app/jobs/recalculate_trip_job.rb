@@ -8,8 +8,8 @@ class RecalculateTripJob < ApplicationJob
     # For each appointment of the previous day, find related trips and recalculate
     previous_day_appointments.each do |appointment|
       # Check for trips where appointment was the start_appointment
-      trip_as_start = Trip.find_by(start_appointment_id: appointment.id)
-      recalculate_trip(trip_as_start) if trip_as_start
+      start_trip = Trip.find_by(start_appointment_id: appointment.id)
+      recalculate_trip(start_trip) if trip_as_start
 
       # Check for trips where appointment was the end_appointment
       end_trip = Trip.find_by(end_appointment_id: appointment.id)
@@ -18,8 +18,7 @@ class RecalculateTripJob < ApplicationJob
   end
 
   def recalculate_trip(trip)
-    # Recalculate driving distance and driving time.
-    # This uses the methods from your Trip model.
+    # Recalculate driving distance and time from Trip model
     trip.calculate_driving_distance
     trip.calculate_driving_time
 

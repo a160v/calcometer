@@ -40,11 +40,11 @@ class ClientsController < ApplicationController
 
   private
 
-    def set_client
-      @client = Client.find(params[:id])
-    end
+  def set_client
+    @client = Client.find(params[:id])
+  end
 
-    def client_params
-      params.require(:client).permit(:name, :email, :user_id)
-    end
+  def client_params
+    params.require(:client).permit(:name, :email, :user_id)
+  end
 end

@@ -1,8 +1,12 @@
 class Patient < ApplicationRecord
+  # Model associations
   belongs_to :client
   belongs_to :address
-
-  validates :name, :client, :address, presence: true
-
   has_many :appointments, dependent: :nullify
+
+  # Validations
+  validates :name, :client, presence: true
+
+  # accepts nested attributes
+  accepts_nested_attributes_for :address
 end
