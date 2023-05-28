@@ -11,8 +11,8 @@
             end %>
         </h2>
           <ul class="list-group list-group-flush">
-            <li class="list-group-item">➡️ <%= appointment.start_time.strftime("%H:%M") %></li>
-            <li class="list-group-item">⬅️ <%= appointment.end_time.strftime("%H:%M") %></li>
+            <li class="list-group-item">Arrived at <strong><%= appointment.start_time.strftime("%H:%M") %></strong></li>
+            <li class="list-group-item">Left at <strong><%= appointment.end_time.strftime("%H:%M") %></strong></li>
           </ul>
       </div>
     <% end %>

@@ -9,7 +9,7 @@ class AppointmentCalculator
       Trip.new(start_appointment: appointment1, end_appointment: appointment2).calculate_driving_distance
     end.compact.sum
   end
-  
+
   # Calculate the total time using Trip model
   def calculate_total_time
     @appointments.each_cons(2).map do |appointment1, appointment2|
