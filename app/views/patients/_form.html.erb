@@ -1,31 +1,49 @@
-<%= simple_form_for(@patient, local: true, data: { turbo: false }, html: { class: "form-horizontal" }) do |f| %>
+<%= simple_form_for(@patient, local: true, html: { class: "form-horizontal" }) do |f| %>
   <%= f.error_notification %>
 
+  <%# ############# Patient form start ############# %>
   <div class="form-group">
     <%= f.label :name, "Patient name" %>
     <%= f.text_field :name, class: 'form-control', placeholder: "Max Mustermann" %>
   </div>
-  <div class="form-group">
-    <%= f.label :address, "Patient address" %>
-    <div
-      data-controller="mapbox-places-autocomplete"
-      data-action="load->mapbox-places-autocomplete#initAutocomplete"
-      data-mapbox-places-autocomplete-country-value='["ch"]'
-      data-mapbox-places-autocomplete-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>"
-    >
-      <%= f.text_field :address, id: "address-input",
-                                data: { action: "keydown->mapbox-places-autocomplete#preventSubmit",
-                                        mapbox_places_autocomplete_target: "address" },
-                                        placeholder: "Search a location",
-                                        class: 'form-control' %>
-    </div>
-  </div>
 
-  <div class="form-group">
-    <%= f.label :client_id, "Whos it the client of this patient?" %>
-    <%= f.collection_select :client_id, Client.all, :id, :name, {}, { class: "form-control" } %>
-  </div>
+    <%# ############# Nested address form start ############# %>
+    <%= f.simple_fields_for :address, @patient.address do |a| %>
+    <%= a.error_notification %>
+
+      <div class="form-group">
+        <%= a.label :street, "Street" %>
+        <%= a.text_field :street, class: 'form-control', placeholder: "Street" %>
+      </div>
+      <div class="form-group">
+        <%= a.label :number, "Number" %>
+        <%= a.text_field :number, class: 'form-control', placeholder: "Number" %>
+      </div>
+      <div class="form-group">
+        <%= a.label :zip_code, "Zip Code" %>
+        <%= a.text_field :zip_code, class: 'form-control', placeholder: "Zip Code" %>
+      </div>
+      <div class="form-group">
+        <%= a.label :city, "City" %>
+        <%= a.text_field :city, class: 'form-control', placeholder: "City" %>
+      </div>
+      <div class="form-group">
+        <%= a.label :state, "State" %>
+        <%= a.text_field :state, class: 'form-control', placeholder: "State" %>
+      </div>
+      <div class="form-group">
+        <%= a.label :country, "Country" %>
+        <%= a.text_field :country, class: 'form-control', value: "Switzerland" %>
+      </div>
+
+    <% end %>
+
+    <div class="form-group">
+      <%= f.label :client_id, "Who is the client of this patient?" %>
+      <%= f.collection_select :client_id, Client.all, :id, :name, {}, { class: "form-control" } %>
+    </div>
+    <%# ############# Nested address form end ############# %>
 
   <%= f.submit "Validate and save", class: 'btn btn-primary mt-3' %>
-
+  <%# ############# Patient form end ############# %>
 <% end %>

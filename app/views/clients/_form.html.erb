@@ -1,18 +1,24 @@
 <%= simple_form_for(@client, local: true, data: { turbo: false }, html: { class: "form-horizontal" }) do |f| %>
   <%= f.error_notification %>
+  <main class="form-signin w-100 m-auto">
+    <form>
+      <div class="form-floating">
+        <%= f.input :name,
+                    required: true,
+                    autofocus: true,
+                    input_html: { autocomplete: "off" },
+                    class: "form-control",
+                    id: "floatingInput",
+                    placeholder: "Prima Spitex" %>
 
-  <div class="form-group">
-    <%= f.label :name, "Client name" %>
-    <%= f.text_field :name, placeholder: "Prima Spitex", class: 'form-control' %>
-  </div>
-
-  <div class="form-group">
-    <%= f.input :email, label: "Client email",
-                        input_html: { class: "form-control",
-                        data: { "client-form-target": "email" } },
-                        wrapper_html: { class: 'mb-3' },
-                        placeholder: "prima@email.com" %>
-  </div>
-
+        <%= f.input :email,
+                    required: true,
+                    autofocus: true,
+                    input_html: { autocomplete: "off" },
+                    class: "form-control",
+                    id: "floatingInput",
+                    placeholder: "prima@email.com" %>
+      </div>
+    <form>
   <%= f.submit "Validate and save", class: 'btn btn-primary' %>
 <% end %>
