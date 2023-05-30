@@ -9,15 +9,16 @@ patients = Patient.all
   APPOINTMENTS_TO_CREATE.times do
     start_time = date + rand(8..18).hours + rand(0..59).minutes
     end_time = start_time + rand(30..120).minutes
-
     user = users.sample
     patient = patients.sample
+    address = patient.address
 
     # Check if both user and patient are present
     if user && patient
       appointment = Appointment.create(
         user: user,
         patient: patient,
+        address: address,
         start_time: start_time,
         end_time: end_time
       )
@@ -29,13 +30,13 @@ patients = Patient.all
         previous_appointment = user.appointments.where("end_time < ?", appointment.start_time).order(end_time: :desc).first
         if previous_appointment
           # We have a previous appointment to generate a trip from
-          start_address = previous_appointment.patient.address.full_address
+          start_address = previous_appointment.address.full_address
         else
           # If there was no previous appointment, we will consider the patient's address as the starting point for the trip
-          start_address = appointment.patient.address.full_address
+          start_address = appointment.address.full_address
         end
 
-        end_address = appointment.patient.address.full_address
+        end_address = appointment.address.full_address
 
         # Replace Google Maps API call with Geocoder call
         distance = Geocoder::Calculations.distance_between(start_address, end_address)
