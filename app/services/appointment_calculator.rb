@@ -1,6 +1,8 @@
 class AppointmentCalculator
   def initialize(appointments)
     @appointments = appointments
+    @total_driving_distance = 0
+    @total_driving_time = 0
   end
 
   # Calculate the total distance using Trip model

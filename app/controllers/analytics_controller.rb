@@ -5,9 +5,6 @@ class AnalyticsController < ApplicationController
     # Enable user to select a date range
     set_dates_to_today
 
-    @total_driving_distance = 0
-    @total_driving_time = 0
-
     start_date = params[:start_date]&.to_date || Time.current.to_date
     end_date = params[:end_date]&.to_date || Time.current.to_date
     service = AppointmentService.new(current_user, start_date.beginning_of_day, end_date.end_of_day)
@@ -34,12 +31,12 @@ class AnalyticsController < ApplicationController
                                .where("start_time >= ? AND start_time <= ?", @start_date.beginning_of_day, @end_date.end_of_day)
   end
 
-  # Calculate the total distance and total time using Trip model
-  def calculate_total_distance
-    Trip.where(start_appointment: @appointments).sum(:driving_distance)
-  end
+  # # Calculate the total distance and total time using Trip model
+  # def calculate_total_distance
+  #   Trip.where(start_appointment: @appointments).sum(:driving_distance)
+  # end
 
-  def calculate_total_time
-    Trip.where(start_appointment: @appointments).sum(:driving_time)
-  end
+  # def calculate_total_time
+  #   Trip.where(start_appointment: @appointments).sum(:driving_time)
+  # end
 end
