@@ -6,6 +6,7 @@ class PatientsController < ApplicationController
   end
 
   def show
+    @total_time_spent_with_patient = total_time_spent_with_patient
   end
 
   def new
@@ -47,6 +48,11 @@ class PatientsController < ApplicationController
   def destroy
     @patient.destroy
     redirect_to patients_path, notice: 'Patient was successfully deleted.'
+  end
+
+  def total_time_spent_with_patient
+    total_minutes = @patient.appointments.sum { |appointment| (appointment.end_time - appointment.start_time) / 60 }
+    "%d:%02d" % [total_minutes / 60, total_minutes % 60]
   end
 
   private
