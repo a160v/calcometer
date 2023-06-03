@@ -1,4 +1,4 @@
-<h1 class="text-center my-4">Analytics</h1>
+<h1 class="text-center">Analytics</h1>
 
 <div id="date-navigation" class="text-center my-4">
   <%= link_to 'Previous Day', analytics_path(start_date: (@start_date - 1.day).strftime('%Y-%m-%d'),
@@ -28,16 +28,24 @@
   <% end %>
 </div>
 
-<div class="text-center my-4">
-  <h3>During this period, you drove</h3>
-  <h3><strong><%= @total_distance.round(2) %> km & <%= @total_time %> minutes</strong></h3>
-  <h3>for <strong><%= @appointments.count %></strong> appointments</h3>
-</div>
-
-<div class="row">
-  <% @appointments.sort_by(&:start_time).each do |appointment| %>
-    <div class="col-md-4 mb-3 appointment-card">
-      <%= render appointment, appointment: appointment %>
-    </div>
-  <% end %>
+<%# Tabs for distance and appointments %>
+<ul class="nav nav-pills mb-3 nav-justified" id="pills-tab" role="tablist">
+  <%# Distance tab button %>
+  <li class="nav-item" role="presentation">
+    <button class="nav-link active" id="pills-first-tab" data-bs-toggle="pill" data-bs-target="#pills-first" type="button" role="tab" aria-controls="pills-first" aria-selected="true">Distance</button>
+  </li>
+  <%# Appointments tab button %>
+  <li class="nav-item" role="presentation">
+    <button class="nav-link" id="pills-second-tab" data-bs-toggle="pill" data-bs-target="#pills-second" type="button" role="tab" aria-controls="pills-second" aria-selected="false">Appointments</button>
+  </li>
+</ul>
+<div class="tab-content" id="pills-tabContent">
+  <%# Distance tab content %>
+  <div class="tab-pane fade show active" id="pills-first" role="tabpanel" aria-labelledby="pills-first-tab" tabindex="0">
+    <%= render "distance", appointments: @appointments, total_distance: @total_distance, total_time: @total_time %>
+  </div>
+  <%# Appointments tab content %>
+  <div class="tab-pane fade" id="pills-second" role="tabpanel" aria-labelledby="pills-second-tab" tabindex="0">
+    <%= render "appointments", appointments: @appointments %>
+  </div>
 </div>
