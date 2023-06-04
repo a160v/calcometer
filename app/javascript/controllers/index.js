@@ -6,6 +6,3 @@ import { application } from "./application";
 
 import DateRangeController from "./date_range_controller";
 application.register("date-range", DateRangeController);
-
-import FlatpickrController from "./flatpickr_controller";
-application.register("flatpickr", FlatpickrController);
