@@ -8,7 +8,7 @@
     "bootstrap": "^5.2.3",
     "bootstrap-sass": "^3.3.7",
     "esbuild": "^0.17.18",
-    "mapkick": "^0.2.5",
+    "flatpickr": "^4.6.13",
     "sass": "^1.62.1"
   },
   "scripts": {
