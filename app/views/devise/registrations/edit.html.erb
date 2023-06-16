@@ -4,17 +4,10 @@
   <%= f.error_notification %>
 
   <div class="form-inputs">
-    <%= f.input :name,
-                required: true,
-                autofocus: true,
-                input_html: { autocomplete: "off" } %>
-    <%= f.input :last_name,
-                required: false,
-                autofocus: true,
-                input_html: { autocomplete: "off" } %>
-    <%= f.input :email,
-                required: true,
-                autofocus: true %>
+    <%= f.input :name, required: true, autofocus: true, class: "form-control" %>
+    <%= f.input :last_name, required: false, autofocus: true %>
+    <%= f.input :email, required: true, autofocus: true %>
+    <%= f.time_zone_select :time_zone, nil, default: browser_time_zone.name %>
 
     <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
       <p>Currently waiting confirmation for: <%= resource.unconfirmed_email %></p>

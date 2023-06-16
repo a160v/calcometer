@@ -25,6 +25,9 @@
                     class: "form-control",
                     id: "floatingInput",
                     placeholder: "name@email.com" %>
+        <%= f.time_zone_select :time_zone, nil,
+                                { default: browser_time_zone.name },
+                                { class: "form-control" } %>
         <%= f.input :password,
                     required: true,
                     hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length),
@@ -38,13 +41,6 @@
                     class: "form-control",
                     id: "floatingInput",
                     placeholder: "Password" %>
-        <%= f.input :address,
-                    required: true,
-                    autofocus: true,
-                    input_html: { autocomplete: "off" },
-                    class: "form-control",
-                    id: "floatingInput",
-                    placeholder: "Alexanderplatz 16, 10178 Berlin, Germany" %>
       </div>
       <%= f.button :submit, "Sign up", class: "w-100 btn btn-lg btn-primary"%>
     </form>
