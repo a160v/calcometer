@@ -8,6 +8,7 @@
     "bootstrap": "^5.2.3",
     "bootstrap-sass": "^3.3.7",
     "esbuild": "^0.17.18",
+    "jstz": "^2.1.1",
     "sass": "^1.62.1"
   },
   "scripts": {
