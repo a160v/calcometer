@@ -1,10 +1,11 @@
 <div class="row">
-  <h4>For each patient, you spent the following time</h4>
+  <h4>During this period, you visited:</h4>
     <ul class="list-group list-group-flush">
       <% @appointments.each do |appointment| %>
         <li class="list-group-item">
-          <%= appointment.patient ? appointment.patient.name : "Deleted patient" %> -
-          <strong><%= ((appointment.end_time - appointment.start_time) / 60).to_i %></strong> minutes
+          👤 <strong><%= appointment.patient ? appointment.patient.name : "Deleted patient" %></strong>
+          <br>
+          ⏱️ <strong><%= ((appointment.end_time - appointment.start_time) / 60).to_i %></strong> minutes
         </li>
       <% end %>
     </ul>
