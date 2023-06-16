@@ -84,3 +84,9 @@ production:
   database: calcometer_production
   username: calcometer
   password: <%= ENV["CALCOMETER_DATABASE_PASSWORD"] %>
+
+  # Add timeouts to production database
+  connect_timeout: 2
+  checkout_timeout: 5
+  variables:
+    statement_timeout: 5000 # ms
