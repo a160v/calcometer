@@ -1,8 +1,12 @@
 class ApplicationController < ActionController::Base
   before_action :authenticate_user!
+  before_action :set_locale
+  before_action :configure_permitted_parameters, if: :devise_controller?
+
   protect_from_forgery with: :exception
 
-  before_action :configure_permitted_parameters, if: :devise_controller?
+  # Make browser_time_zone method available to all views
+  helper_method :browser_time_zone
 
   # Use the jstz Javascript timezone library to help auto-detect and set the user's time zone
   def browser_time_zone
@@ -14,8 +18,13 @@ class ApplicationController < ActionController::Base
     Time.zone
   end
 
-  # Make browser_time_zone method available to all views
-  helper_method :browser_time_zone
+  def set_locale
+    I18n.locale = params[:locale] || I18n.default_locale
+  end
+
+  def default_url_options
+    { locale: I18n.locale == I18n.default_locale ? nil : I18n.locale }
+  end
 
   protected
 

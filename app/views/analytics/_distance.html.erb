@@ -1,8 +1,7 @@
 <div class="text-center my-4">
-  <h4>During this period, you drove</h4>
-  <h3><strong><%= @total_distance.round(2) %> km and <%= @total_time %> minutes</strong></h3>
-  <h3>for <strong><%= @appointments.count %></strong> appointments</h3>
+  <h4>  <% t(".title_html") %>  </h4>
 </div>
+
 <div class="row">
   <% @appointments.sort_by(&:start_time).each do |appointment| %>
     <div class="col-md-4 mb-3 appointment-card">
@@ -10,3 +9,5 @@
     </div>
   <% end %>
 </div>
+
+

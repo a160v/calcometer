@@ -1,5 +1,5 @@
 <div class="row">
-  <h4>During this period, you visited:</h4>
+  <h4><%= t(".appointments", count: @appointments.size) %></h4>
     <ul class="list-group list-group-flush">
       <% @appointments.each do |appointment| %>
         <li class="list-group-item">

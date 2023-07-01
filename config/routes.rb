@@ -1,17 +1,11 @@
 Rails.application.routes.draw do
-  get 'analytics', to: 'analytics#index'
-
-  # User for creating, updating and deleting users -> Inside of the registrations_controller
   devise_for :users
-  resources :patients
-  resources :appointments, only: %i[index new create show destroy]
-  #   member do
-  #     get 'address'
-  #     get 'previous_address'
-  #   end
-  # end
-  resources :clients
 
-  # get "pages#home"
-  root to: "pages#home"
+  scope '(:locale)', locale: /it|fr|de/ do
+    get 'analytics', to: 'analytics#index'
+    resources :patients
+    resources :appointments, only: %i[index new create show destroy]
+    resources :clients
+    root to: "pages#home"
+  end
 end
