@@ -56,11 +56,17 @@ gem 'bundler', '~> 2.4', '>= 2.4.12'
 gem 'bundler-audit', '~> 0.9.1'
 gem "geocoder"
 gem "faker"
-gem "kaminari"
 gem 'httparty', '~> 0.21.0'
 gem 'bootstrap-sass', '~> 3.4.1'
 
+# Install Tapioca and Sorbet
+# https://github.com/Shopify/tapioca#installation
+gem 'sorbet'
+gem 'sorbet-runtime'
+gem 'tapioca'
+
 # Create beautiful static maps with one line of Ruby. No more fighting with mapping libraries!
+# See https://github.com/ankane/mapkick-static
 gem "mapkick-static"
 
 group :development, :test do
