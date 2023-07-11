@@ -44,20 +44,44 @@ gem "bootsnap", require: false
 
 # Use Sass to process CSS
 gem "sassc-rails"
+gem 'bootstrap-sass', '~> 3.4.1'
+gem "font-awesome-sass", "~> 6.1"
 
 # Use Active Storage variants [https://guides.rubyonrails.org/active_storage_overview.html#transforming-images]
 # gem "image_processing", "~> 1.2"
 
+# Devise for user authentication management
+# https://github.com/heartcombo/devise
 gem "devise"
-gem "autoprefixer-rails"
-gem "font-awesome-sass", "~> 6.1"
+
+# Complete Ruby geocoding solution
+# https://github.com/alexreisner/geocoder
+gem "geocoder"
+
+# Better forms for Ruby
+# https://github.com/heartcombo/simple_form
 gem "simple_form", github: "heartcombo/simple_form"
+
+# Solution to generate fake data for db seeding (development)
+# https://github.com/faker-ruby/faker
+gem "faker"
+
+# Gem used to query web services and examine the resulting output
+# https://github.com/jnunemaker/httparty
+gem 'httparty', '~> 0.21.0'
+
+# Production-ready gems
+gem "autoprefixer-rails"
 gem 'bundler', '~> 2.4', '>= 2.4.12'
 gem 'bundler-audit', '~> 0.9.1'
-gem "geocoder"
-gem "faker"
-gem 'httparty', '~> 0.21.0'
-gem 'bootstrap-sass', '~> 3.4.1'
+
+# Gem to enhance translations
+# https://github.com/svenfuchs/rails-i18n
+gem 'rails-i18n', '~> 7.0.0'
+
+# Gem to enhance translation management
+# https://github.com/glebm/i18n-tasks
+gem 'i18n-tasks', '~> 1.0.12'
 
 # Install Tapioca and Sorbet
 # https://github.com/Shopify/tapioca#installation
