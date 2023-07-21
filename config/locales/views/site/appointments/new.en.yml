@@ -1,0 +1,18 @@
+en:
+  appointments:
+    new:
+      cancel: "Cancel"
+      cancel_error: "Appointment could not be canceled."
+      cancel_success: "Appointment successfully canceled."
+      date: "Date"
+      date_error: "Please enter a valid date."
+      description: "Description"
+      description_error: "Please enter a valid description."
+      location: "Location"
+      location_error: "Please enter a valid location."
+      submit: "Create Appointment"
+      submit_error: "Appointment could not be created."
+      submit_success: "Appointment successfully created."
+      time: "Time"
+      time_error: "Please enter a valid time."
+      title: "New Appointment"

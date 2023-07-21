@@ -1,0 +1,16 @@
+en:
+  clients:
+    index:
+      cancel: "Cancel"
+      cancel_error: "Client could not be canceled."
+      cancel_success: "Client successfully canceled."
+      email: "Email"
+      email_error: "Please enter a valid email."
+      email_taken: "This email is already taken."
+      first_name_error: "Please enter a valid first name."
+      last_name_error: "Please enter a valid last name."
+      name: "Name"
+      submit: "Create Client"
+      submit_error: "Client could not be created."
+      submit_success: "Client successfully created."
+      title: "Clients"

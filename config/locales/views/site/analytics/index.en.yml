@@ -1,0 +1,16 @@
+en:
+  analytics:
+    index:
+      appointments:
+        one: "There is 1 appointment"
+        other: "There are %{count} appointments"
+        zero: "There are no appointments"
+      distance:
+        title_html:
+          "During this period, you drove <strong>%{@total_distance.round(2)}
+          km and %{@total_time} minutes</strong> for <strong>%{@appointments.count}</strong>
+          appointments"
+      end_date: "End date:"
+      start_date: "Start date:"
+      title: "Analytics"
+      today_button: "Today"

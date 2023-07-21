@@ -1,0 +1,6 @@
+it:
+  clients:
+    index:
+      all_patientes: "Tutti i pazienti"
+      new_patient: "Nuovo paziente"
+      patients_count: "Hai %{patients} pazienti"
