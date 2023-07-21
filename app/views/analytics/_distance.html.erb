@@ -1,5 +1,8 @@
 <div class="text-center my-4">
-  <h4>  <% t(".title_html") %>  </h4>
+  <%# <h4>  <% t(".title_html") %>  </h4> %>
+  <h4>During this period, you drove</h4>
+  <h3><strong><%= @total_distance.round(2) %> km & <%= @total_time %> minutes</strong></h3>
+  <h3>for <strong><%= @appointments.count %></strong> appointments</h3>
 </div>
 
 <div class="row">
@@ -9,5 +12,3 @@
     </div>
   <% end %>
 </div>
-
-
