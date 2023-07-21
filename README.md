@@ -20,3 +20,29 @@ In the backend, different views and controllers to handle these calculations:
 On the appointments view, the user sees the patient information, start time and end time, updated daily. The distance and time calculations are updated in real-time as the user updates their appointments.
 
 Overall, the application should meet the requirements of helping healthcare workers keep track of their travel distances and times.
+
+# Initial setup
+
+- Clone the repo to your local machine
+- Create an .env file and include your MAPBOX_ACCESS_TOKEN for rendering static maps in patients show view
+- run
+```
+bundle && yarn
+```
+- [OPTIONAL] if you feel risky, run
+```
+bundle update && yarn upgrade
+```
+- in app/db/seeds.rb, you can set how many users, patients, clients and appointments you want to set; then run
+```
+rails db:setup
+```
+- run
+```
+bin/dev
+```
+TIP:
+- to create a new public repo in your github account, run
+```
+gh repo create --public --source=.
+```

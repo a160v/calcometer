@@ -53,6 +53,7 @@ gem "font-awesome-sass", "~> 6.1"
 # Devise for user authentication management
 # https://github.com/heartcombo/devise
 gem "devise"
+gem "devise-i18n"
 
 # Complete Ruby geocoding solution
 # https://github.com/alexreisner/geocoder
@@ -82,12 +83,6 @@ gem 'rails-i18n', '~> 7.0.0'
 # Gem to enhance translation management
 # https://github.com/glebm/i18n-tasks
 gem 'i18n-tasks', '~> 1.0.12'
-
-# Install Tapioca and Sorbet
-# https://github.com/Shopify/tapioca#installation
-gem 'sorbet'
-gem 'sorbet-runtime'
-gem 'tapioca'
 
 # Create beautiful static maps with one line of Ruby. No more fighting with mapping libraries!
 # See https://github.com/ankane/mapkick-static
