@@ -1,5 +1,133 @@
 <% if user_signed_in? %>
-  <%= render "existing_user" %>
+  <div class="container mt-5">
+    <h1><%= t('greeting', name: current_user.name) %> 👋</h1>
+    <br>
+    <h3><%= t('today', date: l(Time.new, format: :short)) %></h3>
+    <div class="row p-1">
+      <div class="col-sl-6 p-2">
+        <div class="card">
+          <a href="/appointments" class="btn btn-primary">
+            <h2><%= t('new_appointment') %></h2>
+          </a>
+        </div>
+      </div>
+      <div class="col-sm-6 p-2">
+        <div class="card border-dark">
+          <a href="/analytics" class="btn btn-light">
+            <h2><%= t('stats') %></h2>
+          </a>
+        </div>
+      </div>
+      <div class="col-sm-6 p-2">
+        <div class="card border-dark">
+          <a href="/patients" class="btn btn-light">
+            <h2><%= t('patients') %></h2>
+          </a>
+        </div>
+      </div>
+      <div class="col-sm-6 p-2">
+        <div class="card border-dark">
+          <a href="/clients" class="btn btn-light">
+            <h2><%= t('clients') %></h2>
+          </a>
+        </div>
+      </div>
+      <div class="col-sm-6 p-2">
+        <div class="card border-dark">
+          <a href="/" class="btn btn-light">
+            <h2><%= t('export_data') %></h2>
+          </a>
+        </div>
+      </div>
+      <div class="col-sm-6 p-2">
+        <div class="card border-dark">
+          <a href="#" class="btn btn-light">
+            <h2><%= t('share_feedback') %></h2>
+          </a>
+        </div>
+      </div>
+  </div>
+
 <% else %>
-  <%= render "new_user" %>
+
+  <div class="px-4 pt-3 text-center border-bottom">
+    <h1 class="display-4 fw-bold text-body-emphasis"><%= t('.calcometer') %></h1>
+    <h4 class="lead pt-3 pb-3"><%= t('.manage_ease') %></h4>
+    <div class="col-lg-6 mx-auto">
+      <div class="d-grid gap-2 mb-5">
+        <a class="btn btn-primary btn-lg" href="<%= new_user_registration_path %>" role="button"><%= t('.sign_up') %></a>
+        <a class="btn btn-dark-secondary btn-lg" href="<%= new_user_session_path %>" role="button"><%= t('.sign_in') %></a>
+      </div>
+    </div>
+    <div class="overflow-hidden" style="max-height: 30vh;">
+      <div class="container px-5">
+        <%= image_tag("screenshot-homepage-white.png",
+                      alt: t('calcometer_screenshot'),
+                      style: "max-width: 100%; max-height: 100%;"
+                      ) %>
+      </div>
+    </div>
+    <div>
+      <div class="container py-5" id="icon-grid">
+        <h2 class="pb-5"><%= t('.why_calcometer') %></h2>
+        <div class="row row-cols-1 row-cols-sm-2 row-cols-md-2 row-cols-lg-3 g-4">
+          <div class="col d-flex align-items-start">
+            <svg class="bi text-body-secondary flex-shrink-0 me-3" width="1.75em" height="1.75em">
+              <%= render inline: Rails.root.join('public/speedometer.svg').read %>
+            </svg>
+            <div>
+              <h3 class="fw-bold mb-0 fs-4"><%= t('.distance_management') %></h3>
+              <p><%= t('.distance_management_desc') %></p>
+            </div>
+          </div>
+          <div class="col d-flex align-items-start">
+            <svg class="bi text-body-secondary flex-shrink-0 me-3" width="1.75em" height="1.75em">
+              <%= render inline: Rails.root.join('public/safe.svg').read %>
+            </svg>
+            <div>
+              <h3 class="fw-bold mb-0 fs-4"><%= t('.safe_by_design') %></h3>
+              <p><%= t('.safe_by_design_desc') %></p>
+            </div>
+          </div>
+          <div class="col d-flex align-items-start">
+            <svg class="bi text-body-secondary flex-shrink-0 me-3" width="1.75em" height="1.75em">
+              <%= render inline: Rails.root.join('public/magic.svg').read %>
+            </svg>
+            <div>
+              <h3 class="fw-bold mb-0 fs-4"><%= t('.clutter_free_design') %></h3>
+              <p><%= t('.clutter_free_design_desc') %></p>
+            </div>
+          </div>
+          <div class="col d-flex align-items-start">
+            <svg class="bi text-body-secondary flex-shrink-0 me-3" width="1.75em" height="1.75em">
+              <%= render inline: Rails.root.join('public/peace.svg').read %>
+            </svg>
+            <div>
+              <h3 class="fw-bold mb-0 fs-4"><%= t('.peace_of_mind') %></h3>
+              <p><%= t('.peace_of_mind_desc') %></p>
+            </div>
+          </div>
+          <div class="col d-flex align-items-start">
+            <svg class="bi text-body-secondary flex-shrink-0 me-3" width="1.75em" height="1.75em">
+              <%= render inline: Rails.root.join('public/person-bounding-box.svg').read %>
+            </svg>
+            <div>
+              <h3 class="fw-bold mb-0 fs-4"><%= t('.patient_tracker') %></h3>
+              <p><%= t('.patient_tracker_desc') %></p>
+            </div>
+          </div>
+          <div class="col d-flex align-items-start">
+            <svg class="bi text-body-secondary flex-shrink-0 me-3" width="1.75em" height="1.75em">
+              <%= render inline: Rails.root.join('public/phone.svg').read %>
+            </svg>
+            <div>
+              <h3 class="fw-bold mb-0 fs-4"><%= t('.mobile_first_approach') %></h3>
+              <p><%= t('.mobile_first_approach_desc') %></p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="d-grid d-sm-flex d-md-flex justify-content-sm-center d-lg-none gap-2 mb-5">
+        <a class="btn btn-primary btn-lg px-4" href="<%= new_user_registration_path %>" role="button"><%= t('.sign_up') %></a>
+      </div>
 <% end %>
