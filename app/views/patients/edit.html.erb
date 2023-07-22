@@ -1,4 +1,4 @@
-<h1>You are editing <%= @patient.name %></h1>
+<h1><%= t.(".title", name: @patient.name) %></h1>
 
 <%= render "form", patient: @patient %>
 

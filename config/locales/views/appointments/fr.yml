@@ -1,0 +1,23 @@
+fr:
+  appointments:
+    index:
+      title: "Rendez-vous le %{date}"
+      new_appointment: "Nouveau rendez-vous"
+      calculate_distance_time: "Calculer la distance et le temps"
+      today_you_drove: "Aujourd'hui, vous avez conduit"
+      km_and_time: "%{distance} km & %{time} minutes"
+    new:
+      new_appointment: "Vous créez un nouveau rendez-vous"
+      select_patient: "Sélectionnez le patient"
+      start_time: "Heure de début"
+      end_time: "Heure de fin"
+      submit: "Valider et enregistrer"
+      back_to_appointments: "Retour aux rendez-vous"
+    show:
+      back_to_appointments: "Retour aux rendez-vous"
+      delete_appointment: "Supprimer ce rendez-vous"
+      delete: "Supprimer"
+    appointment:
+      deleted_patient: "Patient supprimé"
+      arrived_at: "Arrivé à %{time}"
+      left_at: "Départ à %{time}"

@@ -1,0 +1,23 @@
+de:
+  appointments:
+    index:
+      title: "Termine am %{date}"
+      new_appointment: "Neuer Termin"
+      calculate_distance_time: "Entfernung und Zeit berechnen"
+      today_you_drove: "Heute sind Sie gefahren"
+      km_and_time: "%{distance} km & %{time} Minuten"
+    new:
+      new_appointment: "Sie erstellen einen neuen Termin"
+      select_patient: "Patient auswählen"
+      start_time: "Startzeit"
+      end_time: "Endzeit"
+      submit: "Validieren und speichern"
+      back_to_appointments: "Zurück zu den Terminen"
+    show:
+      back_to_appointments: "Zurück zu den Terminen"
+      delete_appointment: "Diesen Termin löschen"
+      delete: "Löschen"
+    appointment:
+      deleted_patient: "Gelöschter Patient"
+      arrived_at: "Angekommen um %{time}"
+      left_at: "Verlassen um %{time}"

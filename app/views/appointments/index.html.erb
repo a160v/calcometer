@@ -1,6 +1,6 @@
-<h1 class="text-center my-4">Appointments on <%= Time.current.strftime("%B %d") %></h1>
+<h1 class="text-center my-4"><%= t(".title", date: l(Time.new, format: :short)) %></h1>
 
-<%= link_to "New appointment", new_appointment_path, class:"btn btn-primary mb-3" %>
+<%= link_to t(".new_appointment"), new_appointment_path, class:"btn btn-primary mb-3" %>
 
 <div id="appointments" class="row mb-5">
   <% @appointments.sort_by(&:start_time).each do |appointment| %>
@@ -19,11 +19,11 @@
       data-bs-target="#collapseWidthButtonCalculator"
       aria-expanded="false"
       aria-controls="collapseWidthButtonCalculator">
-      <strong>Calculate distance and time</strong>
+      <strong><%= t(".calculate_distance_time") %></strong>
     </button>
     <div class="collapse mt-1" id="collapseWidthButtonCalculator">
-      <p class="mt-1 mb-1">Today you drove</p>
-      <h4><strong><%= @total_distance.round(2) %> km & <%= @total_time %> minutes</strong></h4>
+      <p class="mt-1 mb-1"><%= t(".today_you_drove") %></p>
+      <h4><strong><%= t(".km_and_time", distance: @total_distance.round(2), time: @total_time) %></strong></h4>
     </div>
   </div>
 </footer>

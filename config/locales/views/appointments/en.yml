@@ -1,0 +1,23 @@
+en:
+  appointments:
+    index:
+      title: "Appointments on %{date}"
+      new_appointment: "New appointment"
+      calculate_distance_time: "Calculate distance and time"
+      today_you_drove: "Today you drove"
+      km_and_time: "%{distance} km & %{time} minutes"
+    new:
+      new_appointment: "You are creating a new appointment"
+      select_patient: "Select patient"
+      start_time: "Start time"
+      end_time: "End time"
+      submit: "Validate and save"
+      back_to_appointments: "Back to appointments"
+    show:
+      back_to_appointments: "Back to appointments"
+      delete_appointment: "Delete this appointment"
+      delete: "Delete"
+    appointment:
+      deleted_patient: "Deleted patient"
+      arrived_at: "Arrived at %{time}"
+      left_at: "Left at %{time}"

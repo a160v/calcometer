@@ -1,49 +1,45 @@
 <%= simple_form_for(@patient, local: true, html: { class: "form-horizontal" }) do |f| %>
   <%= f.error_notification %>
-
   <%# ############# Patient form start ############# %>
   <div class="form-group">
-    <%= f.label :name, "Patient name" %>
-    <%= f.text_field :name, class: 'form-control', placeholder: "Max Mustermann" %>
+    <%= f.label :name, t('.patient_name') %>
+    <%= f.text_field :name, class: 'form-control', placeholder: t('.name_placeholder') %>
   </div>
 
-    <%# ############# Nested address form start ############# %>
-    <%= f.simple_fields_for :address, @patient.address do |a| %>
+  <%# ############# Nested address form start ############# %>
+  <%= f.simple_fields_for :address, @patient.address do |a| %>
     <%= a.error_notification %>
-
-      <div class="form-group">
-        <%= a.label :street, "Street" %>
-        <%= a.text_field :street, class: 'form-control', placeholder: "Street" %>
-      </div>
-      <div class="form-group">
-        <%= a.label :number, "Number" %>
-        <%= a.text_field :number, class: 'form-control', placeholder: "Number" %>
-      </div>
-      <div class="form-group">
-        <%= a.label :zip_code, "Zip Code" %>
-        <%= a.text_field :zip_code, class: 'form-control', placeholder: "Zip Code" %>
-      </div>
-      <div class="form-group">
-        <%= a.label :city, "City" %>
-        <%= a.text_field :city, class: 'form-control', placeholder: "City" %>
-      </div>
-      <div class="form-group">
-        <%= a.label :state, "State" %>
-        <%= a.text_field :state, class: 'form-control', placeholder: "State" %>
-      </div>
-      <div class="form-group">
-        <%= a.label :country, "Country" %>
-        <%= a.text_field :country, class: 'form-control', value: "Switzerland" %>
-      </div>
-
-    <% end %>
-
     <div class="form-group">
-      <%= f.label :client_id, "Who is the client of this patient?" %>
-      <%= f.collection_select :client_id, Client.all, :id, :name, {}, { class: "form-control" } %>
+      <%= a.label :street, t('.street') %>
+      <%= a.text_field :street, class: 'form-control', placeholder: t('.street_placeholder') %>
     </div>
-    <%# ############# Nested address form end ############# %>
+    <div class="form-group">
+      <%= a.label :number, t('.number') %>
+      <%= a.text_field :number, class: 'form-control', placeholder: t('.number_placeholder') %>
+    </div>
+    <div class="form-group">
+      <%= a.label :zip_code, t('.zip_code') %>
+      <%= a.text_field :zip_code, class: 'form-control', placeholder: t('.zip_code_placeholder') %>
+    </div>
+    <div class="form-group">
+      <%= a.label :city, t('.city') %>
+      <%= a.text_field :city, class: 'form-control', placeholder: t('.city_placeholder') %>
+    </div>
+    <div class="form-group">
+      <%= a.label :state, t('.state') %>
+      <%= a.text_field :state, class: 'form-control', placeholder: t('.state_placeholder') %>
+    </div>
+    <div class="form-group">
+      <%= a.label :country, t('.country') %>
+      <%= a.text_field :country, class: 'form-control', value: t('.country_default') %>
+    </div>
+  <% end %>
+  <div class="form-group">
+    <%= f.label :client_id, t('.select_client') %>
+    <%= f.collection_select :client_id, Client.all, :id, :name, {}, { class: "form-control" } %>
+  </div>
+  <%# ############# Nested address form end ############# %>
 
-  <%= f.submit "Validate and save", class: 'btn btn-primary mt-3' %>
+  <%= f.submit t('.submit'), class: 'btn btn-primary mt-3' %>
   <%# ############# Patient form end ############# %>
 <% end %>

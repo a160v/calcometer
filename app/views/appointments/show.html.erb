@@ -4,11 +4,11 @@
 
   <div class="mt-1">
     <ul class="list-group list-group-flush">
-      <li class="list-group-item"><%= link_to "Back to appointments", appointments_path%></li>
-      <li class="list-group-item"><%= button_to "Delete this appointment", @appointment,
+      <li class="list-group-item"><%= link_to t(".back_to_appointments"), appointments_path%></li>
+      <li class="list-group-item"><%= button_to t(".delete_appointment"), @appointment,
                                                                             method: :delete,
                                                                             class: "btn btn-danger",
-                                                                            title: "Delete" %></li>
+                                                                            title: t(".delete") %></li>
     </ul>
   </div>
 </div>
