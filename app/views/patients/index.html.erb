@@ -1,6 +1,6 @@
-<h1 class="text-center my-4">All patients</h1>
+<h1 class="text-center my-4"> <%= t(".all_patients") %></h1>
 
-<%= link_to "New patient", new_patient_path, class:"btn btn-primary mb-3" %>
+<%= link_to t(".new_patient"), new_patient_path, class:"btn btn-primary mb-3" %>
 
 <div id="patients" class="row">
   <% @patients.each do |patient| %>
@@ -11,5 +11,5 @@
 </div>
 
 <footer class="fixed-bottom border-top border-dark footer-css">
-  <h4 class="d-flex justify-content-center p-3">You have <%= @patients.count %> patients</h4>
+  <h4 class="d-flex justify-content-center p-3"><%= t(".patients_count", patients: @patients.count) %></h4>
 </footer>

@@ -7,7 +7,12 @@
     <%= f.input :name, required: true, autofocus: true, class: "form-control" %>
     <%= f.input :last_name, required: false, autofocus: true %>
     <%= f.input :email, required: true, autofocus: true %>
-    <%= f.time_zone_select :time_zone, nil, default: browser_time_zone.name %>
+    <%= f.label "Select your time zone" %> <br>
+    <%= f.time_zone_select :time_zone, nil, default: browser_time_zone.name %> <br>
+    <%= f.label "Select your language" %> <br>
+    <%# <%= form_tag people_path, :class => 'locale' do %>
+      <%# <%= select_tag 'set_locale', options_for_select(LANGUAGES, I18n.locale.to_s), :onchange => 'this.form.submit()' %>
+    <%# <% end %>
 
     <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
       <p>Currently waiting confirmation for: <%= resource.unconfirmed_email %></p>

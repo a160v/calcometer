@@ -1,0 +1,18 @@
+en:
+  patients:
+    index:
+      all_patients: "All patientes"
+      new_patient: "New patient"
+      patients_count: "You have %{patients} patients"
+    show:
+      no_location: "This patient has no valid location, please update it."
+      drive_me: "Drive me there"
+      total_appointments: "Total appointments"
+      time_spent: "Time spent with this patient"
+      hours: "hours"
+      minutes: "minutes"
+      back_to_patients: "Back to patients"
+      edit_patient: "Edit patient"
+      delete_patient: "Delete this patient"
+      confirm_delete: "Are you sure?"
+      delete: "Delete"

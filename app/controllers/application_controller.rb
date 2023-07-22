@@ -5,6 +5,8 @@ class ApplicationController < ActionController::Base
 
   protect_from_forgery with: :exception
 
+  around_action :switch_locale
+
   # Make browser_time_zone method available to all views
   helper_method :browser_time_zone
 
@@ -22,15 +24,20 @@ class ApplicationController < ActionController::Base
     I18n.locale = params[:locale] || I18n.default_locale
   end
 
+  def switch_locale(&action)
+    locale = current_user.try(:locale) || I18n.default_locale
+    I18n.with_locale(locale, &action)
+  end
+
   def default_url_options
-    { locale: I18n.locale == I18n.default_locale ? nil : I18n.locale }
+    { locale: I18n.locale }
   end
 
   protected
 
   def configure_permitted_parameters
-    devise_parameter_sanitizer.permit(:sign_up) { |u| u.permit(:name, :last_name, :email, :time_zone, :password) }
+    devise_parameter_sanitizer.permit(:sign_up) { |u| u.permit(:name, :last_name, :email, :time_zone, :locale, :password) }
 
-    devise_parameter_sanitizer.permit(:account_update) { |u| u.permit(:name, :last_name, :email, :time_zone, :password, :current_password) }
+    devise_parameter_sanitizer.permit(:account_update) { |u| u.permit(:name, :last_name, :email, :time_zone, :locale, :password, :current_password) }
   end
 end

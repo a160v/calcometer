@@ -1,12 +1,12 @@
 en:
   pages:
     home:
-      greeting: "Hello"
-      today: "Today is"
+      greeting: "Hello, %{name}"
+      today: "Today is %{date}"
       new_appointment: "New appointment"
-      stats: "Stats"
-      all_patients: "Patients"
-      all_patients: "Clients"
+      analytics: "Stats"
+      patients: "Patients"
+      clients: "Clients"
       export_data: "Export appointments"
       share_feedback: "Share feedback"
       calcometer: "Calcometer"

@@ -1,8 +1,0 @@
-en:
-  clients:
-    new:
-      submit: "Create Client"
-      title: "New Client"
-      cancel: "Cancel"
-      email: "Email"
-      name: "Name"

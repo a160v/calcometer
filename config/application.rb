@@ -17,10 +17,11 @@ module Calcometer
     config.load_defaults 7.0
 
     # Configuration for the application, engines, and railties goes here.
-    #
+    config.i18n.load_path += Dir[Rails.root.join('my', 'locales', '*.{rb,yml}')]
+    config.i18n.default_locale = :it
+
     # These settings can be overridden in specific environments using the files
     # in config/environments, which are processed later.
-    config.i18n.default_locale = :en
     config.time_zone = "UTC"
     config.active_record.default_timezone = :utc
     # config.eager_load_paths << Rails.root.join("extras")

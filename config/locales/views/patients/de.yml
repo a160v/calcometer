@@ -1,0 +1,18 @@
+en:
+  patients:
+    index:
+      all_patients: "Patienten"
+      new_patient: "Neuer Patient"
+      patients_count: "Du hast %{patients} Patienten"
+    show:
+      no_location: "Dieser Patient hat keinen gültigen Standort, bitte aktualisieren Sie ihn."
+      drive_me: "Fahren Sie mich dort hin"
+      total_appointments: "Gesamttermine"
+      time_spent: "Mit diesem Patienten verbrachte Zeit"
+      hours: "Stunden"
+      minutes: "Minuten"
+      back_to_patients: "Zurück zu den Patienten"
+      edit_patient: "Patient bearbeiten"
+      delete_patient: "Diesen Patienten löschen"
+      confirm_delete: "Bist du sicher?"
+      delete: "Löschen"

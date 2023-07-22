@@ -9,7 +9,7 @@
                     input_html: { autocomplete: "off" },
                     class: "form-control",
                     id: "floatingInput",
-                    placeholder: "Prima Spitex" %>
+                    placeholder: t(".name_placeholder") %>
 
         <%= f.input :email,
                     required: true,
@@ -17,8 +17,8 @@
                     input_html: { autocomplete: "off" },
                     class: "form-control",
                     id: "floatingInput",
-                    placeholder: "prima@email.com" %>
+                    placeholder: t(".email_placeholder") %>
       </div>
     <form>
-  <%= f.submit "Validate and save", class: 'btn btn-primary' %>
+  <%= f.submit t(".submit"), class: 'btn btn-primary' %>
 <% end %>

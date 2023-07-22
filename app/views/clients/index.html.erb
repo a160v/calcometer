@@ -1,6 +1,6 @@
-<h1 class="text-center my-4">All clients</h1>
+<h1 class="text-center my-4"><%= t(".title") %></h1>
 
-<%= link_to "New client", new_client_path, class:"btn btn-primary mb-3" %>
+<%= link_to t(".new_client"), new_client_path, class:"btn btn-primary mb-3" %>
 
 <div id="clients" class="row">
   <% @clients.each do |client| %>
@@ -11,5 +11,5 @@
 </div>
 
 <footer class="fixed-bottom border-top border-dark footer-css">
-  <h4 class="d-flex justify-content-center p-3">You have <%= @clients.count %> clients</h4>
+  <h4 class="d-flex justify-content-center p-3"><%= t(".footer", count: @clients.count) %></h4>
 </footer>

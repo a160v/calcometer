@@ -1,6 +1,0 @@
-en:
-  clients:
-    index:
-      all_patientes: "All patientes"
-      new_patient: "New patient"
-      patients_count: "You have %{patients} patients"

@@ -1,0 +1,14 @@
+de:
+  shared:
+    navbar:
+      home: "Startseite"
+      menu: "Menü"
+      appointments: "Termine"
+      analytics: "Statistiken"
+      patients: "Patienten"
+      clients: "Klienten"
+      my_account: "Mein Konto"
+      edit_profile: "Konto bearbeiten"
+      log_out: "Ausloggen"
+      login: "Anmelden"
+      sign_up: "Registrieren"

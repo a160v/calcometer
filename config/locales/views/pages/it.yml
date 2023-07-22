@@ -1,14 +1,14 @@
 it:
   pages:
     home:
-      greeting: "Ciao"
-      today: "Oggi è"
+      greeting: "Ciao, %{name}"
+      today: "Oggi è %{date}"
       new_appointment: "Nuovo appuntamento"
-      stats: "Statistiche"
-      all_patients: "Pazienti"
-      all_patients: "Clienti"
-      export_data: "Esportare i miei appuntamenti"
-      share_time: "Feedback"
+      analytics: "Statistiche"
+      patients: "Pazienti"
+      clients: "Clienti"
+      export_data: "Esportare i miei apuntamenti"
+      share_feedback: "Condivido il mio feedback"
       calcometer: "Calcometer"
       manage_ease: "Gestisci con facilità le tue distanze di viaggio, i tempi e gli appuntamenti."
       sign_up: "Iscriviti"

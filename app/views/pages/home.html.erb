@@ -1,48 +1,48 @@
 <% if user_signed_in? %>
   <div class="container mt-5">
-    <h1><%= t('greeting', name: current_user.name) %> 👋</h1>
+    <h1><%= t(".greeting", name: current_user.name) %> 👋</h1>
     <br>
-    <h3><%= t('today', date: l(Time.new, format: :short)) %></h3>
+    <h3><%= t(".today", date: l(Time.new, format: :long)) %></h3>
     <div class="row p-1">
       <div class="col-sl-6 p-2">
         <div class="card">
           <a href="/appointments" class="btn btn-primary">
-            <h2><%= t('new_appointment') %></h2>
+            <h2><%= t(".new_appointment") %></h2>
           </a>
         </div>
       </div>
       <div class="col-sm-6 p-2">
         <div class="card border-dark">
           <a href="/analytics" class="btn btn-light">
-            <h2><%= t('stats') %></h2>
+            <h2><%= t(".analytics") %></h2>
           </a>
         </div>
       </div>
       <div class="col-sm-6 p-2">
         <div class="card border-dark">
           <a href="/patients" class="btn btn-light">
-            <h2><%= t('patients') %></h2>
+            <h2><%= t(".patients") %></h2>
           </a>
         </div>
       </div>
       <div class="col-sm-6 p-2">
         <div class="card border-dark">
           <a href="/clients" class="btn btn-light">
-            <h2><%= t('clients') %></h2>
+            <h2><%= t(".clients") %></h2>
           </a>
         </div>
       </div>
       <div class="col-sm-6 p-2">
         <div class="card border-dark">
           <a href="/" class="btn btn-light">
-            <h2><%= t('export_data') %></h2>
+            <h2><%= t(".export_data") %></h2>
           </a>
         </div>
       </div>
       <div class="col-sm-6 p-2">
         <div class="card border-dark">
           <a href="#" class="btn btn-light">
-            <h2><%= t('share_feedback') %></h2>
+            <h2><%= t(".share_feedback") %></h2>
           </a>
         </div>
       </div>
@@ -56,7 +56,7 @@
     <div class="col-lg-6 mx-auto">
       <div class="d-grid gap-2 mb-5">
         <a class="btn btn-primary btn-lg" href="<%= new_user_registration_path %>" role="button"><%= t('.sign_up') %></a>
-        <a class="btn btn-dark-secondary btn-lg" href="<%= new_user_session_path %>" role="button"><%= t('.sign_in') %></a>
+        <a class="btn btn-outline-dark btn-lg" href="<%= new_user_session_path %>" role="button"><%= t('.sign_in') %></a>
       </div>
     </div>
     <div class="overflow-hidden" style="max-height: 30vh;">

@@ -1,6 +1,6 @@
 <nav class="navbar navbar-expand-sm border-bottom border-dark sticky-top navbar-css mb-3">
   <div class="container-fluid">
-    <a href="/" class="navbar-brand"><strong>Home</strong></a>
+    <a href="/" class="navbar-brand"><strong><%= t('.home') %></strong></a>
     <button
       class="navbar-toggler text-dark"
       type="button"
@@ -8,31 +8,31 @@
       data-bs-target="#collapseWidthNavbar"
       aria-expanded="false"
       aria-controls="collapseWidthNavbar">
-      <strong>Menu</strong>
+      <strong><%= t('.menu') %></strong>
     </button>
     <div class="collapse navbar-collapse" id="collapseWidthNavbar">
       <% if user_signed_in? %>
         <ul class="nav">
-          <li class="nav-item"><a href="/appointments" class="nav-link text-dark"><strong>Appointments</strong></a></li>
-          <li class="nav-item"><a href="/analytics" class="nav-link text-dark">Analytics</a></li>
-          <li class="nav-item"><a href="/patients" class="nav-link text-dark">Patients</a></li>
-          <li class="nav-item"><a href="/clients" class="nav-link text-dark">Clients</a></li>
+          <li class="nav-item"><a href="/appointments" class="nav-link text-dark"><strong><%= t('.appointments') %></strong></a></li>
+          <li class="nav-item"><a href="/analytics" class="nav-link text-dark"><%= t('.analytics') %></a></li>
+          <li class="nav-item"><a href="/patients" class="nav-link text-dark"><%= t('.patients') %></a></li>
+          <li class="nav-item"><a href="/clients" class="nav-link text-dark"><%= t('.clients') %></a></li>
           <li class="nav-item">
             <div class="dropdown-center">
               <a class="nav-link dropdown-toggle text-dark" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                <strong>My account</strong>
+                <strong><%= t('.my_account') %></strong>
               </a>
-                <ul class="dropdown-menu outline-dark">
-                  <li><%= link_to "Edit profile", edit_user_registration_path, class: "dropdown-item" %></li>
-                  <li><%= link_to "Log out", destroy_user_session_path, data: {turbo_method: :delete}, class: "dropdown-item"%></li>
-                </ul>
+              <ul class="dropdown-menu outline-dark">
+                <li><%= link_to t('.edit_profile'), edit_user_registration_path, class: "dropdown-item" %></li>
+                <li><%= link_to t('.log_out'), destroy_user_session_path, data: {turbo_method: :delete}, class: "dropdown-item"%></li>
+              </ul>
             </div>
           </li>
         </ul>
       <% else %>
-        <ul class="nav col-12 col-md-auto d-md-none d-lg-none">
-          <%= link_to "Login", new_user_session_path, class: "btn btn-outline-dark me-2" %>
-          <%= link_to "Sign-up", new_user_registration_path, class: "btn btn-primary" %>
+        <ul class="nav d-flex col-12 col-md-auto d-md-none d-lg-none">
+          <%= link_to t('.login'), new_user_session_path, class: "btn btn-outline-dark my-2" %>
+          <%= link_to t('.sign_up'), new_user_registration_path, class: "btn btn-primary" %>
         </ul>
       <% end %>
     </div>

@@ -1,0 +1,18 @@
+it:
+  analytics:
+    index:
+      title: "Statistiche"
+      today: "Oggi"
+      minus_one: "-1"
+      start_date: "Data di inizio"
+      end_date: "Data di fine"
+      submit: "Invia"
+      plus_one: "+1"
+      distance: "Distanza"
+      appointments: "Appuntamenti"
+      during_this_period: "Durante questo periodo, hai percorso"
+      km_and_minutes: "%{distance} km e %{time} minuti"
+      for_appointments: "per %{count} appuntamenti"
+      appointments_amount: "Totale: %{count} appuntamenti"
+      deleted_patient: "Paziente cancellato"
+      minutes: "minuti"

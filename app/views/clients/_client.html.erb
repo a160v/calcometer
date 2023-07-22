@@ -1,8 +1,8 @@
 <div id="<%= dom_id client %>" class="card h-100">
   <%= link_to client, class: "text-decoration-none" do %>
     <div class="card-body">
-      <h5 class="card-title">🏢 <strong><%= client.name %></strong></h5>
-      <p class="card-text">📧 <%= client.email %></p>
+      <h5 class="card-title">🏢 <strong><%= t(".client_name", name: client.name) %></strong></h5>
+      <p class="card-text">📧 <%= t(".client_email", email: client.email) %></p>
     </div>
   <% end %>
 </div>

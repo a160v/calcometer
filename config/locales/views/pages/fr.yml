@@ -1,12 +1,12 @@
 it:
   pages:
     home:
-      greeting: "Bonjour"
-      today: "Aujourd'hui c'est le"
+      greeting: "Bonjour, %{name}"
+      today: "Aujourd'hui c'est le %{date}"
       new_appointment: "Nouveau RDV"
-      stats: "Stats"
-      all_patients: "Patients"
-      all_patients: "Clients"
+      analytics: "Statistiques"
+      patients: "Patients"
+      clients: "Clients"
       export_data: "Exporter mes RDV"
       share_feedback: "Mon avis"
       calcometer: "Calcometer"

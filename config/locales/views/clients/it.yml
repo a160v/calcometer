@@ -1,0 +1,29 @@
+it:
+  clients:
+    index:
+      title: "Tutti i clienti"
+      new_client: "Nuovo cliente"
+      footer:
+        zero: "Non ci sono clienti, vai a crearne uno"
+        one: "Hai un cliente"
+        other: "Hai %{count} clienti"
+    show:
+      client_name: "%{name}"
+      client_email: "%{email}"
+      send_report: "Invia report mensile"
+      back_to_clients: "Ritorna ai clienti"
+      edit_client: "Modifica cliente"
+      delete_client: "Elimina cliente"
+    new:
+      new_client: "Stai creando un nuovo cliente"
+      back_to_clients: "Ritorna ai clienti"
+    edit:
+      title: "Stai modificando %{name}"
+      back_to_clients: "Torna ai clienti"
+    client:
+      client_name: "%{name}"
+      client_email: "%{email}"
+    form:
+      name_placeholder: "Prima Spitex"
+      email_placeholder: "prima@email.com"
+      submit: "Convalida e salva"

@@ -1,0 +1,14 @@
+en:
+  shared:
+    navbar:
+      home: "Home"
+      menu: "Menu"
+      appointments: "Appointments"
+      analytics: "Analytics"
+      patients: "Patients"
+      clients: "Clients"
+      my_account: "My account"
+      edit_profile: "Edit profile"
+      log_out: "Log out"
+      login: "Login"
+      sign_up: "Sign-up"

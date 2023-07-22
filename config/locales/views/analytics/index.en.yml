@@ -1,0 +1,18 @@
+en:
+  analytics:
+    index:
+      title: "Stats"
+      today: "Today"
+      minus_one: "-1"
+      start_date: "Start Date"
+      end_date: "End Date"
+      submit: "Submit"
+      plus_one: "+1"
+      distance: "Distance"
+      appointments: "Appointments"
+      during_this_period: "During this period, you drove"
+      km_and_minutes: "km & %{time} minutes"
+      for_appointments: "for %{count} appointments"
+      appointments_amount: "Total %{appointments} appointments"
+      deleted_patient: "Deleted patient"
+      minutes: "minutes"
