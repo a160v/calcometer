@@ -5,8 +5,6 @@ class ApplicationController < ActionController::Base
 
   protect_from_forgery with: :exception
 
-  around_action :switch_locale
-
   # Make browser_time_zone method available to all views
   helper_method :browser_time_zone
 
@@ -20,13 +18,13 @@ class ApplicationController < ActionController::Base
     Time.zone
   end
 
+  # Set the locale of the current user and persist it in the database
   def set_locale
-    I18n.locale = params[:locale] || I18n.default_locale
-  end
+    if current_user && params[:locale].present? && I18n.available_locales.include?(params[:locale].to_sym)
+      current_user.update(locale: params[:locale])
+    end
 
-  def switch_locale(&action)
-    locale = current_user.try(:locale) || I18n.default_locale
-    I18n.with_locale(locale, &action)
+    I18n.locale = current_user&.locale || params[:locale] || I18n.default_locale
   end
 
   def default_url_options
