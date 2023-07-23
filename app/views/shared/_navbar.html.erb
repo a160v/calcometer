@@ -30,9 +30,22 @@
           </li>
         </ul>
       <% else %>
-        <ul class="nav d-flex col-12 col-md-auto d-md-none d-lg-none">
-          <%= link_to t('.login'), new_user_session_path, class: "btn btn-outline-dark my-2" %>
-          <%= link_to t('.sign_up'), new_user_registration_path, class: "btn btn-primary" %>
+        <ul class="nav">
+          <li class="nav-item nav-link"><%= link_to t('.login'), new_user_session_path, class: "btn btn-outline-dark" %></li>
+          <li class="nav-item nav-link"><%= link_to t('.sign_up'), new_user_registration_path, class: "btn btn-primary" %></li>
+          <li class="nav-item nav-link">
+            <div class="dropdown mb-1">
+              <a class="dropdown-toggle text-dark form-control text-decoration-none" href="#" role="button" id="localeDropdown" data-bs-toggle="dropdown" aria-expanded="false">
+                <%= t('.language') %>
+              </a>
+              <ul class="dropdown-menu" aria-labelledby="localeDropdown">
+                <%= link_to "Italiano", url_for(locale: :it), class: "dropdown-item" %>
+                <%= link_to "English", url_for(locale: :en), class: "dropdown-item" %>
+                <%= link_to "Deutsch", url_for(locale: :de), class: "dropdown-item" %>
+                <%= link_to "Français", url_for(locale: :fr), class: "dropdown-item" %>
+              </ul>
+            </div>
+          </li>
         </ul>
       <% end %>
     </div>

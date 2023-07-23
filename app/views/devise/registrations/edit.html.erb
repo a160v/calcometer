@@ -8,7 +8,7 @@
     <%= f.input :last_name, required: false, autofocus: true %>
     <%= f.input :email, required: true, autofocus: true %>
 
-    <p class="my-1"><%= t(".select_time") %></p>
+    <p class="my-1"><%= t(".select_time_zone") %></p>
     <%= f.time_zone_select :time_zone, nil, {default: browser_time_zone.name}, {:class => 'form-control'} %>
 
     <p class="my-1"><%= t(".select_language") %></p>
