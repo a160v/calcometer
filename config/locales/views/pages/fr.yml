@@ -1,4 +1,4 @@
-it:
+fr:
   pages:
     home:
       greeting: "Bonjour, %{name}"
