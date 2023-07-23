@@ -11,8 +11,8 @@
             end %>
         </h2>
         <ul class="list-group list-group-flush">
-          <li class="list-group-item"><strong><%= t(".arrived_at", time: l(appointment.start_time, format: :short)) %></strong></li>
-          <li class="list-group-item"><strong><%= t(".left_at", time: l(appointment.end_time, format: :short)) %></strong></li>
+          <li class="list-group-item"><%= t(".arrived_at", time: l(appointment.start_time, format: :short)) %></li>
+          <li class="list-group-item"><%= t(".left_at", time: l(appointment.end_time, format: :short)) %></li>
         </ul>
       </div>
     <% end %>

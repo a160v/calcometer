@@ -103,11 +103,12 @@ de:
         title: "%{resource} bearbeiten"
         unhappy: Unzufrieden?
         update: Aktualisieren
-        we_need_your_current_password_to_confirm_your_changes: wir benötigen Ihr aktuelles Passwort, um die Änderung zu bestätigen
+        we_need_your_current_password_to_confirm_your_changes: Wir benötigen Ihr aktuelles Passwort, um die Änderung zu bestätigen
         select_time_zone: Auswahl einer Zeitzone
         select_language: Wählen Sie eine Sprache
         language: Sprache
       new:
+        title: Sie erstellen ein neues Profil
         sign_up: Registrieren
         select_time_zone: Auswahl einer Zeitzone
       signed_up: Sie haben sich erfolgreich registriert.

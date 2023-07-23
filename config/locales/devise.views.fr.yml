@@ -101,11 +101,12 @@ fr:
         title: Éditer %{resource}
         unhappy: Pas content ?
         update: Modifier
-        we_need_your_current_password_to_confirm_your_changes: nous avons besoin de votre mot de passe actuel pour valider ces modifications
+        we_need_your_current_password_to_confirm_your_changes: Nous avons besoin de votre mot de passe pour valider ces modifications
         select_time_zone: Sélectionner le fuseau horaire
         select_language: Sélectionner la langue
         language: Langue
       new:
+        title: Vous créez un nouveau profil
         sign_up: Inscription
         select_time_zone: Sélectionner le fuseau horaire
       signed_up: Bienvenue ! Vous vous êtes bien enregistré(e).

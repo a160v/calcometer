@@ -2,7 +2,7 @@
   <%= f.error_notification %>
   <main class="form-signin w-100 m-auto">
     <form>
-    <h4 class="mb-3 fw-normal">You are creating a new account</h4>
+    <h4 class="mb-3 fw-normal"><%= t(".title") %></h4>
       <div class="form-floating">
         <%= f.input :name,
                     required: true,
@@ -43,7 +43,7 @@
                     id: "floatingInput",
                     placeholder: "Password" %>
       </div>
-      <%= f.button :submit, "Sign up", class: "w-100 btn btn-lg btn-primary"%>
+      <%= f.button :submit, t(".sign_up"), class: "w-100 btn btn-lg btn-primary"%>
     </form>
   </main>
 <% end %>

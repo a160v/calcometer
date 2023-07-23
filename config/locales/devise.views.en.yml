@@ -99,15 +99,16 @@ en:
         are_you_sure: Are you sure?
         cancel_my_account: Cancel my account
         currently_waiting_confirmation_for_email: 'Currently waiting confirmation for: %{email}'
-        leave_blank_if_you_don_t_want_to_change_it: leave blank if you don't want to change it
+        leave_blank_if_you_don_t_want_to_change_it: Leave blank if you don't want to change it
         title: Edit your account
         unhappy: Unhappy?
         update: Update
-        we_need_your_current_password_to_confirm_your_changes: we need your current password to confirm your changes
+        we_need_your_current_password_to_confirm_your_changes: We need your current password to confirm your changes
         select_time_zone: Select your time zone
         select_language: Select your language
         language: Language
       new:
+        title: You are creating a new account
         sign_up: Sign up
         select_time_zone: Select your time zone
       signed_up: Welcome! You have signed up successfully.

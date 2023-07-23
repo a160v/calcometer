@@ -7,7 +7,7 @@ it:
       analytics: "Statistiche"
       patients: "Pazienti"
       clients: "Clienti"
-      export_data: "Esportare i miei appuntamenti"
+      export_data: "Esportare appuntamenti"
       share_feedback: "Condivido il mio feedback"
       calcometer: "Calcometer"
       manage_ease: "Gestisci con facilità le tue distanze di viaggio, i tempi e gli appuntamenti."

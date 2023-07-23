@@ -108,6 +108,7 @@ it:
         select_language: Seleziona la lingua
         language: Lingua
       new:
+        title: Stai creando un nuovo profilo
         sign_up: Registrati
         select_time_zone: Seleziona il fuso orario
       signed_up: Iscrizione eseguita correttamente. Se abilitata, una conferma è stata inviata al tuo indirizzo email.
