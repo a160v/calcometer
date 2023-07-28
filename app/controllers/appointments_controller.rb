@@ -24,7 +24,7 @@ class AppointmentsController < ApplicationController
     @appointment.address = @appointment.patient.address
 
     if @appointment.save
-      redirect_to appointments_path, notice: 'Appointment was successfully created.'
+      redirect_to appointments_path, notice: t(:appointment_created_success)
     else
       # Render in HTML and JSON with error messages
       respond_to do |format|
@@ -36,7 +36,7 @@ class AppointmentsController < ApplicationController
 
   def destroy
     @appointment.destroy
-    redirect_to appointments_path, notice: 'Appointment was successfully deleted.'
+    redirect_to appointments_path, notice: t(:appointment_deleted_success)
   end
 
   # PRIVATE ####################################################################

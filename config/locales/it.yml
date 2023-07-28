@@ -213,3 +213,5 @@ it:
       long: "%d %B %Y %H:%M"
       short: "%d %b %H:%M"
     pm: pm
+  appointment_created_success: L'appuntamento é stato creato con successo.
+  appointment_deleted_success: L'appuntamento é stato eliminato con successo.

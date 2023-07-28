@@ -2,13 +2,13 @@ fr:
   pages:
     home:
       greeting: "Bonjour, %{name}"
-      today: "Aujourd'hui c'est le %{date}"
-      new_appointment: "Nouveau RDV"
-      analytics: "Statistiques"
+      today: "C'est le %{date}"
+      new_appointment: "Nouveau rendez-vous"
+      analytics: "Mes rendez-vous"
       patients: "Patients"
       clients: "Clients"
-      export_data: "Exporter mes RDV"
-      share_feedback: "Mon avis"
+      export_data: "Exporter mes rendez-vous" 
+      share_feedback: "Partager mon avis"
       calcometer: "Calcometer"
       manage_ease: "Gérez facilement vos distances de voyage, vos temps et vos horaires de rendez-vous."
       sign_up: "S'inscrire"

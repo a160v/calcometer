@@ -1,13 +1,11 @@
 it:
   analytics:
     index:
-      title: "Statistiche"
+      title: "Tutti gli appuntamenti"
       today: "Oggi"
-      minus_one: "-1"
       start_date: "Data di inizio"
       end_date: "Data di fine"
       submit: "Invia"
-      plus_one: "+1"
       distance: "Distanza"
       appointments: "Appuntamenti"
       during_this_period: "Durante questo periodo, hai percorso"

@@ -1,13 +1,11 @@
 de:
   analytics:
     index:
-      title: "Statistiken"
+      title: "Alle Termine"
       today: "Heute"
-      minus_one: "-1"
       start_date: "Startdatum"
       end_date: "Enddatum"
       submit: "Absenden"
-      plus_one: "+1"
       distance: "Entfernung"
       appointments: "Termine"
       during_this_period: "Während dieser Zeit bist du gefahren"

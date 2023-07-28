@@ -100,7 +100,7 @@ it:
         cancel_my_account: Rimuovi il mio profilo
         currently_waiting_confirmation_for_email: 'In attesa di conferma per: %{email}'
         leave_blank_if_you_don_t_want_to_change_it: lascia in bianco se non vuoi cambiarla
-        title: Modifica il tuo profilo
+        title: Modificare il mio profilo
         unhappy: Scontento
         update: Aggiorna
         we_need_your_current_password_to_confirm_your_changes: Abbiamo bisogno della tua password attuale per confermare i cambiamenti

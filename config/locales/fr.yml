@@ -219,3 +219,5 @@ fr:
       long: "%A %d %B %Y %Hh%M"
       short: "%d %b %Hh%M"
     pm: pm
+  appointment_created_success: Le rendez-vous a été créé avec succès.
+  appointment_deleted_success: Le rendez-vous a été supprimé avec succès.

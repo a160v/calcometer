@@ -215,3 +215,5 @@ en:
       long: "%B %d, %Y %H:%M"
       short: "%d %b %H:%M"
     pm: pm
+  appointment_created_success: Appointment was successfully created.
+  appointment_deleted_success: Appointment was successfully deleted.

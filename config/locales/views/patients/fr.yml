@@ -1,12 +1,12 @@
-en:
+fr:
   patients:
     index:
       all_patients: "Tous les patients"
       new_patient: "Nouveau patient"
-      patients_count: "Tu as %{patients} patients"
+      patients_count: "Vous avez %{patients} patients"
     show:
       no_location: "Ce patient n'a pas de localisation valide, veuillez la mettre à jour."
-      drive_me: "Conduis-moi là-bas"
+      drive_me: "Conduis-moi chez le patient"
       total_appointments: "Total des rendez-vous"
       time_spent: "Temps passé avec ce patient"
       hours: "heures"

@@ -2,13 +2,13 @@ en:
   pages:
     home:
       greeting: "Hello, %{name}"
-      today: "Today is %{date}"
+      today: "It is %{date}"
       new_appointment: "New appointment"
-      analytics: "Stats"
+      analytics: "All appointments"
       patients: "Patients"
       clients: "Clients"
       export_data: "Export appointments"
-      share_feedback: "Share feedback"
+      share_feedback: "Help us improve"
       calcometer: "Calcometer"
       manage_ease: "Manage with ease your travel distances, times, and appointment schedules."
       sign_up: "Sign Up"

@@ -3,8 +3,8 @@ de:
     navbar:
       home: "Startseite"
       menu: "Menü"
-      appointments: "Termine"
-      analytics: "Statistiken"
+      appointments: "Neue Termin"
+      analytics: "Alle Termine"
       patients: "Patienten"
       clients: "Klienten"
       my_account: "Mein Konto"

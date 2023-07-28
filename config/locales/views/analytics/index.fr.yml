@@ -1,13 +1,11 @@
 fr:
   analytics:
     index:
-      title: "Statistiques"
+      title: "Tous mes rendez-vous"
       today: "Aujourd'hui"
-      minus_one: "-1"
       start_date: "Date de début"
       end_date: "Date de fin"
       submit: "Soumettre"
-      plus_one: "+1"
       distance: "Distance"
       appointments: "Rendez-vous"
       during_this_period: "Pendant cette période, tu as parcouru"

@@ -1,7 +1,7 @@
 fr:
   appointments:
     index:
-      title: "Rendez-vous le %{date}"
+      title: "Mes rendez-vous du %{date}"
       new_appointment: "Nouveau rendez-vous"
       calculate_distance_time: "Calculer la distance et le temps"
       today_you_drove: "Aujourd'hui, vous avez conduit"
