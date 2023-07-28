@@ -2,7 +2,7 @@ class ClientsController < ApplicationController
   before_action :set_client, only: %i[show edit update destroy]
 
   def index
-    @clients = Client.all
+    @clients = Client.all.order("created_at DESC")
   end
 
   def show

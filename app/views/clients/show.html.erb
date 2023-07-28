@@ -4,7 +4,6 @@
   <div class="card-body">
     <h2 class="card-title">👤 <%= t(".client_name", name: @client.name) %></h2>
     <p class="card-text">📧 <%= t(".client_email", email: @client.email) %></p>
-    <a href="#" class="btn btn-primary mt-1"><%= t(".send_report") %></a>
   </div>
   <ul class="list-group list-group-flush">
     <li class="list-group-item"><%= link_to t(".back_to_clients"), clients_path%></li>
