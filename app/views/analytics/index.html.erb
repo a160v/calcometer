@@ -1,34 +1,16 @@
-<div class="container text-center">
-  <div class="row align-items-center">
-    <div class="col-9">
-      <h1><%= t(".title") %></h1>
-    </div>
-    <div class="col-3">
-      <%= link_to t('.today'), analytics_path(start_date: Date.today.strftime('%Y-%m-%d'), end_date: Date.today.strftime('%Y-%m-%d')), class: 'btn btn-outline-dark' %>
-    </div>
-  </div>
-</div>
+<h1 class="text-center"><%= t(".title") %></h1>
+<%# Container with date selection %>
 <div class="container text-center my-2 border border-dark rounded" style="--bs-border-opacity: .1;">
-  <div class="row align-items-center">
-    <div class="col-3">
-      <%= link_to t('.minus_one'), analytics_path(start_date: (@start_date - 1.day).strftime('%Y-%m-%d'), end_date: (@end_date - 1.day).strftime('%Y-%m-%d')), class: 'btn btn-outline-dark' %>
-    </div>
-    <div class="col-6">
-      <div id="date-selection" data-controller="date-range">
-        <%= form_tag analytics_path, method: :get, class: 'form-inline justify-content-center' do %>
-          <div class="form-group">
-            <%= label_tag :start_date, t('.start_date'), class: 'mr-2' %>
-            <%= date_field_tag :start_date, @start_date, required: true, data: { action: "change->date-range#updateEndDateMin", date_range_target:"startDate" }, class: 'form-control mr-2' %>
-            <%= label_tag :end_date, t('.end_date'), class: 'mr-2' %>
-            <%= date_field_tag :end_date, @end_date, required: true, data: { date_range_target: "endDate" }, class:'form-control mr-2 mb-2' %>
-            <%= submit_tag t('.submit'), class: 'w-100 btn btn-dark' %>
-          </div>
-        <% end %>
+  <div id="date-selection" data-controller="date-range">
+    <%= form_tag analytics_path, method: :get, class: 'form-inline justify-content-center' do %>
+      <div class="form-group">
+        <%= label_tag :start_date, t('.start_date'), class: 'mr-2' %>
+        <%= date_field_tag :start_date, @start_date, required: true, data: { action: "change->date-range#updateEndDateMin", date_range_target:"startDate" }, class: 'form-control mr-2' %>
+        <%= label_tag :end_date, t('.end_date'), class: 'mr-2' %>
+        <%= date_field_tag :end_date, @end_date, required: true, data: { date_range_target: "endDate" }, class:'form-control mr-2 mb-2' %>
+        <%= submit_tag t('.submit'), class: 'w-100 btn btn-dark' %>
       </div>
-    </div>
-    <div class="col-3 ">
-      <%= link_to t('.plus_one'), analytics_path(start_date: (@start_date + 1.day).strftime('%Y-%m-%d'), end_date: (@end_date + 1.day).strftime('%Y-%m-%d')), class: 'btn btn-outline-dark' %>
-    </div>
+    <% end %>
   </div>
 </div>
 <%# Tabs for distance and appointments %>
