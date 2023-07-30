@@ -1,6 +1,6 @@
-en:
+it:
   simple_form:
-    "yes": 'Yes'
+    "yes": 'Sì'
     "no": 'No'
     required:
       text: 'required'
@@ -9,20 +9,16 @@ en:
       # When using html, text and mark won't be used.
       # html: '<abbr title="required">*</abbr>'
     error_notification:
-      default_message: 'Please review the problems below'
+      default_message: "Si prega di rivede i problemi di seguito"
     # labels:
     #   defaults:
     #     password: 'Password'
     #   user:
     #     new:
-    #       email: 'Email to sign in.'
+    #       email: 'E-mail per accedere.'
     #     edit:
-    #       email: 'Email.'
-    #   patient:
-    #     new:
-    #       form:
-    #         not_saved: 'The patient couldn't be saved'
+    #       email: 'E-mail.'
     # hints:
     #   defaults:
-    #     username: 'User name to sign in.'
-    #     password: 'No special characters, please.'
+    #     username: 'Nome utente per accedere.'
+    #     password: 'Niente caratteri speciali, per favore.'
