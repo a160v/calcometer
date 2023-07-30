@@ -10,12 +10,16 @@ class ApplicationController < ActionController::Base
 
   # Use the jstz Javascript timezone library to help auto-detect and set the user's time zone
   def browser_time_zone
-    browser_tz = ActiveSupport::TimeZone.find_tzinfo(cookies[:timezone])
+    browser_tz = ActiveSupport::TimeZone.find_tzinfo(cookies[:browser_time_zone])
     ActiveSupport::TimeZone.all.find { |zone| zone.tzinfo == browser_tz } || Time.zone
     # Rescue two exceptions thrown by browser_tz
   rescue TZInfo::UnknownTimezone, TZInfo::InvalidTimezoneIdentifier
     # Else return the default time zone (UTC)
     Time.zone
+  end
+
+  def default_url_options
+    { locale: I18n.locale }
   end
 
   # Set the locale of the current user and persist it in the database
@@ -25,10 +29,6 @@ class ApplicationController < ActionController::Base
     end
 
     I18n.locale = current_user&.locale || params[:locale] || I18n.default_locale
-  end
-
-  def default_url_options
-    { locale: I18n.locale }
   end
 
   protected

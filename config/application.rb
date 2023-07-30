@@ -16,9 +16,14 @@ module Calcometer
     # Initialize configuration defaults for originally generated Rails version.
     config.load_defaults 7.0
 
-    # Configuration for the application, engines, and railties goes here.
-    config.i18n.load_path += Dir[Rails.root.join('my', 'locales', '*.{rb,yml}')]
-    config.i18n.default_locale = :it
+    # Where the I18n library should search for translation files
+    I18n.load_path += Dir[Rails.root.join('lib', 'locales', '*.{rb,yml}')]
+
+    # Permitted locales available for the application
+    I18n.available_locales =  %i[it de en fr]
+
+    # Set default locale to Italian
+    I18n.default_locale = :it
 
     # These settings can be overridden in specific environments using the files
     # in config/environments, which are processed later.
