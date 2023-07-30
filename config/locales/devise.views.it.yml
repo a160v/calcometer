@@ -10,7 +10,7 @@ it:
         current_sign_in_at: Accesso corrente il
         current_sign_in_ip: IP accesso corrente
         email: Email
-        name: Nome
+        first_name: Nome
         last_name: Cognome
         encrypted_password: Password criptata
         failed_attempts: Tentativi falliti

@@ -1,6 +1,6 @@
 <% if user_signed_in? %>
   <div class="container mt-5">
-    <h1><%= t(".greeting", name: current_user.name) %> 👋</h1>
+    <h1><%= t(".greeting", name: current_user.first_name) %> 👋</h1>
     <br>
     <h3><%= t(".today", date: l(Time.new, format: :long)) %></h3>
     <div class="row p-1">

@@ -1,6 +1,6 @@
 # Create Aleks user
 user = User.create(
-  name: 'Aleks',
+  first_name: 'Aleks',
   last_name: 'Starlord',
   email: 'aleks@starlord.com',
   password: 'stropass123',
@@ -8,7 +8,7 @@ user = User.create(
 )
 
 if user.persisted?
-  puts "Created user #{user.name} #{user.last_name}"
+  puts "Created user #{user.first_name} #{user.last_name}"
 else
   puts "Failed to create user: #{user.errors.full_messages.join(', ')}"
 end

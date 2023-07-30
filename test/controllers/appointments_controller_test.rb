@@ -13,7 +13,7 @@ class AppointmentsControllerTest < ActionDispatch::IntegrationTest
     @user = User.create(
       email: 'user@example.com',
       encrypted_password: 'password',
-      name: 'User',
+      first_name: 'User',
       last_name: 'Example'
     )
     @appointment = Appointment.create(

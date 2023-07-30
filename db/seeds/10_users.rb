@@ -1,7 +1,7 @@
 # Create n random users
 USERS_TO_CREATE.times do
   user = User.create(
-    name: Faker::Name.name,
+    first_name: Faker::Name.name,
     last_name: Faker::Name.last_name,
     email: Faker::Internet.email,
     password: 'stropass123',

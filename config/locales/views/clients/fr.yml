@@ -2,7 +2,7 @@ fr:
   clients:
     index:
       title: "Tous les organisations"
-      new_client: "Nouveau organisation"
+      new_client: "Nouvelle organisation"
       footer:
         zero: "Il n'y a pas de organisations, allez en créer un"
         one: "Vous avez un organisation"
@@ -12,7 +12,7 @@ fr:
       client_email: "%{email}"
       send_report: "Envoyer le rapport mensuel"
     new:
-      new_client: "Vous créez un nouveau organisation"
+      new_client: "Vous créez un nouvelle organisation"
     edit:
       title: "Vous modifiez %{name}"
       back_to_clients: "Retour à la liste des organisations"

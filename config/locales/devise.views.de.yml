@@ -10,7 +10,7 @@ de:
         current_sign_in_at: Aktuelle Anmeldung vom
         current_sign_in_ip: IP der aktuellen Anmeldung
         email: E-Mail
-        name: Vorname
+        first_name: Vorname
         last_name: Name
         encrypted_password: Verschlüsseltes Passwort
         failed_attempts: Fehlversuche

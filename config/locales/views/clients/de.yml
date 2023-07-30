@@ -4,8 +4,8 @@ de:
       title: "Alle Organisationen"
       new_client: "Neue Organisation"
       footer:
-        zero: "Es gibt keine Organisationen, erstellen Sie den ersten"
-        one: "Sie haben einen Organisationen"
+        zero: "Es gibt keine Organisation, erstellen Sie den ersten"
+        one: "Sie haben einen Organisatione"
         other: "Sie haben %{count} Organisationen"
     show:
       client_name: "%{name}"

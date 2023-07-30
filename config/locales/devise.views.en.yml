@@ -10,7 +10,7 @@ en:
         current_sign_in_at: Current sign in at
         current_sign_in_ip: Current sign in IP
         email: Email
-        name: Name
+        first_name: Name
         last_name: Last name
         encrypted_password: Encrypted password
         failed_attempts: Failed attempts
