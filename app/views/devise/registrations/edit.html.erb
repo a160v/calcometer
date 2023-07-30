@@ -4,7 +4,7 @@
   <%= f.error_notification %>
 
   <div class="form-inputs">
-    <%= f.input :name, required: true, autofocus: true, class: "form-control" %>
+    <%= f.input :first_name, required: true, autofocus: true, class: "form-control" %>
     <%= f.input :last_name, required: false, autofocus: true %>
     <%= f.input :email, required: true, autofocus: true %>
 
@@ -12,17 +12,7 @@
     <%= f.time_zone_select :time_zone, nil, {default: browser_time_zone.name}, {:class => 'form-control'} %>
 
     <p class="my-1"><%= t(".select_language") %></p>
-    <div class="dropdown mb-1">
-      <a class="dropdown-toggle text-dark form-control text-decoration-none" href="#" role="button" id="localeDropdown" data-bs-toggle="dropdown" aria-expanded="false">
-        <%= t('.language', selected_language: @current_user.locale) %>
-      </a>
-      <ul class="dropdown-menu" aria-labelledby="localeDropdown">
-        <%= link_to "Italiano", url_for(locale: :it), class: "dropdown-item" %>
-        <%= link_to "English", url_for(locale: :en), class: "dropdown-item" %>
-        <%= link_to "Deutsch", url_for(locale: :de), class: "dropdown-item" %>
-        <%= link_to "Français", url_for(locale: :fr), class: "dropdown-item" %>
-      </ul>
-    </div>
+    <%= f.select :locale, I18n.available_locales.map(&:to_s), {}, class: 'form-control' %>
 
     <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
       <p>Currently waiting confirmation for: <%= resource.unconfirmed_email %></p>
@@ -32,12 +22,9 @@
                 hint: "Leave blank if you don't want to change it",
                 required: false,
                 input_html: { autocomplete: "off" } %>
-    <%= f.input :password_confirmation,
-                required: false,
-                input_html: { autocomplete: "off" } %>
     <%= f.input :current_password,
                 hint: "Input your password to confirm the changes.",
-                required: true,
+                required: false,
                 input_html: { autocomplete: "off" } %>
   </div>
 
@@ -52,14 +39,7 @@
 
 <br>
 
-<div>
-  <h4 class="m-4">Dangerous area - This action is not reversible</h4>
-
-  <%= button_to "Delete my account",
-  registration_path(resource_name),
-  data: { confirm: "Are you sure?",
-  turbo_confirm: "Are you sure?" },
-  method: :delete,
-  class: "btn btn-danger mb-2" %>
-
-</div>
+<h6 class="m-4">If you want to delete your account, please send an email
+  <a href="mailto:aleks.vangjelofski@gmail.com?subject=Please delete my account&body=Dear Aleks, please delete my account.">here
+  </a>
+</h6>
