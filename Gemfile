@@ -54,10 +54,14 @@ gem "font-awesome-sass", "~> 6.1"
 # https://github.com/heartcombo/devise
 gem "devise"
 gem "devise-i18n"
+gem 'omniauth'
+gem 'omniauth-google-oauth2'
+gem "omniauth-rails_csrf_protection"
 
 # Complete Ruby geocoding solution
 # https://github.com/alexreisner/geocoder
 gem "geocoder"
+gem 'country_select', '~> 8.0'
 
 # Better forms for Ruby
 # https://github.com/heartcombo/simple_form
