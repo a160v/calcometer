@@ -1,8 +1,10 @@
-<div class="container">
+<div class="container" id="patient_form">
   <div class="row">
     <h3 class="text-center my-4"><%= t(".title") %></h3>
     <div class="col-md-6 offset-md-3">
-      <%= render "form", patient: @patient %>
+      <%= turbo_frame_tag dom_id(@patient) do %>
+        <%= render "form", patient: @patient %>
+      <% end %>
     </div>
     <div class="col-md-6 offset-md-3 mt-3">
       <%= link_to t(".back_to_patients"), patients_path, class: "btn btn-secondary" %>

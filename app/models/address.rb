@@ -37,7 +37,7 @@ class Address < ApplicationRecord
       self.latitude = geo.latitude
       self.longitude = geo.longitude
     else
-      errors.add(:address, "wasn't found.")
+      errors.add(:street, "Geocoding failed. Please check the address.")
     end
   end
 end

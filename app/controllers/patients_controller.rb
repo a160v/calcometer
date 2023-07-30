@@ -18,9 +18,10 @@ class PatientsController < ApplicationController
   end
 
   def create
-    @address = Address.find_or_create_by(patient_params[:address_attributes])
-    Rails.logger.debug @address.inspect
     @patient = Patient.new(patient_params)
+    @address = Address.find_or_create_by(@patient.address.attributes)
+
+    Rails.logger.debug @address.inspect
     @patient.address = @address
 
     if @patient.save
@@ -28,14 +29,16 @@ class PatientsController < ApplicationController
     else
       Rails.logger.debug @patient.errors.full_messages
       @address.errors.add(:base, "Geocoding failed. Please check the address.")
-      flash.now[:error] = @address.errors.full_messages.join(", ")
-      # Render in HTML and JSON with error messages
+      @patient.build_address if @patient.address.nil?
+
       respond_to do |format|
+        format.turbo_stream { render turbo_stream: turbo_stream.replace(@patient, partial: 'form', locals: { patient: @patient }) }
         format.html { render :new }
-        format.json { render json: { errors: @patient.errors[:base] }, status: :unprocessable_entity }
       end
     end
   end
+
+
 
   def update
     if @patient.update(patient_params)

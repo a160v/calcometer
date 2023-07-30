@@ -4,10 +4,7 @@ class Client < ApplicationRecord
   validates :name, presence: true
   validates :email,
             presence: true,
-            format: {
-              with: /\A[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]+\z/,
-              message: 'Please provide a valid e-mail address'
-            },
+            format: { with: /\A[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]+\z/ },
             on: :create,
-            uniqueness: { message: "already used by an existing client, please provide a different one." }
+            uniqueness: true
 end
