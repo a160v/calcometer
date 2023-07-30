@@ -22,20 +22,16 @@ class ApplicationController < ActionController::Base
     { locale: I18n.locale }
   end
 
-  # Set the locale of the current user and persist it in the database
+  # Set the locale upon login
   def set_locale
-    if current_user && params[:locale].present? && I18n.available_locales.include?(params[:locale].to_sym)
-      current_user.update(locale: params[:locale])
-    end
-
     I18n.locale = current_user&.locale || params[:locale] || I18n.default_locale
   end
 
   protected
 
   def configure_permitted_parameters
-    devise_parameter_sanitizer.permit(:sign_up) { |u| u.permit(:name, :last_name, :email, :time_zone, :locale, :password) }
+    devise_parameter_sanitizer.permit(:sign_up) { |u| u.permit(:first_name, :last_name, :email, :time_zone, :locale, :password) }
 
-    devise_parameter_sanitizer.permit(:account_update) { |u| u.permit(:name, :last_name, :email, :time_zone, :locale, :password, :current_password) }
+    devise_parameter_sanitizer.permit(:account_update) { |u| u.permit(:first_name, :last_name, :email, :time_zone, :locale, :password) }
   end
 end
