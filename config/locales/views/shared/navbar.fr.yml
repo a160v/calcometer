@@ -6,7 +6,7 @@ fr:
       appointments: "Nouveau rendez-vous"
       analytics: "Mes rendez-vous"
       patients: "Patients"
-      clients: "Clients"
+      clients: "Organisations"
       my_account: "Mon compte"
       edit_profile: "Modifier compte"
       log_out: "Se déconnecter"

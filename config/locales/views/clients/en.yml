@@ -1,25 +1,25 @@
 en:
   clients:
     index:
-      title: "All clients"
-      new_client: "New client"
+      title: "All organisations"
+      new_client: "New organisation"
       footer:
-        zero: "There are no clients, go create the first one"
-        one: "You have one client"
-        other: "You have %{count} clients"
+        zero: "There are no organisations, go create the first one"
+        one: "You have one organisation"
+        other: "You have %{count} organisations"
     show:
       client_name: "%{name}"
       client_email: "%{email}"
       send_report: "Send monthly report"
-      back_to_clients: "Back to clients"
-      edit_client: "Edit client"
-      delete_client: "Delete client"
+      back_to_clients: "Back to organisations"
+      edit_client: "Edit organisation"
+      delete_client: "Delete organisation"
     new:
-      new_client: "You are creating a new client"
-      back_to_clients: "Back to clients"
+      new_client: "You are creating a new organisation"
+      back_to_clients: "Back to organisations"
     edit:
       title: "You are editing %{name}"
-      back_to_clients: "Back to clients"
+      back_to_clients: "Back to organisations"
     client:
       client_name: "%{name}"
       client_email: "%{email}"

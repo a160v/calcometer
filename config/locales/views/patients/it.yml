@@ -30,7 +30,7 @@ it:
       state_placeholder: "Stato"
       country: "Paese"
       country_default: "Svizzera"
-      select_client: "Chi è il cliente di questo paziente?"
+      select_client: "A quale organizzazione appartiene questo paziente?"
       submit: "Convalida e salva"
     new:
       title: "Stai creando un nuovo paziente"

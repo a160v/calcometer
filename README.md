@@ -7,7 +7,7 @@ The application has the following models:
 
 - `User`: Represents the healthcare workers.
 - `Patient`: Represents the patients that the healthcare workers visit for appointments.
-- `Client`: Represents the clients/employers who have one or more patients.
+- `Client`: Represents the organisations who have one or more patients.
 - `Appointment`: Represents the visits made by a user to a patient.
 
 The application calculates the distance and time spent traveling between patients using the [Geocoder](https://github.com/alexreisner/geocoder).
@@ -33,7 +33,7 @@ bundle && yarn
 ```
 bundle update && yarn upgrade
 ```
-- in app/db/seeds.rb, you can set how many users, patients, clients and appointments you want to set; then run
+- in app/db/seeds.rb, you can set how many users, patients, organisations and appointments you want to set; then run
 ```
 rails db:setup
 ```

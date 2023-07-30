@@ -6,7 +6,7 @@ it:
       appointments: "Nuovo appuntamento"
       analytics: "Tutti appuntamenti"
       patients: "Pazienti"
-      clients: "Clienti"
+      clients: "Organizzazioni"
       my_account: "Profilo"
       edit_profile: "Modifica profilo"
       log_out: "Disconnetti"

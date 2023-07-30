@@ -1,21 +1,21 @@
 de:
   clients:
     index:
-      title: "Alle Kunden"
-      new_client: "Neuer Kunde"
+      title: "Alle Organisationen"
+      new_client: "Neue Organisation"
       footer:
-        zero: "Es gibt keine Kunden, erstellen Sie den ersten"
-        one: "Sie haben einen Kunden"
-        other: "Sie haben %{count} Kunden"
+        zero: "Es gibt keine Organisationen, erstellen Sie den ersten"
+        one: "Sie haben einen Organisationen"
+        other: "Sie haben %{count} Organisationen"
     show:
       client_name: "%{name}"
       client_email: "%{email}"
       send_report: "Monatsbericht senden"
     new:
-      new_client: "Sie erstellen einen neuen Kunden"
+      new_client: "Sie erstellen einen neuen Organisationen"
     edit:
       title: "Sie bearbeiten %{name}"
-      back_to_clients: "Zurück zur Kundenliste"
+      back_to_clients: "Zurück zur Organisationenliste"
     client:
       client_name: "%{name}"
       client_email: "%{email}"
