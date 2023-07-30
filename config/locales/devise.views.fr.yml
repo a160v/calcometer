@@ -104,7 +104,7 @@ fr:
         we_need_your_current_password_to_confirm_your_changes: Nous avons besoin de votre mot de passe pour valider ces modifications
         select_time_zone: Sélectionner le fuseau horaire
         select_language: Sélectionner la langue
-        language: Langue
+        language: '%{selected_language}'
       new:
         title: Vous créez un nouveau profil
         sign_up: Inscription

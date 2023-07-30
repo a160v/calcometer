@@ -106,7 +106,7 @@ de:
         we_need_your_current_password_to_confirm_your_changes: Wir benötigen Ihr aktuelles Passwort, um die Änderung zu bestätigen
         select_time_zone: Auswahl einer Zeitzone
         select_language: Wählen Sie eine Sprache
-        language: Sprache
+        language: '%{selected_language}'
       new:
         title: Sie erstellen ein neues Profil
         sign_up: Registrieren

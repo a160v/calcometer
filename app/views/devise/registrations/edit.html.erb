@@ -14,7 +14,7 @@
     <p class="my-1"><%= t(".select_language") %></p>
     <div class="dropdown mb-1">
       <a class="dropdown-toggle text-dark form-control text-decoration-none" href="#" role="button" id="localeDropdown" data-bs-toggle="dropdown" aria-expanded="false">
-        <%= t('.language') %>
+        <%= t('.language', selected_language: @current_user.locale) %>
       </a>
       <ul class="dropdown-menu" aria-labelledby="localeDropdown">
         <%= link_to "Italiano", url_for(locale: :it), class: "dropdown-item" %>

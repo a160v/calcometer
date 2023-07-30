@@ -18,11 +18,11 @@
           <li class="nav-item"><a href="/patients" class="nav-link text-dark"><%= t('.patients') %></a></li>
           <li class="nav-item"><a href="/clients" class="nav-link text-dark"><%= t('.clients') %></a></li>
           <li class="nav-item">
-            <div class="dropdown-center">
+            <div class="dropdown-center btn-group">
               <a class="nav-link dropdown-toggle text-dark" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                 <strong><%= t('.my_account') %></strong>
               </a>
-              <ul class="dropdown-menu outline-dark">
+              <ul class="dropdown-menu dropdown-menu-end outline-dark">
                 <li><%= link_to t('.edit_profile'), edit_user_registration_path, class: "dropdown-item" %></li>
                 <li><%= link_to t('.log_out'), destroy_user_session_path, data: {turbo_method: :delete}, class: "dropdown-item"%></li>
               </ul>

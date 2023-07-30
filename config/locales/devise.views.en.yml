@@ -106,7 +106,7 @@ en:
         we_need_your_current_password_to_confirm_your_changes: We need your current password to confirm your changes
         select_time_zone: Select your time zone
         select_language: Select your language
-        language: Language
+        language: '%{selected_language}'
       new:
         title: You are creating a new account
         sign_up: Sign up

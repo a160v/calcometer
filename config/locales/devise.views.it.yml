@@ -106,7 +106,7 @@ it:
         we_need_your_current_password_to_confirm_your_changes: Abbiamo bisogno della tua password attuale per confermare i cambiamenti
         select_time_zone: Seleziona il fuso orario
         select_language: Seleziona la lingua
-        language: Lingua
+        language: '%{selected_language}'
       new:
         title: Stai creando un nuovo profilo
         sign_up: Registrati
