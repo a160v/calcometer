@@ -10,6 +10,6 @@ fr:
       my_account: "Mon compte"
       edit_profile: "Modifier compte"
       log_out: "Se déconnecter"
-      login: "Connexion"
+      log_in: "Connexion"
       sign_up: "S'inscrire"
       language: "Langue"

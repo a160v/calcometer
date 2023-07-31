@@ -10,6 +10,6 @@ it:
       my_account: "Profilo"
       edit_profile: "Modifica profilo"
       log_out: "Disconnetti"
-      login: "Accedi"
+      log_in: "Accedi"
       sign_up: "Iscriviti"
       language: "Lingua"

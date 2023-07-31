@@ -10,6 +10,6 @@ en:
       my_account: "My account"
       edit_profile: "Edit account"
       log_out: "Log out"
-      login: "Login"
-      sign_up: "Sign-up"
+      log_in: "Log in"
+      sign_up: "Sign up"
       language: "Language"
