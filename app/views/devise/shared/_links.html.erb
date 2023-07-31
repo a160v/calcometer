@@ -2,7 +2,6 @@
   <%= link_to "Log in", new_session_path(resource_name) %><br />
 <% end %>
 
-
 <%- if devise_mapping.recoverable? && controller_name != 'passwords' && controller_name != 'registrations' %>
   <%= link_to "Forgot your password?", new_password_path(resource_name) %><br />
 <% end %>
@@ -15,8 +14,19 @@
   <%= link_to "Didn't receive unlock instructions?", new_unlock_path(resource_name) %><br />
 <% end %>
 
+
+<%# Divider 'or' for Google option in log in form %>
+<div class="or-container"><div class="line-separator"></div> <div class="or-label">or</div><div class="line-separator"></div></div>
+
 <%- if devise_mapping.omniauthable? %>
   <%- resource_class.omniauth_providers.each do |provider| %>
-    <%= button_to "Sign in with #{OmniAuth::Utils.camelize(provider)}", omniauth_authorize_path(resource_name, provider), data: { turbo: false } %><br />
+    <% if provider.to_s == 'google_oauth2' %>
+      <%= button_to omniauth_authorize_path(resource_name, provider), class: "btn btn-google", data: { turbo: false } do %>
+        <img src="https://upload.wikimedia.org/wikipedia/commons/5/53/Google_%22G%22_Logo.svg" width="20" height="20" class="d-inline-block align-top" alt="Google logo">
+        Google
+      <% end %>
+    <% else %>
+      <%= button_to "Sign in with #{OmniAuth::Utils.camelize(provider)}", omniauth_authorize_path(resource_name, provider), class: "btn btn-primary", data: { turbo: false } %>
+    <% end %>
   <% end %>
 <% end %>

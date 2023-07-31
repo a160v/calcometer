@@ -1,8 +1,16 @@
+<h4 class="mb-3 fw-normal"><%= t(".title") %></h4>
+
+<%= button_to omniauth_authorize_path(resource_name, 'google_oauth2'), class: "btn btn-google", data: { turbo: false } do %>
+  <img src="https://upload.wikimedia.org/wikipedia/commons/5/53/Google_%22G%22_Logo.svg" width="20" height="20" class="d-inline-block align-top" alt="Google logo">
+  Google
+<% end %>
+
+<div class="or-container"><div class="line-separator"></div> <div class="or-label">or</div><div class="line-separator"></div></div>
+
 <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name), data: { turbo: :false }) do |f| %>
   <%= f.error_notification %>
   <main class="form-signin w-100 m-auto">
     <form>
-    <h4 class="mb-3 fw-normal"><%= t(".title") %></h4>
       <div class="form-floating">
         <%= f.input :first_name,
                     required: true,
