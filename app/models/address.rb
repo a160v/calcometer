@@ -23,6 +23,13 @@ class Address < ApplicationRecord
     [street, number, zip_code, city, state, country].compact.join(', ')
   end
 
+  # Method to concatenate a nice address to show to the user
+  def nice_address
+    street_number = [street, number].compact.join(' ')
+    zip_city = [zip_code, city].compact.join(' ')
+    return [street_number, zip_city].compact.join(', ')
+  end
+
   # Method to check if any part of the address has changed
   def address_changed?
     street_changed? || number_changed? || zip_code_changed? || city_changed? || state_changed? || country_changed?

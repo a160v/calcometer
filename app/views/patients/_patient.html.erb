@@ -1,13 +1,8 @@
 <div id="<%= dom_id patient %>" class="card h-100">
   <%= link_to patient, class: "text-decoration-none" do %>
     <div class="card-body">
-      <h5 class="card-title">
-        <strong>👤 <%= patient.name %></strong>
-      </h5>
-
-      <p class="card-text">
-        <strong>📍 <%= patient.address.full_address %></strong>
-      </p>
+      <h5 class="card-title"><strong>👤 <%= patient.name %></strong></h5>
+      <p class="card-text">📍 <%= patient.address.nice_address %></p>
     </div>
   <% end %>
 </div>

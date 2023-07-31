@@ -11,7 +11,7 @@
           <%= static_map([{latitude: @patient.address.latitude, longitude: @patient.address.longitude}], width: 250, height: 300) %>
         </div>
       <% end %>
-    <p class="card-text">📍 <%= @patient.address.full_address %></p>
+    <p class="card-text">📍 <%= @patient.address.nice_address %></p>
     <a href="https://www.google.com/maps/dir/?api=1&amp;destination=<%= @patient.address.latitude %>,
       <%= @patient.address.longitude %>&amp;travelmode=driving" target="_blank" class="btn btn-primary mb-3"><%= t('.drive_me', name: @patient.name) %></a>
     <p class="card-text">
