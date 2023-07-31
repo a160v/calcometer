@@ -29,7 +29,13 @@ $dropdown-min-width: 8rem;
 $min-contrast-ratio: 3 !default;
 .btn-primary {
   width: 100%;
+  cursor: pointer;
+  -webkit-transition: all ease-in .3s;
+  transition: all ease-in .3s
 }
 .btn-outline-dark {
   width: 100%;
+  cursor: pointer;
+  -webkit-transition: all ease-in .3s;
+  transition: all ease-in .3s
 }
