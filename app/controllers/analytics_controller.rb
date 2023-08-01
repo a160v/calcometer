@@ -30,13 +30,4 @@ class AnalyticsController < ApplicationController
                                .where(user_id: current_user.id)
                                .where("start_time >= ? AND start_time <= ?", @start_date.beginning_of_day, @end_date.end_of_day)
   end
-
-  # # Calculate the total distance and total time using Trip model
-  # def calculate_total_distance
-  #   Trip.where(start_appointment: @appointments).sum(:driving_distance)
-  # end
-
-  # def calculate_total_time
-  #   Trip.where(start_appointment: @appointments).sum(:driving_time)
-  # end
 end

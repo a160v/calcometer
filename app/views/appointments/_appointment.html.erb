@@ -5,11 +5,14 @@
         <h2 class="card-title">
           <%=
             unless appointment.patient
-              🚫 "Deleted patient"
+              "🚫 Deleted patient"
             else
               "👤 #{appointment.patient.name}"
             end %>
         </h2>
+        <p class="card-title">
+          <%="📍 #{appointment.patient.address.nice_address}" %>
+        </p>
         <ul class="list-group list-group-flush">
           <li class="list-group-item"><%= t(".arrived_at", time: l(appointment.start_time, format: :short)) %></li>
           <li class="list-group-item"><%= t(".left_at", time: l(appointment.end_time, format: :short)) %></li>

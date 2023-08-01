@@ -9,7 +9,7 @@ it:
       # When using html, text and mark won't be used.
       # html: '<abbr title="required">*</abbr>'
     error_notification:
-      default_message: "Si prega di rivede i problemi di seguito"
+      default_message: "Si prega di rivedere i problemi di seguito"
     # labels:
     #   defaults:
     #     password: 'Password'
