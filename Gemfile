@@ -54,14 +54,20 @@ gem "font-awesome-sass", "~> 6.1"
 # https://github.com/heartcombo/devise
 gem "devise"
 gem "devise-i18n"
-gem 'omniauth'
-gem 'omniauth-google-oauth2'
+gem "omniauth"
+gem "omniauth-google-oauth2"
 gem "omniauth-rails_csrf_protection"
 
-# Complete Ruby geocoding solution
+# Geocoder is a complete Ruby geocoding solution
 # https://github.com/alexreisner/geocoder
 gem "geocoder"
 gem 'country_select', '~> 8.0'
+
+gem "mapbox-sdk"
+
+# Create beautiful static maps with one line of Ruby. No more fighting with mapping libraries!
+# See https://github.com/ankane/mapkick-static
+gem "mapkick-static"
 
 # Better forms for Ruby
 # https://github.com/heartcombo/simple_form
@@ -87,10 +93,6 @@ gem 'rails-i18n', '~> 7.0.0'
 # Gem to enhance translation management
 # https://github.com/glebm/i18n-tasks
 gem 'i18n-tasks', '~> 1.0.12'
-
-# Create beautiful static maps with one line of Ruby. No more fighting with mapping libraries!
-# See https://github.com/ankane/mapkick-static
-gem "mapkick-static"
 
 group :development, :test do
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem
