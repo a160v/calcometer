@@ -20,8 +20,6 @@ class PatientsController < ApplicationController
   def create
     @patient = Patient.new(patient_params)
     @address = Address.find_or_create_by(@patient.address.attributes)
-
-    Rails.logger.debug @address.inspect
     @patient.address = @address
 
     if @patient.save

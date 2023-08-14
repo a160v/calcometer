@@ -1,9 +1,9 @@
-<h1><%= t.(".title", name: @patient.name) %></h1>
+<h1><%= t(".title", name: @patient.name) %></h1>
 
-<%= render "form", patient: @patient %>
+<%= render "form", patient: @patient, address: @address %>
 
 <br>
 
 <div>
-  <%= link_to "Back to patients", patients_path, class: "btn btn-secondary" %>
+  <%= link_to t(".back_to_patients"), patients_path, class: "btn btn-secondary" %>
 </div>

@@ -52,16 +52,8 @@
         <a class="btn btn-outline-dark btn-lg d-md-none d-lg-none" href="<%= new_user_session_path %>" role="button"><%= t('.sign_in') %></a>
       </div>
     </div>
-    <div class="overflow-hidden" style="max-height: 30vh;">
-      <div class="container px-5">
-        <%= image_tag("screenshot-homepage-white.png",
-                      alt: t('calcometer_screenshot'),
-                      style: "max-width: 100%; max-height: 100%;"
-                      ) %>
-      </div>
-    </div>
     <div>
-      <div class="container py-5" id="icon-grid">
+      <div class="container" id="icon-grid">
         <h2 class="pb-5"><%= t('.why_calcometer') %></h2>
         <div class="row row-cols-1 row-cols-sm-2 row-cols-md-2 row-cols-lg-3 g-4">
           <div class="col d-flex align-items-start">

@@ -1,4 +1,4 @@
-<%= simple_form_for(@patient, local: true, html: { class: 'row g-3' }) do |f| %>
+<%= simple_form_for(@patient, local: true, data: { turbo: false }, html: { class: 'row g-3' }) do |f| %>
   <%= f.error_notification %>
 
   <div class="col-12 form-group">
