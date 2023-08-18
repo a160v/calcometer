@@ -1,48 +1,50 @@
 # Calcometer
 
-The purpose of the app is to help healthcare workers keep track of the distance
-and time they spend traveling by car between patients.
+The purpose of the app is to help healthcare workers keep track of the distance and time they spend traveling by car between patients.
 
-The application has the following models:
+The application has the following core models:
 
-- `User`: Represents the healthcare workers.
-- `Patient`: Represents the patients that the healthcare workers visit for appointments.
-- `Client`: Represents the organisations who have one or more patients.
-- `Appointment`: Represents the visits made by a user to a patient.
+- `User` is the healthcare worker.
+- `Client` is the organisation to whom patients belong to.
+- `Patient` is the person that the user visit for appointments.
+- `Appointment` is the event made by a user to a patient.
+- `Trip` the model containing distance and duration data for a given user in a given day.
+- `Address` is a geocoded address with [Nominatim](https://nominatim.org/)
 
-The application calculates the distance and time spent traveling between patients using the [Geocoder](https://github.com/alexreisner/geocoder).
+The application calculates the travel distance and duration between patients using the `Directions API` by [OpenRoute Service](https://openrouteservice.org/dev/#/api-docs/v2/directions/%7Bprofile%7D/json/post). The API returns a route between two or more locations for a selected profile and its settings as JSON. From the `summary' of the parsed result, the distance and duration are extracted and displayed to the user.
 
-In the backend, different views and controllers to handle these calculations:
-
-- `calculate_driving_distance`: Calculates the distance between two patient addresses using [Nominatim](https://wiki.openstreetmap.org/wiki/Nominatim).
-- `calculate_driving_time`: Calculates the time spent traveling between two patient addresses, based on the distance and an `average_speed` of 50 km/h.
-
-On the appointments view, the user sees the patient information, start time and end time, updated daily. The distance and time calculations are updated in real-time as the user updates their appointments.
-
-Overall, the application should meet the requirements of helping healthcare workers keep track of their travel distances and times.
+This app is a proof of concept for building:
+- responsive full-stack app with RoR and StimulusJS
+- open source high quality
+- solve a real life problem with a simple and elegant solution
 
 # Initial setup
 
-- Clone the repo to your local machine
-- Create an .env file and include your MAPBOX_ACCESS_TOKEN for rendering static maps in patients show view
-- run
+1_ Clone or fork the repo
+2_ Create an `.env` file and include the following keys:
+- OPENROUTE_API_KEY for performing the distance and duration calculation
+- MAPBOX_ACCESS_TOKEN for rendering static maps in patients show view (through 'mapkick-static')
+- GOOGLE_OAUTH_CLIENT_ID for oauth login with Google
+- GOOGLE_OAUTH_CLIENT_SECRET for oauth login with Google
+
+3_ Install dependencies (Ruby & Javascript)
 ```
 bundle && yarn
 ```
-- [OPTIONAL] if you feel risky, run
+3a_ [OPTIONAL] if you want to update dependencies, run
 ```
 bundle update && yarn upgrade
 ```
-- in app/db/seeds.rb, you can set how many users, patients, organisations and appointments you want to set; then run
+4_ Open `app/db/seeds.rb` in your code editor and set how many users, patients, organisations and appointments you want to set.
+5_ Set up the database (creation + migration):
 ```
 rails db:setup
 ```
-- run
+6_ Launch a development server
 ```
 bin/dev
 ```
-TIP:
-- to create a new public repo in your github account, run
+6a_ If you cloned this repo to your machine, you can create a new (public) repo in your github account (requires `gh` installed)
 ```
 gh repo create --public --source=.
 ```
