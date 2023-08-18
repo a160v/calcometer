@@ -7,3 +7,16 @@
 .navbar-css .navbar-collapse {
   flex-grow: 0;
 }
+
+.navbar-css .nav-item .nav-link {
+  cursor: pointer;
+  -webkit-transition: all ease-in .2s;
+  transition: all ease-in .2s;
+
+  &:hover {
+      color: #fff;
+      background-color: #2b78e4;
+      border-radius: 5px;
+      border-color: #2b78e4;
+    }
+}
