@@ -8,8 +8,6 @@ class AppointmentsController < ApplicationController
     @total_time = service.total_time
   end
 
-  # CRUD ########################################################################
-
   def show
   end
 
@@ -38,9 +36,7 @@ class AppointmentsController < ApplicationController
     @appointment.destroy
     redirect_to appointments_path, notice: t(:appointment_deleted_success)
   end
-
-  # PRIVATE ####################################################################
-
+  
   private
 
   def set_appointment

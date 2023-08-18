@@ -58,12 +58,11 @@ gem "omniauth"
 gem "omniauth-google-oauth2"
 gem "omniauth-rails_csrf_protection"
 
+### MAPPING related gems
 # Geocoder is a complete Ruby geocoding solution
 # https://github.com/alexreisner/geocoder
 gem "geocoder"
 gem 'country_select', '~> 8.0'
-
-gem "mapbox-sdk"
 
 # Create beautiful static maps with one line of Ruby. No more fighting with mapping libraries!
 # See https://github.com/ankane/mapkick-static
@@ -80,6 +79,13 @@ gem "faker"
 # Gem used to query web services and examine the resulting output
 # https://github.com/jnunemaker/httparty
 gem 'httparty', '~> 0.21.0'
+
+# Gems to process json files
+gem 'json'
+
+# Gem to strip attributes and keep data clean
+# https://github.com/rmm5t/strip_attributes
+gem "strip_attributes"
 
 # Production-ready gems
 gem "autoprefixer-rails"
