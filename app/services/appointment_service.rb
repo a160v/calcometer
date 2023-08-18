@@ -17,8 +17,8 @@ class AppointmentService
     calculator.calculate_total_distance
   end
 
-  def total_time
+  def total_duration
     calculator = AppointmentCalculator.new(@appointments)
-    calculator.calculate_total_time
+    calculator.calculate_total_duration
   end
 end

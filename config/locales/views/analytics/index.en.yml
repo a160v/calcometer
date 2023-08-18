@@ -9,7 +9,7 @@ en:
       distance: "Distance"
       appointments: "Appointments"
       during_this_period: "During this period, you drove"
-      km_and_minutes: "%{distance} km & %{time} minutes"
+      distance_and_duration: "%{distance} km & %{duration} minutes"
       for_appointments: "for %{count} appointments"
       appointments_amount: "Total %{count} appointments"
       deleted_patient: "Deleted patient"

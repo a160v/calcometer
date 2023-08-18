@@ -4,7 +4,7 @@ class CreateTrips < ActiveRecord::Migration[7.0]
       t.references :start_appointment, null: false, foreign_key: { to_table: :appointments }
       t.references :end_appointment, null: false, foreign_key: { to_table: :appointments }
       t.float :driving_distance
-      t.integer :driving_time
+      t.integer :driving_duration
 
       t.timestamps
     end

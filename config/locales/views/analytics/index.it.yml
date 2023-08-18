@@ -9,7 +9,7 @@ it:
       distance: "Distanza"
       appointments: "Appuntamenti"
       during_this_period: "Durante questo periodo, hai percorso"
-      km_and_minutes: "%{distance} km e %{time} minuti"
+      distance_and_duration: "%{distance} km e %{duration} minuti"
       for_appointments: "per %{count} appuntamenti"
       appointments_amount: "Totale: %{count} appuntamenti"
       deleted_patient: "Paziente cancellato"

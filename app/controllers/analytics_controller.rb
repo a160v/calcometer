@@ -11,7 +11,7 @@ class AnalyticsController < ApplicationController
 
     @appointments = service.appointments
     @total_distance = service.total_distance
-    @total_time = service.total_time
+    @total_duration = service.total_duration
   end
 
   private

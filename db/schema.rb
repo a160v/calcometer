@@ -59,7 +59,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_07_22_165503) do
     t.bigint "start_appointment_id", null: false
     t.bigint "end_appointment_id", null: false
     t.float "driving_distance"
-    t.integer "driving_time"
+    t.integer "driving_duration"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["end_appointment_id"], name: "index_trips_on_end_appointment_id"

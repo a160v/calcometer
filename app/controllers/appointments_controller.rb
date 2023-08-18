@@ -5,7 +5,7 @@ class AppointmentsController < ApplicationController
     service = AppointmentService.new(current_user)
     @appointments = service.appointments
     @total_distance = service.total_distance
-    @total_time = service.total_time
+    @total_duration = service.total_duration
   end
 
   def show
@@ -36,7 +36,7 @@ class AppointmentsController < ApplicationController
     @appointment.destroy
     redirect_to appointments_path, notice: t(:appointment_deleted_success)
   end
-  
+
   private
 
   def set_appointment

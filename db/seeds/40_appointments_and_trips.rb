@@ -46,7 +46,7 @@ patients = Patient.all
           start_appointment: previous_appointment,
           end_appointment: appointment,
           driving_distance: distance,
-          driving_time: time
+          driving_duration: duration
         )
         puts "🚙 Created a trip from #{start_address} to #{end_address} with driving distance: #{distance} km and time: #{time} minutes"
         sleep(2) # Wait for 2 seconds to not exceed rate limit of the API

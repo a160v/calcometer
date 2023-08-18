@@ -35,9 +35,7 @@ class PatientsController < ApplicationController
       end
     end
   end
-
-
-
+  
   def update
     if @patient.update(patient_params)
       redirect_to patients_path, notice: 'Patient was successfully updated.'

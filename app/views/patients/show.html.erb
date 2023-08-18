@@ -7,8 +7,8 @@
       <% if @patient.address.latitude.nil? || @patient.address.longitude.nil? %>
         <h4><%= t('.no_location') %></h4>
       <% else %>
-        <div class="card-body">
-          <%= static_map([{latitude: @patient.address.latitude, longitude: @patient.address.longitude}], width: 250, height: 300) %>
+        <div class="card-body d-grid justify-content-center gap-2">
+          <%= static_map([{latitude: @patient.address.latitude, longitude: @patient.address.longitude}], width: 300, height: 300, alt: "Map of the patient's address") %>
         </div>
       <% end %>
     <p class="card-text">📍 <%= @patient.address.nice_address %></p>
@@ -23,7 +23,7 @@
     <p class="card-text">
       <ul class="list-group list-group-flush">
         <% @patient.appointments.sort_by(&:start_time).reverse.each do |appointment| %>
-          <li class="list-group-item">
+          <li class="list-group-item"> ☀️
             <%= l(appointment.start_time, format: :long) %> -
             <%= ((appointment.end_time - appointment.start_time) / 60).to_i %> <%= t('.minutes') %>
           </li>

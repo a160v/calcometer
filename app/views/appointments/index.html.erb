@@ -23,7 +23,7 @@
     </button>
     <div class="collapse mt-1" id="collapseWidthButtonCalculator">
       <p class="mt-1 mb-1"><%= t(".today_you_drove") %></p>
-      <h4><strong><%= t(".km_and_time", distance: @total_distance.round(2), time: @total_time) %></strong></h4>
+      <h4><strong><%= t(".distance_and_duration", distance: @total_distance, duration: @total_duration) %></strong></h4>
     </div>
   </div>
 </footer>

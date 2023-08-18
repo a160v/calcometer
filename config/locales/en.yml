@@ -108,6 +108,7 @@ en:
       year: Year
   errors:
     format: "%{attribute} %{message}"
+    different_appointment: can't be the same as start appointment
     messages:
       accepted: must be accepted
       blank: can't be blank

@@ -5,7 +5,7 @@ de:
       new_appointment: "Neuer Termin"
       calculate_distance_time: "Entfernung und Zeit berechnen"
       today_you_drove: "Heute sind Sie gefahren"
-      km_and_time: "%{distance} km & %{time} Minuten"
+      distance_and_duration: "%{distance} km & %{duration} Minuten"
     new:
       new_appointment: "Sie erstellen einen neuen Termin"
       select_patient: "Patient auswählen"

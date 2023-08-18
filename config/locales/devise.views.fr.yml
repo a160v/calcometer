@@ -105,6 +105,7 @@ fr:
         select_time_zone: Sélectionner le fuseau horaire
         select_language: Sélectionner la langue
         language: '%{selected_language}'
+        delete_account: Attention, l'action suivante est irréversible. Si vous décidez de supprimer votre compte, nous ne pourrons pas le récupérer et vous perdrez toutes vos données.
       new:
         title: Vous créez un nouveau profil
         sign_up: Inscription
