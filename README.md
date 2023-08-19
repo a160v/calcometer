@@ -36,7 +36,8 @@ bundle && yarn
 ```
 bundle update && yarn upgrade
 ```
-4_ Open `app/db/seeds.rb` in your code editor and set how many users, patients, organisations and appointments you want to set.
+4_ Open `app/db/seeds.rb` in your code editor and set how many users, patients, clients and appointments you want to set as per initial database.
+
 5_ Set up the database (creation + migration):
 ```
 rails db:setup
