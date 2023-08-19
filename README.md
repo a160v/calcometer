@@ -21,6 +21,7 @@ This app is a proof of concept for building:
 # Initial setup
 
 1_ Clone or fork the repo
+
 2_ Create an `.env` file and include the following keys:
 - OPENROUTE_API_KEY for performing the distance and duration calculation
 - MAPBOX_ACCESS_TOKEN for rendering static maps in patients show view (through 'mapkick-static')
