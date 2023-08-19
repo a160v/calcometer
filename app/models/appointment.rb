@@ -41,22 +41,40 @@ class Appointment < ApplicationRecord
 
   # After an appointment is destroyed, this callback will recalculate the trip
   def recalculate_trip
-    RecalculateTripJob.perform_later(self.id)
+    RecalculateTripJob.perform_now
   end
-
   # Find the next appointment for the user after the current appointment
   def next_appointment
     user.appointments.where('start_time > ?', end_time).order(:start_time).first
   end
 
+  # Retrieve and transform longitude and latitude from address
+  def coordinates
+    [address.longitude.to_f, address.latitude.to_f]
+  end
+
   # After saving an appointment, this callback will create a trip to the next appointment
   def create_trip
+    Rails.logger.info("Inside create_trip method for Appointment ID: #{self.id}")
+
     return unless next_appointment
 
+    Rails.logger.info("Found next appointment with ID: #{next_appointment.id}")
+
     if end_trip
+      Rails.logger.info("Updating existing end_trip with ID: #{end_trip.id}")
       end_trip.update(end_appointment: next_appointment)
     else
-      Trip.create(start_appointment: self, end_appointment: next_appointment)
+      Rails.logger.info("Creating a new trip.")
+      trip = Trip.new(start_appointment: self, end_appointment: next_appointment)
+      distance, duration = trip.send(:calculate_driving_distance_and_duration)
+      trip.driving_distance = distance
+      trip.driving_duration = duration
+      if trip.save
+        Rails.logger.info("Trip created successfully.")
+      else
+        Rails.logger.error("Failed to save trip. Errors: #{trip.errors.full_messages.join(', ')}")
+      end
     end
   end
 end

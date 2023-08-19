@@ -1,46 +1,43 @@
 class Trip < ApplicationRecord
+  # Constants
+  OPENROUTE_API_KEY = ENV['OPENROUTE_API_KEY'] || ""
+
   # Model associations
   belongs_to :start_appointment, class_name: 'Appointment', optional: false
   belongs_to :end_appointment, class_name: 'Appointment', optional: false
 
-  # Validation
-  validate :different_appointments
+  # Fetch the distance and duration from OpenRoute Service API
+  def calculate_driving_distance_and_duration
+    coordinates1 = start_appointment.coordinates
+    coordinates2 = end_appointment.coordinates
 
-  # Constant representing average driving speed
-  AVERAGE_SPEED = 50.0 # Average driving speed in km/h
+    # API Endpoint
+    url = 'https://api.openrouteservice.org/v2/directions/driving-car/json'
 
-  # Callbacks
-  after_save :update_driving_distance_and_time
+    # Headers
+    headers = {
+      accept: 'application/json, application/geo+json; charset=utf-8',
+      Authorization: OPENROUTE_API_KEY,
+      'Content-Type': 'application/json;charset=utf-8'
+    }
 
-  # Ensures the start and end appointments are not the same
-  def different_appointments
-    errors.add(:end_appointment, "can't be the same as start appointment") if start_appointment == end_appointment
-  end
+    # Body
+    values = { coordinates: [coordinates1, coordinates2] }
 
-  # Ensures both appointments have valid address
-  def valid_appointments?
-    start_appointment&.patient&.address && end_appointment&.patient&.address
-  end
+    # Make the API call
+    response = HTTParty.post(url, body: values.to_json, headers: headers)
 
-  # Callback method to update driving distance and time after saving
-  def update_driving_distance_and_time
-    return unless valid_appointments?
+    # Parse the response
+    if response.success?
+      route_data = response.parsed_response
+      summary = route_data['routes'].first['summary']
+      distance = (summary['distance'] / 1000.0)
+      duration = (summary['duration'] / 60.0)
 
-    update_columns(
-      driving_distance: calculate_driving_distance,
-      driving_time: calculate_driving_time
-    )
-  end
-
-  # Method to calculate driving distance using Geocoder
-  def calculate_driving_distance
-    coordinates1 = start_appointment.address.latitude, start_appointment.address.longitude
-    coordinates2 = end_appointment.address.latitude, end_appointment.address.longitude
-    Geocoder::Calculations.distance_between(coordinates1, coordinates2) if coordinates1 && coordinates2
-  end
-
-  # Method to calculate driving time based on average speed
-  def calculate_driving_time
-    (calculate_driving_distance.to_f / AVERAGE_SPEED * 60).round if calculate_driving_distance
+      return [distance, duration]
+    else
+      Rails.logger.error("API response did not work as expected. Response: #{response}") # Log error
+      return [nil, nil] # Return nil values
+    end
   end
 end
