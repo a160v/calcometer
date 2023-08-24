@@ -21,6 +21,7 @@ This app is a proof of concept for building:
 # Initial setup
 
 1_ Clone or fork the repo
+
 2_ Create an `.env` file and include the following keys:
 - OPENROUTE_API_KEY for performing the distance and duration calculation
 - MAPBOX_ACCESS_TOKEN for rendering static maps in patients show view (through 'mapkick-static')
@@ -35,7 +36,8 @@ bundle && yarn
 ```
 bundle update && yarn upgrade
 ```
-4_ Open `app/db/seeds.rb` in your code editor and set how many users, patients, organisations and appointments you want to set.
+4_ Open `app/db/seeds.rb` in your code editor and set how many users, patients, clients and appointments you want to set as per initial database.
+
 5_ Set up the database (creation + migration):
 ```
 rails db:setup
