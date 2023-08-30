@@ -2,7 +2,7 @@ class Appointment < ApplicationRecord
   # Associations
   belongs_to :user, optional: true
   belongs_to :patient, optional: true
-  has_one :address, through: :patient
+  has_one :address
   has_one :start_trip, class_name: 'Trip', foreign_key: 'start_appointment_id', dependent: :destroy
   has_one :end_trip, class_name: 'Trip', foreign_key: 'end_appointment_id', dependent: :destroy
 

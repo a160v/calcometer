@@ -5,7 +5,7 @@ The purpose of the app is to help healthcare workers keep track of the distance 
 The application has the following core models:
 
 - `User` is the healthcare worker.
-- `Client` is the organisation to whom patients belong to.
+- `Client` is the team to whom patients belong to and the user works for.
 - `Patient` is the person that the user visit for appointments.
 - `Appointment` is the event made by a user to a patient.
 - `Trip` the model containing distance and duration data for a given user in a given day.
