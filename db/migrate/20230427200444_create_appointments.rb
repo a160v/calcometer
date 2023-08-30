@@ -5,6 +5,7 @@ class CreateAppointments < ActiveRecord::Migration[7.0]
       t.datetime :end_time
       t.references :user, null: true, foreign_key: true
       t.references :patient, null: true, foreign_key: true
+      t.references :address, null: true, foreign_key: true
 
       t.timestamps
     end

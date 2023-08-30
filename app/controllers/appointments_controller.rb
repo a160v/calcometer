@@ -19,7 +19,7 @@ class AppointmentsController < ApplicationController
   def create
     @appointment = Appointment.new(appointment_params)
     @appointment.user = current_user
-    @appointment.address = @appointment.patient.address
+    @appointment.address_id = @appointment.patient.address_id
 
     if @appointment.save
       redirect_to appointments_path, notice: t(:appointment_created_success)
