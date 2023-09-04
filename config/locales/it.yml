@@ -108,6 +108,7 @@ it:
       year: Anno
   errors:
     format: "%{attribute} %{message}"
+    different_appointment: non puó coincidere con l'appuntamento iniziale
     messages:
       accepted: deve essere accettata
       blank: non può essere lasciato in bianco

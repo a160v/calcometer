@@ -109,6 +109,7 @@ de:
       year: Jahr
   errors:
     format: "%{attribute} %{message}"
+    different_appointment: kann nicht mit dem Starttermin identisch sein
     messages:
       accepted: muss akzeptiert werden
       blank: muss ausgefüllt werden

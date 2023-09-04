@@ -112,6 +112,7 @@ fr:
       year: Année
   errors:
     format: "%{attribute} %{message}"
+    different_appointment: ne peut pas être le même que le rendez-vous de départ
     messages:
       accepted: doit être accepté(e)
       blank: doit être rempli(e)
