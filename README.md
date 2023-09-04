@@ -23,7 +23,7 @@ This app is a proof of concept for building:
 1_ Clone or fork the repo
 
 2_ Create an `.env` file and include the following keys:
-- OPENROUTE_API_KEY for performing the distance and duration calculation
+- OPENROUTE_API_KEY* for performing the distance and duration calculation (this is required for the functioning of the app)
 - MAPBOX_ACCESS_TOKEN for rendering static maps in patients show view (through 'mapkick-static')
 - GOOGLE_OAUTH_CLIENT_ID for oauth login with Google
 - GOOGLE_OAUTH_CLIENT_SECRET for oauth login with Google
