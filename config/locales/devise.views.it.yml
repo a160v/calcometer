@@ -78,7 +78,7 @@ it:
         subject: Istruzioni per sbloccare l'profilo
     omniauth_callbacks:
       failure: Non è stato possibile autorizzarti da %{kind} perché "%{reason}".
-      success: Autorizzato con successo dall'profilo %{kind}.
+      success: Autorizzazione ricevuta con successo dal tuo conto %{kind}.
     passwords:
       edit:
         change_my_password: Cambia la mia password

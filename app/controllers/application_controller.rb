@@ -8,7 +8,6 @@ class ApplicationController < ActionController::Base
   # Make browser_time_zone method available to all views
   helper_method :browser_time_zone
 
-
   # Use the jstz Javascript timezone library to help auto-detect and set the user's time zone
   def browser_time_zone
     browser_tz = ActiveSupport::TimeZone.find_tzinfo(cookies[:browser_time_zone])

@@ -2,7 +2,7 @@ it:
   clients:
     index:
       title: "Tutti i organizzazioni"
-      new_client: "Nuovo organizzazione"
+      new_client: "Nuova organizzazione"
       footer:
         zero: "Non ci sono organizzazioni, vai a crearne uno"
         one: "Hai un organizzazione"
@@ -15,7 +15,7 @@ it:
       edit_client: "Modifica organizzazione"
       delete_client: "Elimina organizzazione"
     new:
-      new_client: "Stai creando un nuovo organizzazione"
+      new_client: "Stai creando un nuova organizzazione"
       back_to_clients: "Ritorna ai organizzazioni"
     edit:
       title: "Stai modificando %{name}"
