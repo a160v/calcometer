@@ -3,19 +3,23 @@
   <main class="form-signin w-100 m-auto">
     <form>
       <div class="form-floating">
-        <%= f.input :name,
+      <%= f.input :name,
                     required: true,
                     autofocus: true,
-                    input_html: { autocomplete: "off" },
                     class: "form-control",
                     id: "floatingInput",
                     placeholder: t(".name_placeholder") %>
 
-        <%= f.input :email,
+        <%= f.input :subdomain,
                     required: true,
                     autofocus: true,
-                    input_html: { autocomplete: "off" },
                     class: "form-control",
+                    id: "floatingInput",
+                    placeholder: t(".subdomain_placeholder") %>
+
+        <%= f.input :email,
+                    required: true,
+                    autofocus: true,                    class: "form-control",
                     id: "floatingInput",
                     placeholder: t(".email_placeholder") %>
       </div>
