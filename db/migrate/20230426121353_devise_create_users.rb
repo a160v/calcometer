@@ -33,7 +33,6 @@ class DeviseCreateUsers < ActiveRecord::Migration[7.0]
       # t.datetime :locked_at
 
       ## Outside of Devise
-      t.boolean :admin
       t.string :first_name
       t.string :last_name
 
