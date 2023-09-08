@@ -58,6 +58,10 @@ gem "omniauth"
 gem "omniauth-google-oauth2"
 gem "omniauth-rails_csrf_protection"
 
+# Modern encryption for Ruby and Rails
+# https://github.com/ankane/lockbox
+gem "lockbox"
+
 # Row-level multitenancy for Ruby on Rails apps.
 # https://github.com/ErwinM/acts_as_tenant
 gem 'acts_as_tenant'
