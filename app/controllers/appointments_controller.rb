@@ -20,6 +20,7 @@ class AppointmentsController < ApplicationController
     @appointment = Appointment.new(appointment_params)
     @appointment.user = current_user
     @appointment.address_id = @appointment.patient.address_id
+    @appointment.client_id = @appointment.patient.client_id
 
     if @appointment.save
       redirect_to appointments_path, notice: t(:appointment_created_success)

@@ -1,5 +1,6 @@
 class Appointment < ApplicationRecord
   # Associations
+  acts_as_tenant :client, through: :patient
   belongs_to :user, optional: true
   belongs_to :patient, optional: true
   has_one :address

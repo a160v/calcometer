@@ -6,6 +6,7 @@ class User < ApplicationRecord
 
   # Associations
   has_many :appointments, dependent: :nullify
+  belongs_to :client, optional: true
 
   # Validations
   validates :email, uniqueness: true

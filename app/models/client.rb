@@ -1,5 +1,6 @@
 class Client < ApplicationRecord
   has_many :patients, dependent: :nullify
+  has_many :users
 
   validates :name, presence: true
   validates :subdomain, presence: true

@@ -33,15 +33,18 @@ ActiveRecord::Schema[7.0].define(version: 2023_08_24_182603) do
     t.bigint "user_id"
     t.bigint "patient_id"
     t.bigint "address_id"
+    t.bigint "client_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["address_id"], name: "index_appointments_on_address_id"
+    t.index ["client_id"], name: "index_appointments_on_client_id"
     t.index ["patient_id"], name: "index_appointments_on_patient_id"
     t.index ["user_id"], name: "index_appointments_on_user_id"
   end
 
   create_table "clients", force: :cascade do |t|
     t.string "name"
+    t.string "subdomain"
     t.string "email"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -58,14 +61,10 @@ ActiveRecord::Schema[7.0].define(version: 2023_08_24_182603) do
   end
 
   create_table "trips", force: :cascade do |t|
-    t.bigint "start_appointment_id", null: false
-    t.bigint "end_appointment_id", null: false
     t.float "driving_distance"
-    t.integer "driving_duration"
+    t.float "driving_duration"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["end_appointment_id"], name: "index_trips_on_end_appointment_id"
-    t.index ["start_appointment_id"], name: "index_trips_on_start_appointment_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -78,24 +77,23 @@ ActiveRecord::Schema[7.0].define(version: 2023_08_24_182603) do
     t.datetime "confirmed_at"
     t.datetime "confirmation_sent_at"
     t.string "unconfirmed_email"
-    t.boolean "admin"
     t.string "first_name"
     t.string "last_name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "time_zone"
     t.string "locale"
-    t.integer "account_id"
-    t.index ["account_id"], name: "index_users_on_account_id"
+    t.bigint "client_id"
+    t.index ["client_id"], name: "index_users_on_client_id"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
   add_foreign_key "appointments", "addresses"
+  add_foreign_key "appointments", "clients"
   add_foreign_key "appointments", "patients"
   add_foreign_key "appointments", "users"
   add_foreign_key "patients", "addresses"
   add_foreign_key "patients", "clients"
-  add_foreign_key "trips", "appointments", column: "end_appointment_id"
-  add_foreign_key "trips", "appointments", column: "start_appointment_id"
+  add_foreign_key "users", "clients"
 end

@@ -17,9 +17,9 @@ class ClientsController < ApplicationController
 
   def create
     @client = Client.new(client_params)
-
     if @client.save
-      redirect_to clients_path, notice: 'Client was successfully created.'
+      current_user.update(client: @client) # Associate current user with the new client
+      redirect_to root_path, notice: 'Client created successfully.'
     else
       render :new
     end

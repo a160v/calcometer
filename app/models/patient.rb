@@ -1,6 +1,6 @@
 class Patient < ApplicationRecord
   # Model associations
-  belongs_to :client
+  acts_as_tenant :client
   belongs_to :address
   has_many :appointments, dependent: :nullify
 
