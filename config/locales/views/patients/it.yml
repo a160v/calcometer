@@ -15,6 +15,7 @@ it:
       edit_patient: "Modifica paziente"
       delete_patient: "Elimina questo paziente"
       confirm_delete: "Sei sicuro?"
+      delete: "Elimina"
     form:
       patient_name: "Nome del paziente"
       name_placeholder: "Mario Rossi"

@@ -36,6 +36,6 @@ en:
       state: "Canton"
       state_placeholder: "Zurich"
       country: "Country"
-      country_default: "Svizzera"
+      country_default: "Switzerland"
       select_client: "Whose organisation this patient belongs to?"
       submit: "Save"

@@ -18,16 +18,21 @@ class PatientsController < ApplicationController
   end
 
   def create
-    @patient = Patient.new(patient_params)
-    @address = Address.find_or_create_by(@patient.address.attributes)
-    @patient.address = @address
+    @patient = Patient.new(patient_params.except(:address_attributes))
+
+    address_attributes = patient_params[:address_attributes]
+    @address = Address.find_by(address_attributes)
+
+    if @address.nil?
+      @patient.build_address(address_attributes)
+    else
+      @patient.address = @address
+    end
 
     if @patient.save
-      redirect_to patients_path, notice: 'Patient was successfully created.'
+      redirect_to patients_path, notice: t(:patient_created_success)
     else
       Rails.logger.debug @patient.errors.full_messages
-      @address.errors.add(:base, "Geocoding failed. Please check the address.")
-      @patient.build_address if @patient.address.nil?
 
       respond_to do |format|
         format.turbo_stream { render turbo_stream: turbo_stream.replace(@patient, partial: 'form', locals: { patient: @patient }) }
@@ -35,10 +40,10 @@ class PatientsController < ApplicationController
       end
     end
   end
-  
+
   def update
     if @patient.update(patient_params)
-      redirect_to patients_path, notice: 'Patient was successfully updated.'
+      redirect_to patients_path, notice: t(:patient_updated_success)
     else
       render :edit
     end
@@ -46,7 +51,7 @@ class PatientsController < ApplicationController
 
   def destroy
     @patient.destroy
-    redirect_to patients_path, notice: 'Patient was successfully deleted.'
+    redirect_to patients_path, notice: t(:patient_deleted_success)
   end
 
   def total_time_spent_with_patient
