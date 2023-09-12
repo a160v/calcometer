@@ -2,32 +2,23 @@ class AnalyticsController < ApplicationController
   before_action :set_dates, only: [:index]
 
   def index
-    # Enable user to select a date range
-    set_dates_to_today
+    # Set default date to daily date
+    date_service = SetDailyAppointments.new(current_user)
+    @appointments = date_service.appointments
 
-    start_date = params[:start_date]&.to_date || Time.current.to_date
-    end_date = params[:end_date]&.to_date || Time.current.to_date
-    service = AppointmentService.new(current_user, start_date.beginning_of_day, end_date.end_of_day)
+    # Get the start_date and end_date from params
+    @start_date = params[:start_date] ? Date.parse(params[:start_date]) : Date.today
+    @end_date = params[:end_date] ? Date.parse(params[:end_date]) : Date.today
 
-    @appointments = service.appointments
-    @total_distance = service.total_distance
-    @total_duration = service.total_duration
+    # Fetch distance and duration for the given date range
+    @total_distance, @total_duration = Trip.calculate_total_distance_and_duration(@start_date, @end_date)
   end
+
 
   private
 
   def set_dates
     @start_date = params[:start_date] ? Date.parse(params[:start_date]) : Time.current.beginning_of_day
     @end_date = params[:end_date] ? Date.parse(params[:end_date]) : Time.current.end_of_day
-  end
-
-  # Set the start and end dates to today's date
-  def set_dates_to_today
-    @start_date = params[:start_date]&.to_date || Time.current.to_date
-    @end_date = params[:end_date]&.to_date || Time.current.to_date
-
-    @appointments = Appointment.joins(:patient)
-                               .where(user_id: current_user.id)
-                               .where("start_time >= ? AND start_time <= ?", @start_date.beginning_of_day, @end_date.end_of_day)
   end
 end
