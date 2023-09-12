@@ -2,10 +2,12 @@ class AppointmentsController < ApplicationController
   before_action :set_appointment, only: %i[show destroy]
 
   def index
-    service = AppointmentService.new(current_user)
-    @appointments = service.appointments
-    @total_distance = service.total_distance
-    @total_duration = service.total_duration
+    # Displays all appointments for current day
+    date_service = SetDailyAppointments.new(current_user)
+    @appointments = date_service.appointments
+    # Displays all trips for current day
+    trip_service = SetDailyTrips.new(current_user)
+    @trip = trip_service.trips
   end
 
   def show
@@ -37,6 +39,21 @@ class AppointmentsController < ApplicationController
     @appointment.destroy
     redirect_to appointments_path, notice: t(:appointment_deleted_success)
   end
+
+  def calculate_daily_driving_distance_and_duration_from_service
+    # Check if existing trips exist in the db, then display them
+    trip_service = SetDailyTrips.new(current_user)
+    @trip = trip_service.trips
+
+    # Calculate distances for all appointments of the current user for the day
+    date_service = SetDailyAppointments.new(current_user)
+    @appointments = date_service.appointments
+
+    trips_service = TripCalculator.new(@appointments)
+    driving_distance, driving_duration = trips_service.call
+    render json: { driving_distance: driving_distance, driving_duration: driving_duration }
+  end
+
 
   private
 

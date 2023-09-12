@@ -4,14 +4,20 @@ class Trip < ApplicationRecord
   belongs_to :user
 
   # Update a trip if it exists if 'created_at' is the same as today
-  def self.save_or_update_trip(distance, duration)
+  def self.save_or_update_trip(driving_distance, driving_duration, user_id, client_id)
     today = Date.today
     trip = Trip.find_by("DATE(created_at) = ?", today)
 
     if trip
-      trip.update(distance: distance, duration: duration)
+      trip.update(driving_distance: driving_distance,
+                  driving_duration: driving_duration,
+                  user_id: user_id,
+                  client_id: client_id)
     else
-      Trip.create(distance: distance, duration: duration)
+      Trip.create(driving_distance: driving_distance,
+                  driving_duration: driving_duration,
+                  user_id: user_id,
+                  client_id: client_id)
     end
   end
 

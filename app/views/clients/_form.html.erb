@@ -10,16 +10,10 @@
                     id: "floatingInput",
                     placeholder: t(".name_placeholder") %>
 
-        <%= f.input :subdomain,
-                    required: true,
+        <%= f.input :email,
+                    required: false,
                     autofocus: true,
                     class: "form-control",
-                    id: "floatingInput",
-                    placeholder: t(".subdomain_placeholder") %>
-
-        <%= f.input :email,
-                    required: true,
-                    autofocus: true,                    class: "form-control",
                     id: "floatingInput",
                     placeholder: t(".email_placeholder") %>
       </div>

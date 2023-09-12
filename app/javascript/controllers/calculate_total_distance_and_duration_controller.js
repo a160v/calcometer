@@ -19,10 +19,9 @@ export default class extends Controller {
     .then(response => response.json())
     .then(data => {
       // Update the total distance and duration in your view
-      document.querySelector("#daily_distance").textContent = data.daily_distance;
-      document.querySelector("#daily_duration").textContent = data.daily_duration;
+      document.querySelector("#driving_distance").textContent = `${data.driving_distance} km`;
+      document.querySelector("#driving_duration").textContent = `${data.driving_duration} min`;
       })
     .catch(error => console.error('Error:', error));
   }
-
 }

@@ -5,7 +5,10 @@ fr:
       new_appointment: "Nouveau rendez-vous"
       calculate_distance_time: "Calculer la distance et le temps"
       today_you_drove: "Aujourd'hui, vous avez conduit"
+      driving_distance: "%{driving_distance} km"
+      driving_duration: "%{driving_duration} minutes"
       distance_and_duration: "%{distance} km & %{duration} minutes"
+      click_to_calculate_distance: "Cliquez pour calculer la distance et le temps"
     new:
       new_appointment: "Vous créez un nouveau rendez-vous"
       select_patient: "Sélectionnez le patient"

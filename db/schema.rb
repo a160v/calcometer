@@ -63,8 +63,12 @@ ActiveRecord::Schema[7.0].define(version: 2023_08_24_182603) do
   create_table "trips", force: :cascade do |t|
     t.float "driving_distance"
     t.float "driving_duration"
+    t.bigint "user_id"
+    t.bigint "client_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["client_id"], name: "index_trips_on_client_id"
+    t.index ["user_id"], name: "index_trips_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -83,7 +87,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_08_24_182603) do
     t.datetime "updated_at", null: false
     t.string "time_zone"
     t.string "locale"
-    t.bigint "client_id"
+    t.integer "client_id"
     t.index ["client_id"], name: "index_users_on_client_id"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
@@ -95,5 +99,6 @@ ActiveRecord::Schema[7.0].define(version: 2023_08_24_182603) do
   add_foreign_key "appointments", "users"
   add_foreign_key "patients", "addresses"
   add_foreign_key "patients", "clients"
-  add_foreign_key "users", "clients"
+  add_foreign_key "trips", "clients"
+  add_foreign_key "trips", "users"
 end

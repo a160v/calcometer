@@ -9,7 +9,6 @@
     </div>
   <% end %>
 </div>
-
 <footer class="fixed-bottom border-top border-dark footer-css">
   <div
     class="container d-flex flex-column justify-content-center p-3"
@@ -19,15 +18,18 @@
       type="button"
       class="btn btn-primary"
       data-action="click->calculate-total-distance-and-duration#calculate">
-      <strong><%= t(".calculate_distance_time") %></strong>
-    <div class="mt-1">
-      <%
-=begin%>
- <h6 id="distance_and_duration"><strong><%= t(".distance_and_duration", distance: @daily_distance, duration: @daily_duration) %></strong></h4>
-<%
-=end%>
-     <h6 id="daily_distance"><strong><%= t(".daily_distance", distance: @daily_distance) %></strong></h6>
-     <h6 id="daily_duration"><strong><%= t(".daily_duration", duration: @daily_duration) %></strong></h6>
-    </div>
+      <div class="mt-1 d-flex justify-content-around">
+        <div id="driving_distance">
+          <% if @driving_distance.present? %>
+            <%= t(".driving_distance", driving_distance: @driving_distance) %>
+          <% else %>
+            <%= t(".click_to_calculate_distance") %>
+          <% end %>
+        </div>
+        <div id="driving_duration">
+            <%= t(".driving_duration", driving_duration: @driving_duration) if @driving_duration.present? %>
+        </div>
+      </div>
+    </button>
   </div>
 </footer>

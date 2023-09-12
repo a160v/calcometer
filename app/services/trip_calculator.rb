@@ -46,19 +46,22 @@ class TripCalculator < ApplicationService
     if response.success?
       route_data = response.parsed_response
       summary = route_data['routes'].first['summary']
-      daily_distance = (summary['distance'] / 1000.0).round(2)
-      daily_duration = (summary['duration'] / 60.0).round
+      driving_distance = (summary['distance'] / 1000.0)
+      driving_duration = (summary['duration'] / 60.0)
+
+      # Get the user_id and client_id from the first appointment
+      user_id = @appointments.first.user_id
+      client_id = @appointments.first.client_id
 
       # Save or update the trip details in the database
-      Trip.save_or_update_trip(daily_distance, daily_duration)
+      Trip.save_or_update_trip(driving_distance, driving_duration, user_id, client_id)
 
-      return [daily_distance, daily_duration]
+      return [driving_distance.round(2), driving_duration.round]
     else
       Rails.logger.error("API response did not work as expected. Response: #{response}") # Log error
       return [nil, nil] # Return nil values
     end
 
-    render json: { daily_distance: @daily_distance, daily_duration: @daily_duration }
-    save_or_update_trip
+    render json: { driving_distance: @driving_distance, driving_duration: @driving_duration }
   end
 end
