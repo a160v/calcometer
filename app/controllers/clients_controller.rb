@@ -18,8 +18,8 @@ class ClientsController < ApplicationController
   def create
     @client = Client.new(client_params)
     if @client.save
-      current_user.update(client: @client) # Associate current user with the new client
-      redirect_to root_path, notice: 'Client created successfully.'
+      current_user.update(client_id: @client.id) # Associate current user with the new client
+      redirect_to clients_path, notice: t(:client_created_success)
     else
       render :new
     end
@@ -27,7 +27,7 @@ class ClientsController < ApplicationController
 
   def update
     if @client.update(client_params)
-      redirect_to clients_path, notice: 'Client was successfully updated.'
+      redirect_to clients_path, notice: t(:client_updated_success)
     else
       render :edit
     end
@@ -35,7 +35,8 @@ class ClientsController < ApplicationController
 
   def destroy
     @client.destroy
-    redirect_to clients_path, notice: 'Client was successfully deleted.'
+    redirect_to clients_path, notice: t(:client_deleted_success)
+    puts @client.inspect
   end
 
   private
@@ -45,6 +46,6 @@ class ClientsController < ApplicationController
   end
 
   def client_params
-    params.require(:client).permit(:name, :subdomain, :email, :user_id)
+    params.require(:client).permit(:name, :subdomain, :email)
   end
 end

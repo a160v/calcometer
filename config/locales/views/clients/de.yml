@@ -11,8 +11,12 @@ de:
       client_name: "%{name}"
       client_email: "%{email}"
       send_report: "Monatsbericht senden"
+      edit_client: "Organisation bearbeiten"
+      delete_client: "Organisation löschen"
+      back_to_clients: "Zurück zur Organisationenliste"
     new:
       new_client: "Sie erstellen einen neuen Organisationen"
+      back_to_clients: "Zurück zur Organisationenliste"
     edit:
       title: "Sie bearbeiten %{name}"
       back_to_clients: "Zurück zur Organisationenliste"
@@ -20,6 +24,7 @@ de:
       client_name: "%{name}"
       client_email: "%{email}"
     form:
-      name_placeholder: "Prima Spitex"
-      email_placeholder: "prima@email.com"
+      name_placeholder: "Spitex"
+      subdomain_placeholder: "Spitex"
+      email_placeholder: "spitex@email.com"
       submit: "Validieren und speichern"
