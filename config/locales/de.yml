@@ -224,5 +224,11 @@ de:
       long: "%A, %d. %B %Y, %H:%M Uhr"
       short: "%d. %b, %H:%M Uhr"
     pm: nachmittags
-  appointment_created_success: Der Termin wurde erfolgreich erstellt.
-  appointment_deleted_success: Der Termin wurde erfolgreich gelöscht.
+  appointment_created_success: Der Termin wurde erstellt ✅
+  appointment_deleted_success: Der Termin wurde gelöscht.
+  patient_created_success: Der Patient wurde angelegt ✅
+  patient_updated_success: Der Patient wurde aktualisiert.
+  patient_deleted_success: Der Patient wurde gelöscht.
+  client_created_success: Die Organisation wurde gegründet ✅
+  client_updated_success: Die Organisation wurde aktualisiert.
+  client_deleted_success: Die Organisation wurde gelöscht.

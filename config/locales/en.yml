@@ -146,6 +146,7 @@ en:
       header:
         one: "%{count} error prohibited this %{model} from being saved"
         other: "%{count} errors prohibited this %{model} from being saved"
+    required_field: this field is required
   helpers:
     select:
       prompt: Please select
@@ -216,5 +217,12 @@ en:
       long: "%B %d, %Y %H:%M"
       short: "%d %b %H:%M"
     pm: pm
-  appointment_created_success: Appointment was successfully created.
-  appointment_deleted_success: Appointment was successfully deleted.
+  notice:
+    appointment_created_success: Appointment was created ✅
+    appointment_deleted_success: Appointment was deleted.
+    patient_created_success: The patient was created ✅
+    patient_updated_success: The patient was updated.
+    patient_deleted_success: The patient was deleted.
+    client_created_success: The client was created ✅
+    client_updated_success: The client was updated.
+    client_deleted_success: The client was deleted.

@@ -220,5 +220,11 @@ fr:
       long: "%A %d %B %Y %Hh%M"
       short: "%d %b %Hh%M"
     pm: pm
-  appointment_created_success: Le rendez-vous a été créé avec succès.
-  appointment_deleted_success: Le rendez-vous a été supprimé avec succès.
+  appointment_created_success: Le rendez-vous a été créé ✅
+  appointment_deleted_success: Le rendez-vous a été supprimé.
+  patient_created_success: Le patient a été créé ✅
+  patient_updated_success: La mise à jour du patient a été effectuée.
+  patient_deleted_success: Le patient a été supprimé.
+  client_created_success: L'organisation a été créée ✅
+  client_updated_success: La mise à jour de l'organisation a été effectuée.
+  client_deleted_success: L'organisation a été supprimée.
