@@ -4,7 +4,7 @@ class Address < ApplicationRecord
   has_many :appointments
 
   # Validations
-  validates :street, :number, :zip_code, :city, :state, :country, presence: { message: "This field is required" }
+  validates :street, :number, :zip_code, :city, :state, :country, presence: { message: I18n.t("required_field") }
   validate :found_address_presence
   strip_attributes
 
@@ -47,5 +47,10 @@ class Address < ApplicationRecord
     else
       errors.add(:address, "wasn't found.")
     end
+  end
+
+  # Longitude and latitude are inverted, following OpenrouteService documentation
+  def coordinates
+    [address.longitude.to_f, address.latitude.to_f]
   end
 end
