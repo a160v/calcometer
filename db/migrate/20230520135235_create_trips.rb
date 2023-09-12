@@ -1,10 +1,10 @@
 class CreateTrips < ActiveRecord::Migration[7.0]
   def change
     create_table :trips do |t|
-      t.references :start_appointment, null: false, foreign_key: { to_table: :appointments }
-      t.references :end_appointment, null: false, foreign_key: { to_table: :appointments }
       t.float :driving_distance
-      t.integer :driving_duration
+      t.float :driving_duration
+      t.references :user, null: true, foreign_key: true
+      t.references :client, null: true, foreign_key: true
 
       t.timestamps
     end

@@ -11,19 +11,23 @@
 </div>
 
 <footer class="fixed-bottom border-top border-dark footer-css">
-  <div class="container d-flex flex-column justify-content-center p-3">
+  <div
+    class="container d-flex flex-column justify-content-center p-3"
+    data-controller="calculate-total-distance-and-duration"
+  >
     <button
-      class="btn btn-primary"
       type="button"
-      data-bs-toggle="collapse"
-      data-bs-target="#collapseWidthButtonCalculator"
-      aria-expanded="false"
-      aria-controls="collapseWidthButtonCalculator">
+      class="btn btn-primary"
+      data-action="click->calculate-total-distance-and-duration#calculate">
       <strong><%= t(".calculate_distance_time") %></strong>
-    </button>
-    <div class="collapse mt-1" id="collapseWidthButtonCalculator">
-      <p class="mt-1 mb-1"><%= t(".today_you_drove") %></p>
-      <h4><strong><%= t(".distance_and_duration", distance: @total_distance, duration: @total_duration) %></strong></h4>
+    <div class="mt-1">
+      <%
+=begin%>
+ <h6 id="distance_and_duration"><strong><%= t(".distance_and_duration", distance: @daily_distance, duration: @daily_duration) %></strong></h4>
+<%
+=end%>
+     <h6 id="daily_distance"><strong><%= t(".daily_distance", distance: @daily_distance) %></strong></h6>
+     <h6 id="daily_duration"><strong><%= t(".daily_duration", duration: @daily_duration) %></strong></h6>
     </div>
   </div>
 </footer>

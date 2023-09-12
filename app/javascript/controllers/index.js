@@ -4,5 +4,8 @@
 
 import { application } from "./application"
 
+import CalculateTotalDistanceAndDurationController from "./calculate_total_distance_and_duration_controller"
+application.register("calculate-total-distance-and-duration", CalculateTotalDistanceAndDurationController)
+
 import DateRangeController from "./date_range_controller"
 application.register("date-range", DateRangeController)

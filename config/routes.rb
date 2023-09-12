@@ -9,7 +9,11 @@ Rails.application.routes.draw do
     get 'analytics', to: 'analytics#index'
     post 'update_locale', to: 'application#update_locale'
     resources :patients
-    resources :appointments, only: %i[index new create show destroy]
+    resources :appointments, only: %i[index new create show destroy] do
+      collection do
+        post :calculate_daily_driving_distance_and_duration_from_service
+      end
+    end
     resources :clients
     # Homepage
     root to: 'pages#home'
