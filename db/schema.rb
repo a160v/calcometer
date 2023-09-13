@@ -91,6 +91,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_09_13_115042) do
     t.string "unconfirmed_email"
     t.string "first_name"
     t.string "last_name"
+    t.boolean "admin", default: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "time_zone"
