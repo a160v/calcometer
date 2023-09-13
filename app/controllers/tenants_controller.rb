@@ -43,7 +43,7 @@ class TenantsController < ApplicationController
   private
 
   def authorize_member!
-    return redirect_to tenants_path, alert: t(:tenant_not_member) if @tenant.users.include?(current_user)
+    return redirect_to root_path, alert: 'You are not a member' unless @tenant.users.include? current_user
   end
 
   def set_tenant

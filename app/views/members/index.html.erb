@@ -1,0 +1,16 @@
+<%# <h1 class="text-center my-4"> <%= t(".all_patients") %>
+<h1 class="text-center my-4">Organisation members</h1>
+
+<div id="members" class="row">
+  <% @members.each do |member| %>
+    <div class="col-md-4 mb-3">
+      <%= render member, member: member %>
+    </div>
+  <% end %>
+</div>
+
+<h1 class="text-center my-4">Invite your team mates</h1>
+  <%= form_with url: invite_tenant_members_path do |form| %>
+    <%= form.text_field :email, placeholder: 'Email' %>
+    <%= form.submit 'Invite' %>
+  <% end %>
