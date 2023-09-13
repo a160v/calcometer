@@ -1,34 +1,33 @@
 en:
-  clients:
+  tenants:
     index:
       title: "All organisations"
-      new_client: "New organisation"
+      new_tenant: "New organisation"
       footer:
         zero: "There are no organisations, go create the first one"
         one: "You have one organisation"
         other: "You have %{count} organisations"
     show:
-      client_name: "%{name}"
-      client_email: "%{email}"
+      tenant_name: "%{name}"
+      tenant_email: "%{email}"
       send_report: "Send monthly report"
-      back_to_clients: "Back to organisations"
-      edit_client: "Edit organisation"
-      delete_client: "Delete organisation"
+      back_to_tenants: "Back to organisations"
+      edit_tenant: "Edit organisation"
+      delete_tenant: "Delete organisation"
     new:
-      new_client: "You are creating a new organisation"
-      back_to_clients: "Back to organisations"
+      new_tenant: "You are creating a new organisation"
+      back_to_tenants: "Back to organisations"
     edit:
       title: "You are editing %{name}"
-      back_to_clients: "Back to organisations"
-    client:
-      client_name: "%{name}"
-      client_email: "%{email}"
+      back_to_tenants: "Back to organisations"
+    tenant:
+      tenant_name: "%{name}"
+      tenant_email: "%{email}"
     form:
       name_placeholder: "Spitex"
-      subdomain_placeholder: "Spitex"
       email_placeholder: "spitex@email.com"
       submit: "Validate and save"
     notice:
-      client_created_success: "Client created successfully."
-      client_updated_success: "Client updated successfully."
-      client_deleted_success: "Client deleted successfully."
+      tenant_created_success: "tenant created successfully."
+      tenant_updated_success: "tenant updated successfully."
+      tenant_deleted_success: "tenant deleted successfully."

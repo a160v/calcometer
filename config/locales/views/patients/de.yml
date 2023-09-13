@@ -31,7 +31,7 @@ de:
       state_placeholder: "Zürich"
       country: "Land"
       country_default: "Schweiz"
-      select_client: "Zu welcher Organisation gehört dieser Patient?"
+      select_tenant: "Zu welcher Organisation gehört dieser Patient?"
       submit: "Überprüfen und speichern"
     new:
       title: "Sie erstellen einen neuen Patienten"

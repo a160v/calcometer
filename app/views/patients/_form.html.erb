@@ -28,7 +28,7 @@
   <% end %>
 
   <div class="col-12 form-group">
-    <%= f.input :client_id, label: t('.select_client'), collection: Client.all, value_method: :id, label_method: :name, input_html: { class: "form-control" } %>
+    <%= f.input :tenant_id, label: t('.select_tenant'), collection: Tenant.all, value_method: :id, label_method: :name, input_html: { class: "form-control" } %>
   </div>
 
   <div class="col-12 form-group">

@@ -1,11 +1,12 @@
-class Client < ApplicationRecord
+class Tenant < ApplicationRecord
   # Leaving the door open for invitation
-  has_many :users, dependent: :nullify
+  has_many :members, dependent: :destroy
+  has_many :users, through: :members
   has_many :patients, dependent: :nullify
   has_many :appointments, through: :patients, dependent: :nullify
 
+  # Validations
   validates :name, presence: true
-  validates :subdomain, presence: false
 
   strip_attributes
 end

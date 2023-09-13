@@ -1,15 +1,15 @@
-class ClientsControllerTest < ActionDispatch::IntegrationTest
+class TenantControllerTest < ActionDispatch::IntegrationTest
   def setup
-    @client = Client.create(name: 'Test Client', email: 'test@example.com')
+    @tenant = Tenant.create(name: 'Test tenant', email: 'test@example.com')
   end
 
   test "should get index" do
-    get clients_url
+    get tenants_url
     assert_response :success
   end
 
   test "should get show" do
-    get client_url(@client)
+    get tenant_url(@tenant)
     assert_response :success
   end
 end

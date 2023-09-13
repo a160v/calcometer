@@ -1,30 +1,29 @@
 de:
-  clients:
+  tenants:
     index:
       title: "Alle Organisationen"
-      new_client: "Neue Organisation"
+      new_tenant: "Neue Organisation"
       footer:
         zero: "Es gibt keine Organisation, erstellen Sie den ersten"
         one: "Sie haben einen Organisatione"
         other: "Sie haben %{count} Organisationen"
     show:
-      client_name: "%{name}"
-      client_email: "%{email}"
+      tenant_name: "%{name}"
+      tenant_email: "%{email}"
       send_report: "Monatsbericht senden"
-      edit_client: "Organisation bearbeiten"
-      delete_client: "Organisation löschen"
-      back_to_clients: "Zurück zur Organisationenliste"
+      edit_tenant: "Organisation bearbeiten"
+      delete_tenant: "Organisation löschen"
+      back_to_tenants: "Zurück zur Organisationenliste"
     new:
-      new_client: "Sie erstellen einen neuen Organisationen"
-      back_to_clients: "Zurück zur Organisationenliste"
+      new_tenant: "Sie erstellen einen neuen Organisationen"
+      back_to_tenants: "Zurück zur Organisationenliste"
     edit:
       title: "Sie bearbeiten %{name}"
-      back_to_clients: "Zurück zur Organisationenliste"
-    client:
-      client_name: "%{name}"
-      client_email: "%{email}"
+      back_to_tenants: "Zurück zur Organisationenliste"
+    tenant:
+      tenant_name: "%{name}"
+      tenant_email: "%{email}"
     form:
       name_placeholder: "Spitex"
-      subdomain_placeholder: "Spitex"
       email_placeholder: "spitex@email.com"
       submit: "Validieren und speichern"

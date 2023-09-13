@@ -1,4 +1,4 @@
-<%= simple_form_for(@client, local: true, data: { turbo: false }, html: { class: "form-horizontal" }) do |f| %>
+<%= simple_form_for(@tenant, local: true, data: { turbo: false }, html: { class: "form-horizontal" }) do |f| %>
   <%= f.error_notification %>
   <main class="form-signin w-100 m-auto">
     <form>
@@ -9,13 +9,6 @@
                     class: "form-control",
                     id: "floatingInput",
                     placeholder: t(".name_placeholder") %>
-
-        <%= f.input :email,
-                    required: false,
-                    autofocus: true,
-                    class: "form-control",
-                    id: "floatingInput",
-                    placeholder: t(".email_placeholder") %>
       </div>
     <form>
   <%= f.submit t(".submit"), class: 'btn btn-primary' %>

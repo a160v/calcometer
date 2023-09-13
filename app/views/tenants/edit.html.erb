@@ -1,0 +1,9 @@
+<h1><%= t(".title", name: @tenant.name) %></h1>
+
+<%= render "form", tenant: @tenant %>
+
+<br>
+
+<div>
+  <%= link_to t(".back_to_tenants"), tenants_path, class: "btn btn-secondary mt-2" %>
+</div>

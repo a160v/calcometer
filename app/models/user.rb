@@ -6,7 +6,11 @@ class User < ApplicationRecord
 
   # Associations
   has_many :appointments, dependent: :nullify
-  belongs_to :client, optional: true
+  has_many :trips, dependent: :nullify
+
+  # Leaving the door open for invitation
+  has_many :members, dependent: :destroy
+  has_many :tenant, through: :members
 
   # Validations
   validates :email, uniqueness: true

@@ -1,11 +1,10 @@
 class Patient < ApplicationRecord
   # Model associations
-  acts_as_tenant :client
   belongs_to :address
   has_many :appointments, dependent: :nullify
 
   # Validations
-  validates :name, :client, presence: true
+  validates :name, :tenant, presence: true
   strip_attributes
 
   # accepts nested attributes

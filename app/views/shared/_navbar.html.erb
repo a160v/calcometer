@@ -22,7 +22,7 @@
               </a>
               <ul class="dropdown-menu dropdown-menu-end outline-dark">
                 <li><%= link_to t('.patients'), { controller: '/patients', action: 'index', locale: I18n.locale }, class: "dropdown-item" %></li>
-                <li><%= link_to t('.clients'), { controller: '/clients', action: 'index', locale: I18n.locale }, class: "dropdown-item" %></li>
+                <li><%= link_to t('.tenants'), { controller: '/tenants', action: 'index', locale: I18n.locale }, class: "dropdown-item" %></li>
                 <li><%= link_to t('.edit_profile'), edit_user_registration_path(locale: I18n.locale), class: "dropdown-item" %></li>
                 <li><hr class="dropdown-divider"></li>
                 <li><%= button_to t('.log_out'), destroy_user_session_path, method: :delete, class: "dropdown-item" %></li>

@@ -1,21 +1,14 @@
 class ApplicationController < ActionController::Base
-  # Require login and tenancy
-  set_current_tenant_through_filter
+  # Require login
   protect_from_forgery with: :exception
+  before_action :authenticate_user!
 
   # Validations
-  before_action :set_client_as_tenant
-  before_action :authenticate_user!
   before_action :set_locale
   before_action :configure_permitted_parameters, if: :devise_controller?
 
   # Make browser_time_zone method available to all views
   helper_method :browser_time_zone
-
-  # Set client as tenant for current_user
-  def set_client_as_tenant
-    set_current_tenant(current_user.client) if user_signed_in?
-  end
 
   # Use the jstz Javascript timezone library to help auto-detect and set the user's time zone
   def browser_time_zone

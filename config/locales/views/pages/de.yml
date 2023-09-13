@@ -6,7 +6,7 @@ de:
       new_appointment: "Neuer Termin"
       analytics: "Alle Termine"
       patients: "Alle Patienten"
-      clients: "Alle Organisationen"
+      tenants: "Alle Organisationen"
       export_data: "Termine exportieren"
       share_feedback: "Mein Kommentar teilen"
       calcometer: "Calcometer"

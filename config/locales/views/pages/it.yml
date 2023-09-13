@@ -6,7 +6,7 @@ it:
       new_appointment: "Nuovo appuntamento"
       analytics: "Tutti appuntamenti"
       patients: "Pazienti"
-      clients: "Organizzazioni"
+      tenants: "Organizzazioni"
       export_data: "Esportare appuntamenti"
       share_feedback: "Aiutaci a migliorare"
       calcometer: "Calcometer"

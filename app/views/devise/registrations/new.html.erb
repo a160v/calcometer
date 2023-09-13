@@ -15,27 +15,27 @@
         <%= f.input :first_name,
                     required: true,
                     autofocus: true,
-                    input_html: { autocomplete: "off" },
                     class: "form-control",
                     id: "floatingInput",
                     placeholder: "Max" %>
         <%= f.input :last_name,
                     required: false,
                     autofocus: true,
-                    input_html: { autocomplete: "off" },
                     class: "form-control",
                     id: "floatingInput",
                     placeholder: "Mustermann" %>
         <%= f.input :email,
                     required: true,
                     autofocus: true,
-                    input_html: { autocomplete: "off" },
                     class: "form-control",
                     id: "floatingInput",
                     placeholder: "name@email.com" %>
 
-    <p class="my-1"><%= t(".select_time_zone") %></p>
-    <%= f.time_zone_select :time_zone, ActiveSupport::TimeZone.country_zones('CH'), {default: browser_time_zone}, {:class => 'form-control py-1'} %>
+        <p class="my-1"><%= t(".select_time_zone") %></p>
+        <%= f.time_zone_select :time_zone,
+                    ActiveSupport::TimeZone.country_zones('CH'),
+                    {default: browser_time_zone},
+                    {:class => 'form-control py-1'} %>
 
         <%= f.input :password,
                     required: true,

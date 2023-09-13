@@ -5,7 +5,7 @@ The purpose of the app is to help healthcare workers keep track of the distance 
 The application has the following core models:
 
 - `User` is the healthcare worker.
-- `Client` is the team to whom patients belong to and the user works for.
+- `Tenant` is the team to whom patients belong to and the user works for.
 - `Patient` is the person that the user visit for appointments.
 - `Appointment` is the event made by a user to a patient.
 - `Trip` the model containing distance and duration data for a given user in a given day.
@@ -36,7 +36,7 @@ bundle && yarn
 ```
 bundle update && yarn upgrade
 ```
-4_ Open `app/db/seeds.rb` in your code editor and set how many users, patients, clients and appointments you want to set as per initial database.
+4_ Open `app/db/seeds.rb` in your code editor and set how many users, patients, tenants and appointments you want to set as per initial database.
 
 5_ Set up the database (creation + migration):
 ```

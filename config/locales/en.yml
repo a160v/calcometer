@@ -217,12 +217,12 @@ en:
       long: "%B %d, %Y %H:%M"
       short: "%d %b %H:%M"
     pm: pm
-  notice:
-    appointment_created_success: Appointment was created ✅
-    appointment_deleted_success: Appointment was deleted.
-    patient_created_success: The patient was created ✅
-    patient_updated_success: The patient was updated.
-    patient_deleted_success: The patient was deleted.
-    client_created_success: The client was created ✅
-    client_updated_success: The client was updated.
-    client_deleted_success: The client was deleted.
+  appointment_created_success: Appointment was created ✅
+  appointment_deleted_success: Appointment was deleted.
+  patient_created_success: The patient was created ✅
+  patient_updated_success: The patient was updated.
+  patient_deleted_success: The patient was deleted.
+  tenant_created_success: The tenant was created ✅
+  tenant_updated_success: The tenant was updated.
+  tenant_deleted_success: The tenant was deleted.
+  tenant_not_member: You are not a member of this tenant.

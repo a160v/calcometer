@@ -19,7 +19,6 @@ class PatientsController < ApplicationController
 
   def create
     @patient = Patient.new(patient_params.except(:address_attributes))
-
     address_attributes = patient_params[:address_attributes]
     @address = Address.find_by(address_attributes)
 
@@ -56,7 +55,7 @@ class PatientsController < ApplicationController
 
   def total_time_spent_with_patient
     total_minutes = @patient.appointments.sum { |appointment| (appointment.end_time - appointment.start_time) / 60 }
-    "%d:%02d" % [total_minutes / 60, total_minutes % 60]
+    format("%d:%02d", total_minutes / 60, total_minutes % 60)
   end
 
   private
@@ -66,6 +65,7 @@ class PatientsController < ApplicationController
   end
 
   def patient_params
-    params.require(:patient).permit(:name, :client_id, address_attributes: %i[street number zip_code city state country])
+    params.require(:patient).permit(:name, :tenant_id,
+                                    address_attributes: %i[street number zip_code city state country])
   end
 end

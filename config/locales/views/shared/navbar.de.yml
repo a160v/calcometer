@@ -6,7 +6,7 @@ de:
       appointments: "Neue Termin"
       analytics: "Alle Termine"
       patients: "Patienten"
-      clients: "Organisationen"
+      tenants: "Organisationen"
       my_account: "Mein Konto"
       edit_profile: "Konto bearbeiten"
       log_out: "Ausloggen"

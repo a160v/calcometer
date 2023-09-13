@@ -1,0 +1,13 @@
+<%= notice %>
+
+<div class="card">
+  <div class="card-body">
+    <h2 class="card-title">👤 <%= t(".tenant_name", name: @tenant.name) %></h2>
+    <p class="card-text">📧 <%= t(".tenant_email", email: @tenant.email) %></p>
+  </div>
+  <ul class="list-group list-group-flush">
+    <li class="list-group-item"><%= link_to t(".back_to_tenants"), tenants_path%></li>
+    <li class="list-group-item"><%= link_to t(".edit_tenant"), edit_tenant_path(@tenant) %></li>
+    <li class="list-group-item"><%= button_to t(".delete_tenant"), @tenant, method: :delete, class: "btn btn-danger", title: "Delete" %></li>
+  </ul>
+</div>

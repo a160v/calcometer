@@ -1,0 +1,7 @@
+<div id="<%= dom_id tenant %>" class="card h-100">
+  <%= link_to tenant, class: "text-decoration-none" do %>
+    <div class="card-body">
+      <h5 class="card-title">🏢 <strong><%= t(".tenant_name", name: tenant.name) %></strong></h5>
+    </div>
+  <% end %>
+</div>

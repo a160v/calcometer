@@ -2,11 +2,11 @@ require 'test_helper'
 
 class AppointmentsControllerTest < ActionDispatch::IntegrationTest
   def setup
-    @client = Client.create(name: 'Test Client', email: 'test@example.com')
+    @tenant = Tenant.create(name: 'Test tenant', email: 'test@example.com')
     @patient = Patient.create(
       name: 'John Doe',
       address: '123 Main St',
-      client_id: @client.id,
+      tenant_id: @tenant.id,
       latitude: 12.34,
       longitude: 56.78
     )

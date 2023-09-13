@@ -4,7 +4,7 @@ class CreateTrips < ActiveRecord::Migration[7.0]
       t.float :driving_distance
       t.float :driving_duration
       t.references :user, null: true, foreign_key: true
-      t.references :client, null: true, foreign_key: true
+      t.references :tenant, null: true, foreign_key: true
 
       t.timestamps
     end

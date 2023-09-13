@@ -6,7 +6,7 @@ fr:
       new_appointment: "Nouveau rendez-vous"
       analytics: "Mes rendez-vous"
       patients: "Patients"
-      clients: "Organisations"
+      tenants: "Organisations"
       export_data: "Exporter mes rendez-vous"
       share_feedback: "Partager mon avis"
       calcometer: "Calcometer"

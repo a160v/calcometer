@@ -10,7 +10,7 @@ addresses = [
   'Bodenackerstrasse 8, 8304 Wallisellen, Zurich, Switzerland'
 ]
 
-clients = Client.all
+tenants = Tenant.all
 # Iterate through the array of addresses and create a list of addresses
 address_data = addresses.map do |full_address|
   street_and_number, zip_and_city, _state, _country = full_address.split(', ')
@@ -25,10 +25,10 @@ end
 
 address_data.each do |data|
   address = Address.find_or_create_by(data)
-  client = clients.sample
+  tenant = tenants.sample
 
   if address.persisted?
-    patient = client.patients.create(name: Faker::Name.name, address: address, client: client)
+    patient = tenant.patients.create(name: Faker::Name.name, address: address, tenant: tenant)
 
     if patient.persisted?
       puts "💊 Created patient #{patient.name}"

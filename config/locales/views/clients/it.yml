@@ -1,28 +1,28 @@
 it:
-  clients:
+  tenants:
     index:
       title: "Tutti i organizzazioni"
-      new_client: "Nuova organizzazione"
+      new_tenant: "Nuova organizzazione"
       footer:
         zero: "Non ci sono organizzazioni, vai a crearne uno"
         one: "Hai un organizzazione"
         other: "Hai %{count} organizzazioni"
     show:
-      client_name: "%{name}"
-      client_email: "%{email}"
+      tenant_name: "%{name}"
+      tenant_email: "%{email}"
       send_report: "Invia report mensile"
-      edit_client: "Modifica organizzazione"
-      delete_client: "Elimina organizzazione"
-      back_to_clients: "Ritorna ai organizzazioni"
+      edit_tenant: "Modifica organizzazione"
+      delete_tenant: "Elimina organizzazione"
+      back_to_tenants: "Ritorna ai organizzazioni"
     new:
-      new_client: "Stai creando un nuova organizzazione"
-      back_to_clients: "Ritorna ai organizzazioni"
+      new_tenant: "Stai creando un nuova organizzazione"
+      back_to_tenants: "Ritorna ai organizzazioni"
     edit:
       title: "Stai modificando %{name}"
-      back_to_clients: "Torna ai organizzazioni"
-    client:
-      client_name: "%{name}"
-      client_email: "%{email}"
+      back_to_tenants: "Torna ai organizzazioni"
+    tenant:
+      tenant_name: "%{name}"
+      tenant_email: "%{email}"
     form:
       name_placeholder: "Spitex"
       subdomain_placeholder: "Spitex"

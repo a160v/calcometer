@@ -225,6 +225,7 @@ fr:
   patient_created_success: Le patient a été créé ✅
   patient_updated_success: La mise à jour du patient a été effectuée.
   patient_deleted_success: Le patient a été supprimé.
-  client_created_success: L'organisation a été créée ✅
-  client_updated_success: La mise à jour de l'organisation a été effectuée.
-  client_deleted_success: L'organisation a été supprimée.
+  tenant_created_success: L'organisation a été créée ✅
+  tenant_updated_success: La mise à jour de l'organisation a été effectuée.
+  tenant_deleted_success: L'organisation a été supprimée.
+  tenant_not_member: Vous n'êtes pas membre de cette organisation.

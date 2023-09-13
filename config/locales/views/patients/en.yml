@@ -37,5 +37,5 @@ en:
       state_placeholder: "Zurich"
       country: "Country"
       country_default: "Switzerland"
-      select_client: "Whose organisation this patient belongs to?"
+      select_tenant: "Whose organisation this patient belongs to?"
       submit: "Save"

@@ -57,7 +57,7 @@ Rails.application.configure do
   config.log_tags = [:request_id]
 
   # Add domain to the HSTS Preload List
-  config.ssl_options = { hsts: {subdomains: true, preload: true, expires: 1.year} }
+  config.ssl_options = { hsts: {subdomains: false, preload: true, expires: 1.year} }
 
   # Use a different cache store in production.
   # config.cache_store = :mem_cache_store

@@ -62,10 +62,6 @@ gem "omniauth-rails_csrf_protection"
 # https://github.com/ankane/lockbox
 gem "lockbox"
 
-# Row-level multitenancy for Ruby on Rails apps.
-# https://github.com/ErwinM/acts_as_tenant
-gem 'acts_as_tenant'
-
 ### MAPPING related gems
 # Geocoder is a complete Ruby geocoding solution
 # https://github.com/alexreisner/geocoder
