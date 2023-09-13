@@ -1,0 +1,35 @@
+<h1 class="text-center my-4"><%= t(".title", date: l(Time.new, format: :short)) %></h1>
+
+<%= link_to t(".new_appointment"), new_appointment_path, class:"btn btn-primary mb-3" %>
+
+<div id="appointments" class="row mb-5">
+  <% @appointments.sort_by(&:start_time).each do |appointment| %>
+    <div class="col-md-4 mb-3">
+      <%= render appointment, appointment: appointment %>
+    </div>
+  <% end %>
+</div>
+<footer class="fixed-bottom border-top border-dark footer-css">
+  <div
+    class="container d-flex flex-column justify-content-center p-3"
+    data-controller="calculate-total-distance-and-duration"
+  >
+    <button
+      type="button"
+      class="btn btn-primary"
+      data-action="click->calculate-total-distance-and-duration#calculate">
+      <div class="mt-1 d-flex justify-content-around">
+        <div id="driving_distance">
+          <% if @driving_distance.present? %>
+            <%= t(".driving_distance", driving_distance: @driving_distance) %>
+          <% else %>
+            <%= t(".click_to_calculate_distance") %>
+          <% end %>
+        </div>
+        <div id="driving_duration">
+            <%= t(".driving_duration", driving_duration: @driving_duration) if @driving_duration.present? %>
+        </div>
+      </div>
+    </button>
+  </div>
+</footer>

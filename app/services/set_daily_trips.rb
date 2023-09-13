@@ -10,5 +10,6 @@ class SetDailyTrips
     @trips ||= Trip.where(user_id: @user.id)
                    .where(created_at: @start_date..@end_date)
                    .includes(:user)
+                   .order(:created_at)
   end
 end

@@ -10,5 +10,6 @@ class SetDailyAppointments
     @appointments ||= Appointment.where(user_id: @user.id)
                                  .where("start_time >= ? AND end_time <= ?", @start_date, @end_date)
                                  .includes(:patient)
+                                 .order(:start_time)
   end
 end
