@@ -129,6 +129,9 @@ GEM
       warden (~> 1.2.3)
     devise-i18n (1.11.0)
       devise (>= 4.9.0)
+    devise_invitable (2.0.8)
+      actionmailer (>= 5.0)
+      devise (>= 4.6)
     dotenv (2.8.1)
     dotenv-rails (2.8.1)
       dotenv (= 2.8.1)
@@ -379,6 +382,7 @@ DEPENDENCIES
   debug
   devise
   devise-i18n
+  devise_invitable
   dotenv-rails
   faker
   font-awesome-sass (~> 6.1)

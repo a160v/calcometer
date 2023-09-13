@@ -55,8 +55,9 @@ gem "font-awesome-sass", "~> 6.1"
 gem "devise"
 gem "devise-i18n"
 gem "omniauth"
-gem "omniauth-google-oauth2"
+gem "omniauth-google-oauth2" # Login with Google
 gem "omniauth-rails_csrf_protection"
+gem "devise_invitable" # Invite other users to join the same tenant
 
 # Modern encryption for Ruby and Rails
 # https://github.com/ankane/lockbox
