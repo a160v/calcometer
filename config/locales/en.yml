@@ -222,7 +222,3 @@ en:
   patient_created_success: The patient was created ✅
   patient_updated_success: The patient was updated.
   patient_deleted_success: The patient was deleted.
-  tenant_created_success: The tenant was created ✅
-  tenant_updated_success: The tenant was updated.
-  tenant_deleted_success: The tenant was deleted.
-  tenant_not_member: You are not a member of this tenant.

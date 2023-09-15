@@ -4,7 +4,7 @@ class Patient < ApplicationRecord
   has_many :appointments, dependent: :nullify
 
   # Validations
-  validates :name, :tenant, presence: true
+  validates :name, presence: true
   strip_attributes
 
   # accepts nested attributes

@@ -1,10 +1,5 @@
 class Users::RegistrationsController < Devise::RegistrationsController
-
   protected
-
-  def after_sign_up_path_for(resource)
-    new_tenant_path # Redirect them to new tenant path, you can change this as per your setup
-  end
 
   def update_resource(resource, params)
     resource.update_without_password(params)

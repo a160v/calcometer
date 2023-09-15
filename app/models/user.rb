@@ -8,10 +8,6 @@ class User < ApplicationRecord
   has_many :appointments, dependent: :nullify
   has_many :trips, dependent: :nullify
 
-  # Leaving the door open for invitation
-  has_many :members, dependent: :destroy
-  has_many :tenant, through: :members
-
   # Validations
   validates :email, uniqueness: true
 

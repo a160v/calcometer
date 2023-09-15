@@ -1,5 +1,4 @@
 class TripCalculator < ApplicationService
-
   # Constants
   OPENROUTE_API_KEY = ENV['OPENROUTE_API_KEY'] || ""
 
@@ -49,12 +48,11 @@ class TripCalculator < ApplicationService
       driving_distance = (summary['distance'] / 1000.0)
       driving_duration = (summary['duration'] / 60.0)
 
-      # Get the user_id and tenant_id from the first appointment
+      # Get the user_id from the first appointment
       user_id = @appointments.first.user_id
-      tenant_id = @appointments.first.tenant_id
 
       # Save or update the trip details in the database
-      Trip.save_or_update_trip(driving_distance, driving_duration, user_id, tenant_id)
+      Trip.save_or_update_trip(driving_distance, driving_duration, user_id)
 
       return [driving_distance.round(2), driving_duration.round]
     else

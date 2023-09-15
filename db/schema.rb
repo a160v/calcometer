@@ -33,49 +33,27 @@ ActiveRecord::Schema[7.0].define(version: 2023_09_13_115042) do
     t.bigint "user_id"
     t.bigint "patient_id"
     t.bigint "address_id"
-    t.bigint "tenant_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["address_id"], name: "index_appointments_on_address_id"
     t.index ["patient_id"], name: "index_appointments_on_patient_id"
-    t.index ["tenant_id"], name: "index_appointments_on_tenant_id"
     t.index ["user_id"], name: "index_appointments_on_user_id"
-  end
-
-  create_table "members", force: :cascade do |t|
-    t.bigint "user_id", null: false
-    t.bigint "tenant_id", null: false
-    t.jsonb "roles", default: {}, null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["tenant_id"], name: "index_members_on_tenant_id"
-    t.index ["user_id"], name: "index_members_on_user_id"
   end
 
   create_table "patients", force: :cascade do |t|
     t.string "name"
-    t.bigint "tenant_id", null: false
     t.bigint "address_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["address_id"], name: "index_patients_on_address_id"
-    t.index ["tenant_id"], name: "index_patients_on_tenant_id"
-  end
-
-  create_table "tenants", force: :cascade do |t|
-    t.string "name"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
   end
 
   create_table "trips", force: :cascade do |t|
     t.float "driving_distance"
     t.float "driving_duration"
     t.bigint "user_id"
-    t.bigint "tenant_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["tenant_id"], name: "index_trips_on_tenant_id"
     t.index ["user_id"], name: "index_trips_on_user_id"
   end
 
@@ -113,12 +91,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_09_13_115042) do
 
   add_foreign_key "appointments", "addresses"
   add_foreign_key "appointments", "patients"
-  add_foreign_key "appointments", "tenants"
   add_foreign_key "appointments", "users"
-  add_foreign_key "members", "tenants"
-  add_foreign_key "members", "users"
   add_foreign_key "patients", "addresses"
-  add_foreign_key "patients", "tenants"
-  add_foreign_key "trips", "tenants"
   add_foreign_key "trips", "users"
 end

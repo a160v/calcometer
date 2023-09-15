@@ -1,6 +1,5 @@
 class PatientsController < ApplicationController
   before_action :set_patient, only: %i[show edit update destroy]
-
   def index
     @patients = Patient.all.order("created_at DESC")
   end
@@ -65,7 +64,6 @@ class PatientsController < ApplicationController
   end
 
   def patient_params
-    params.require(:patient).permit(:name, :tenant_id,
-                                    address_attributes: %i[street number zip_code city state country])
+    params.require(:patient).permit(:name, address_attributes: %i[street number zip_code city state country])
   end
 end

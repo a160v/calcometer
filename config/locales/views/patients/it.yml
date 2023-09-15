@@ -31,7 +31,6 @@ it:
       state_placeholder: "Ticino"
       country: "Paese"
       country_default: "Svizzera"
-      select_tenant: "A quale organizzazione appartiene questo paziente?"
       submit: "Convalida e salva"
     new:
       title: "Stai creando un nuovo paziente"

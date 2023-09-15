@@ -1,22 +1,19 @@
 class Trip < ApplicationRecord
-  belongs_to :tenant
   belongs_to :user
 
   # Update a trip if it exists if 'created_at' is the same as today
-  def self.save_or_update_trip(driving_distance, driving_duration, user_id, tenant_id)
+  def self.save_or_update_trip(driving_distance, driving_duration, user_id)
     today = Date.today
     trip = Trip.find_by("DATE(created_at) = ?", today)
 
     if trip
       trip.update(driving_distance: driving_distance,
                   driving_duration: driving_duration,
-                  user_id: user_id,
-                  tenant_id: tenant_id)
+                  user_id: user_id)
     else
       Trip.create(driving_distance: driving_distance,
                   driving_duration: driving_duration,
-                  user_id: user_id,
-                  tenant_id: tenant_id)
+                  user_id: user_id)
     end
   end
 

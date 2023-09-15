@@ -6,30 +6,23 @@
     <div class="row p-1">
       <div class="col-12 p-2">
         <div class="card">
-          <a href="/appointments" class="btn btn-primary">
+          <%= link_to daily_index_appointments_path(locale: I18n.locale), class: "btn btn-primary" do %>
             <h2><%= t(".new_appointment") %></h2>
-          </a>
+          <% end %>
         </div>
       </div>
       <div class="col-12 p-2">
         <div class="card border-dark">
-          <a href="/analytics" class="btn btn-light">
-            <h2><%= t(".analytics") %></h2>
-          </a>
+          <%= link_to appointments_path(locale: I18n.locale), class: "btn btn-light" do %>
+            <h2><%= t(".appointments") %></h2>
+          <% end %>
         </div>
       </div>
       <div class="col-12 p-2">
         <div class="card border-dark">
-          <a href="/patients" class="btn btn-light">
+          <%= link_to patients_path(locale: I18n.locale), class: "btn btn-light" do %>
             <h2><%= t(".patients") %></h2>
-          </a>
-        </div>
-      </div>
-      <div class="col-12 p-2">
-        <div class="card border-dark">
-          <a href="/tenants" class="btn btn-light">
-            <h2><%= t(".tenants") %></h2>
-          </a>
+          <% end %>
         </div>
       </div>
       <div class="col-12 p-2">
@@ -39,6 +32,7 @@
           </a>
         </div>
       </div>
+    </div>
   </div>
 
 <% else %>
@@ -48,8 +42,8 @@
     <h4 class="lead pt-3 pb-3"><%= t('.manage_ease') %></h4>
     <div class="col-lg-6 mx-auto">
       <div class="d-grid gap-2 mb-5">
-        <a class="btn btn-primary btn-lg d-md-none d-lg-none" href="<%= new_user_registration_path %>" role="button"><%= t('.sign_up') %></a>
-        <a class="btn btn-outline-dark btn-lg d-md-none d-lg-none" href="<%= new_user_session_path %>" role="button"><%= t('.sign_in') %></a>
+        <li class="nav-item nav-link"><%= link_to t('.log_in'), new_user_session_path(locale: I18n.locale), class: "btn btn-outline-dark" %></li>
+        <li class="nav-item nav-link"><%= link_to t('.sign_up'), new_user_registration_path(locale: I18n.locale), class: "btn btn-primary" %></li>
       </div>
     </div>
     <div>

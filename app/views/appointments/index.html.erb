@@ -29,7 +29,7 @@
   <div class="tab-pane fade show active" id="pills-first" role="tabpanel" aria-labelledby="pills-first-tab" tabindex="0">
     <div class="text-center my-4">
       <h4><%= t(".during_this_period") %></h4>
-      <h3><strong><%= t(".distance_and_duration", distance: @total_distance.round(2), duration: @total_duration.round(0)) %></strong></h3>
+      <h3><strong><%= t(".distance_and_duration", distance: @total_distance, duration: @total_duration) %></strong></h3>
       <h3><%= t(".for_appointments", count: @appointments.count) %></h3>
     </div>
     <div class="row">

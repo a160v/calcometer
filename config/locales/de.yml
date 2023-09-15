@@ -230,8 +230,4 @@ de:
     patient_created_success: Der Patient wurde angelegt ✅
     patient_updated_success: Der Patient wurde aktualisiert.
     patient_deleted_success: Der Patient wurde gelöscht.
-    tenant_created_success: Die Organisation wurde gegründet ✅
-    tenant_updated_success: Die Organisation wurde aktualisiert.
-    tenant_deleted_success: Die Organisation wurde gelöscht.
   alert:
-    tenant_not_member: Sie sind kein Mitglied dieser Organisation.

@@ -71,7 +71,7 @@ Rails.application.configure do
 
   # Bullet gem configuration
   config.after_initialize do
-    Bullet.enable = false
-    Bullet.rails_logger = false
+    Bullet.enable = true
+    Bullet.rails_logger = true
   end
 end

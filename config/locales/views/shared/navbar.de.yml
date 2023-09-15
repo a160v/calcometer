@@ -3,10 +3,9 @@ de:
     navbar:
       home: "Startseite"
       menu: "Menü"
-      appointments: "Neue Termin"
-      analytics: "Alle Termine"
+      new_appointment: "Neue Termin"
+      appointments: "Alle Termine"
       patients: "Patienten"
-      tenants: "Organisationen"
       my_account: "Mein Konto"
       edit_profile: "Konto bearbeiten"
       log_out: "Ausloggen"

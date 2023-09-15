@@ -3,10 +3,9 @@ en:
     navbar:
       home: "Home"
       menu: "Menu"
-      appointments: "New appointment"
-      analytics: "All appointments"
+      new_appointment: "New appointment"
+      appointments: "All appointments"
       patients: "Patients"
-      tenants: "Organisations"
       my_account: "My account"
       edit_profile: "Edit account"
       log_out: "Log out"

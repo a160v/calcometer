@@ -26,7 +26,6 @@ class AppointmentsController < ApplicationController
     @appointment = Appointment.new(appointment_params)
     @appointment.user = current_user
     @appointment.address_id = @appointment.patient.address_id
-    @appointment.tenant_id = @appointment.patient.tenant_id
 
     if @appointment.save
       redirect_to appointments_path, notice: t(:appointment_created_success)

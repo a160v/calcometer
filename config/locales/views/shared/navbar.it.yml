@@ -3,10 +3,9 @@ it:
     navbar:
       home: "Home"
       menu: "Menu"
-      appointments: "Nuovo appuntamento"
-      analytics: "Tutti appuntamenti"
+      new_appointment: "Nuovo appuntamento"
+      appointments: "Tutti appuntamenti"
       patients: "Pazienti"
-      tenants: "Organizzazioni"
       my_account: "Profilo"
       edit_profile: "Modifica profilo"
       log_out: "Disconnetti"

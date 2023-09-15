@@ -220,7 +220,3 @@ it:
   patient_created_success: Il paziente é stato creato ✅
   patient_updated_success: Il paziente é stato modificato.
   patient_deleted_success: Il paziente é stato eliminato.
-  tenant_created_success: L'organizzazione é stato creata ✅
-  tenant_updated_success: L'organizzazione é stato modificata.
-  tenant_deleted_success: L'organizzazione é stato eliminata.
-  tenant_not_member: Non sei membro di questa organizzazione.

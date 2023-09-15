@@ -3,10 +3,9 @@ fr:
     navbar:
       home: "Accueil"
       menu: "Menu"
-      appointments: "Nouveau rendez-vous"
-      analytics: "Mes rendez-vous"
+      new_appointment: "Nouveau rendez-vous"
+      appointments: "Mes rendez-vous"
       patients: "Patients"
-      tenants: "Organisations"
       my_account: "Mon compte"
       edit_profile: "Modifier compte"
       log_out: "Se déconnecter"

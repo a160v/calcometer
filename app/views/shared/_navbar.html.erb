@@ -13,19 +13,28 @@
     <div class="collapse navbar-collapse" id="collapseWidthNavbar">
       <% if user_signed_in? %>
         <ul class="nav">
-          <li class="nav-item"><%= link_to t('.appointments'), { controller: '/appointments', action: 'index', locale: I18n.locale }, class: "nav-link" %></li>
-          <li class="nav-item"><%= link_to t('.analytics'), { controller: '/analytics', action: 'index', locale: I18n.locale }, class: "nav-link" %></li>
+          <li class="nav-item">
+            <%= link_to t('.new_appointment'), daily_index_appointments_path, class: "nav-link" %>
+          </li>
+          <li class="nav-item">
+            <%= link_to t('.appointments'), appointments_path, class: "nav-link" %>
+          </li>
           <li class="nav-item">
             <div class="dropdown-center btn-group">
               <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                 <strong><%= t('.my_account') %></strong>
               </a>
               <ul class="dropdown-menu dropdown-menu-end outline-dark">
-                <li><%= link_to t('.patients'), { controller: '/patients', action: 'index', locale: I18n.locale }, class: "dropdown-item" %></li>
-                <li><%= link_to t('.tenants'), { controller: '/tenants', action: 'index', locale: I18n.locale }, class: "dropdown-item" %></li>
-                <li><%= link_to t('.edit_profile'), edit_user_registration_path(locale: I18n.locale), class: "dropdown-item" %></li>
+                <li>
+                  <%= link_to t('.patients'), patients_path, class: "dropdown-item" %>
+                </li>
+                <li>
+                  <%= link_to t('.edit_profile'), edit_user_registration_path, class: "dropdown-item" %>
+                </li>
                 <li><hr class="dropdown-divider"></li>
-                <li><%= button_to t('.log_out'), destroy_user_session_path, method: :delete, class: "dropdown-item" %></li>
+                <li>
+                  <%= button_to t('.log_out'), destroy_user_session_path, method: :delete, class: "dropdown-item" %>
+                </li>
               </ul>
             </div>
           </li>
