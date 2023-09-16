@@ -1,5 +1,4 @@
 class TripCalculator < ApplicationService
-  # Constants
   OPENROUTE_API_KEY = ENV['OPENROUTE_API_KEY'] || ""
 
   def initialize(appointments)
@@ -12,54 +11,69 @@ class TripCalculator < ApplicationService
 
   private
 
-  # Fetch the distance and duration from OpenRoute Service API
   def calculate_daily_driving_distance_and_duration_from_openroute
     return unless @appointments
 
-    coordinates = []
+    coordinates = collect_valid_coordinates
+    if coordinates.empty?
+      log_error("No valid coordinates found")
+      return [nil, nil]
+    end
+    response = make_api_request(coordinates)
+    if response.success?
+      driving_distance, driving_duration, user_id = parse_response_and_save_trip(response)
+      return [driving_distance.round(2), driving_duration.round]
+    else
+      log_error("API response error: #{response}")
+      return [nil, nil]
+    end
+  end
 
-    # Fetch all cordinates from each appointment
+  def collect_valid_coordinates
+    coordinates = []
     @appointments.each do |appointment|
       appointment_coordinates = appointment.coordinates
-      # Add coordinates to the array
-      coordinates << appointment_coordinates if appointment_coordinates
+      coordinates << appointment_coordinates if valid_coordinates?(appointment_coordinates)
     end
+    coordinates
+  end
 
-    # API Endpoint
+  def valid_coordinates?(coordinates)
+    coordinates.is_a?(Array) && coordinates.length == 2
+  end
+
+  def make_api_request(coordinates)
     url = 'https://api.openrouteservice.org/v2/directions/driving-car/json'
-
-    # Headers
     headers = {
       accept: 'application/json, application/geo+json; charset=utf-8',
       Authorization: OPENROUTE_API_KEY,
       'Content-Type': 'application/json;charset=utf-8'
     }
+    values = { coordinates: }
+    HTTParty.post(url, body: values.to_json, headers:)
+  end
 
-    # Body
-    values = { coordinates: coordinates }
-
-    # Make the API call
-    response = HTTParty.post(url, body: values.to_json, headers: headers)
-
-    # Parse the response
+  def parse_response_and_save_trip(response)
     if response.success?
       route_data = response.parsed_response
-      summary = route_data['routes'].first['summary']
-      driving_distance = (summary['distance'] / 1000.0)
-      driving_duration = (summary['duration'] / 60.0)
-
-      # Get the user_id from the first appointment
+      driving_distance, driving_duration = extract_distance_and_duration(route_data)
       user_id = @appointments.first.user_id
-
-      # Save or update the trip details in the database
       Trip.save_or_update_trip(driving_distance, driving_duration, user_id)
-
-      return [driving_distance.round(2), driving_duration.round]
+      [driving_distance, driving_duration, user_id]
     else
-      Rails.logger.error("API response did not work as expected. Response: #{response}") # Log error
-      return [nil, nil] # Return nil values
+      log_error("API response error: #{response}")
+      [nil, nil, nil]
     end
+  end
 
-    render json: { driving_distance: @driving_distance, driving_duration: @driving_duration }
+  def extract_distance_and_duration(route_data)
+    summary = route_data['routes'].first['summary']
+    distance = summary['distance'] / 1000.0
+    duration = summary['duration'] / 60.0
+    [distance, duration]
+  end
+
+  def log_error(message)
+    Rails.logger.error(message)
   end
 end
