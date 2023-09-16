@@ -1,7 +1,7 @@
 class Address < ApplicationRecord
   # Model associations
   has_many :patients
-  has_many :appointments
+  has_many :appointments, through: :patients
 
   # Validations
   validates :street, :number, :zip_code, :city, :state, :country, presence: { message: I18n.t("required_field") }
@@ -51,6 +51,6 @@ class Address < ApplicationRecord
 
   # Longitude and latitude are inverted, following OpenrouteService documentation
   def coordinates
-    [address.longitude.to_f, address.latitude.to_f]
+    [longitude.to_f, latitude.to_f]
   end
 end
