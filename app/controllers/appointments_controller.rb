@@ -9,9 +9,11 @@ class AppointmentsController < ApplicationController
   end
 
   def daily_index
-    @start_date = Date.today
-    @end_date = Date.today
-    fetch_appointments_and_trips
+    # @start_date = Date.today
+    # @end_date = Date.today
+    # fetch_appointments_and_trips
+    @appointments = current_user.appointments.includes([:patient]).includes([:address]).order(:start_time)
+    puts @appointments.inspect
   end
 
   def show
@@ -27,8 +29,13 @@ class AppointmentsController < ApplicationController
     @appointment.user = current_user
     @appointment.address_id = @appointment.patient.address_id
 
+    # Convert start_time and end_time to the user's time zone
+    user_time_zone = current_user.time_zone
+    @appointment.start_time = @appointment.start_time.in_time_zone(user_time_zone)
+    @appointment.end_time = @appointment.end_time.in_time_zone(user_time_zone)
+
     if @appointment.save
-      redirect_to appointments_path, notice: t(:appointment_created_success)
+      redirect_to daily_index_appointments_path, notice: t(:appointment_created_success)
     else
       # Render in HTML and JSON with error messages
       respond_to do |format|
@@ -40,7 +47,7 @@ class AppointmentsController < ApplicationController
 
   def destroy
     @appointment.destroy
-    redirect_to appointments_path, notice: t(:appointment_deleted_success)
+    redirect_to daily_index_appointments_path, notice: t(:appointment_deleted_success)
   end
 
   def calculate_distance_and_duration

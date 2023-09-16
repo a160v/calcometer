@@ -9,7 +9,7 @@ class SetDailyAppointments
     # Display only today's appointments, sorted chronologically
     @appointments ||= Appointment.where(user_id: @user.id)
                                  .where("start_time >= ? AND end_time <= ?", @start_date, @end_date)
-                                 .includes(:patient)
+                                 .includes([:patient])
                                  .order(:start_time)
   end
 end
