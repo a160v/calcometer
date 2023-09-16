@@ -5,19 +5,19 @@
 <div id="appointments" class="row mb-5">
   <% @appointments.sort_by(&:start_time).each do |appointment| %>
     <div class="col-md-4 mb-3">
-      <%= render appointment, appointment: appointment %>
+      <%= render appointment, appointment: appointment.inspect %>
     </div>
   <% end %>
 </div>
 <footer class="fixed-bottom border-top border-dark footer-css">
   <div
     class="container d-flex flex-column justify-content-center p-3"
-    data-controller="calculate-total-distance-and-duration"
+    data-controller="calculate-distance-and-duration"
   >
     <button
       type="button"
       class="btn btn-primary"
-      data-action="click->calculate-total-distance-and-duration#calculate">
+      data-action="click->calculate-distance-and-duration#calculate">
       <div class="mt-1 d-flex justify-content-around">
         <div id="driving_distance">
           <% if @driving_distance.present? %>

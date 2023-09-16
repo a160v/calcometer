@@ -9,7 +9,7 @@ export default class extends Controller {
   calculate() {
     let locale = window.location.pathname.split('/')[1];
 
-    fetch(`/${locale}/appointments/calculate_daily_driving_distance_and_duration_from_service`, {
+    fetch(`/${locale}/appointments/calculate_distance_and_duration`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
