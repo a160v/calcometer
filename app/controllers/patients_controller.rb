@@ -1,5 +1,6 @@
 class PatientsController < ApplicationController
   before_action :set_patient, only: %i[show edit update destroy]
+
   def index
     @patients = Patient.all.order("created_at DESC")
   end
@@ -17,25 +18,11 @@ class PatientsController < ApplicationController
   end
 
   def create
-    @patient = Patient.new(patient_params.except(:address_attributes))
-    address_attributes = patient_params[:address_attributes]
-    @address = Address.find_by(address_attributes)
+    @patient = build_patient
+    find_or_build_address
 
-    if @address.nil?
-      @patient.build_address(address_attributes)
-    else
-      @patient.address = @address
-    end
-
-    if @patient.save
-      redirect_to patients_path, notice: t(:patient_created_success)
-    else
-      Rails.logger.debug @patient.errors.full_messages
-
-      respond_to do |format|
-        format.turbo_stream { render turbo_stream: turbo_stream.replace(@patient, partial: 'form', locals: { patient: @patient }) }
-        format.html { render :new }
-      end
+    respond_to do |format|
+      save_patient(format)
     end
   end
 
@@ -43,7 +30,7 @@ class PatientsController < ApplicationController
     if @patient.update(patient_params)
       redirect_to patients_path, notice: t(:patient_updated_success)
     else
-      render :edit
+      render :edit, status: :unprocessable_entity
     end
   end
 
@@ -58,6 +45,40 @@ class PatientsController < ApplicationController
   end
 
   private
+
+  def build_patient
+    Patient.new(patient_params.except(:address_attributes))
+  end
+
+  def find_or_build_address
+    address_attributes = patient_params[:address_attributes]
+    @address = Address.find_by(address_attributes)
+
+    if @address.nil?
+      build_address(address_attributes)
+    else
+      set_address
+    end
+  end
+
+  def build_address(address_attributes)
+    @patient.build_address(address_attributes)
+  end
+
+  def set_address
+    @patient.address = @address
+  end
+
+  def save_patient(format)
+    if @patient.save
+      format.html { redirect_to patients_path, notice: t(:patient_created_success) }
+    else
+      format.turbo_stream do
+        render turbo_stream: turbo_stream.replace(@patient, partial: 'form', locals: { patient: @patient })
+      end
+      format.html { render :new }
+    end
+  end
 
   def set_patient
     @patient = Patient.find(params[:id])
