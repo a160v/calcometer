@@ -1,7 +1,7 @@
 it:
   appointments:
     daily_index:
-      title: "Appuntamenti il %{date}"
+      title: "Appuntamenti del %{date}"
       new_appointment: "Nuovo appuntamento"
       calculate_distance_time: "Calcola distanza e tempo"
       today_you_drove: "Oggi hai guidato"
