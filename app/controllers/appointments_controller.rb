@@ -17,7 +17,6 @@ class AppointmentsController < ApplicationController
     # Set the start_date and end_date to today
     @start_date = Date.today
     @end_date = Date.today
-    # @appointments = current_user.appointments.includes([:patient]).includes([:address]).where(start_time: @start_date.all_day).order(:start_time)
     fetch_appointments_and_trips
   end
 
@@ -81,9 +80,11 @@ class AppointmentsController < ApplicationController
   end
 
   def fetch_appointments_and_trips
-    # Use the @start_date and @end_date instance variables instead of the hardcoded current day
     @appointments = SetDailyAppointments.new(current_user, @start_date, @end_date).appointments
     @trips = SetDailyTrips.new(current_user, @start_date, @end_date).trips
+
+    # Since the date range is only for today, we can directly assign driving_distance
+    @driving_distance = @trips.first&.driving_distance if @trips.any?
   end
 
   def appointment_params
