@@ -4,7 +4,7 @@ Rails.application.routes.draw do
 
   # Routes are scoped by the locales available in the application
   scope ':locale', locale: /#{I18n.available_locales.join('|')}/ do
-    resources :patients, only: %i[index new create show destroy]
+    resources :patients, only: %i[index new create edit update show destroy]
     resources :appointments, only: %i[index daily_index new create show destroy], shallow: true do
       collection do
         get :daily_index
