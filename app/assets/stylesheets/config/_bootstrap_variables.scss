@@ -39,3 +39,7 @@ $min-contrast-ratio: 3 !default;
   -webkit-transition: all ease-in .3s;
   transition: all ease-in .3s
 }
+.card {
+  // set background to transparent and force it to be transparent
+  background: transparent !important;
+}
