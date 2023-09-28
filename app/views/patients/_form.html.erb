@@ -1,33 +1,65 @@
 <%= simple_form_for(@patient, local: true, data: { turbo: false }, html: { class: 'row g-3' }) do |f| %>
   <%= f.error_notification %>
-
   <div class="col-12 form-group">
-    <%= f.input :name, label: t('.patient_name'), input_html: { class: 'form-control', placeholder: t('.name_placeholder') } %>
+    <%= f.input :name,
+            label: t(".patient_name"),
+            input_html: {
+              class: "form-control",
+              placeholder: t(".name_placeholder")
+            } %>
   </div>
-
   <%= f.simple_fields_for :address do |a| %>
-
     <div class="col-8 form-group">
-      <%= a.input :street, label: t('.street'), input_html: { class: 'form-control', placeholder: t('.street_placeholder') } %>
+      <%= a.input :street,
+              label: t(".street"),
+              input_html: {
+                class: "form-control",
+                placeholder: t(".street_placeholder")
+              } %>
     </div>
     <div class="col-4 form-group">
-      <%= a.input :number, label: t('.number'), input_html: { class: 'form-control', placeholder: t('.number_placeholder') } %>
+      <%= a.input :number,
+              label: t(".number"),
+              input_html: {
+                class: "form-control",
+                placeholder: t(".number_placeholder")
+              } %>
     </div>
     <div class="col-4 form-group">
-      <%= a.input :zip_code, label: t('.zip_code'), input_html: { class: 'form-control', placeholder: t('.zip_code_placeholder') } %>
+      <%= a.input :zip_code,
+              label: t(".zip_code"),
+              input_html: {
+                class: "form-control",
+                placeholder: t(".zip_code_placeholder")
+              } %>
     </div>
     <div class="col-8 form-group">
-      <%= a.input :city, label: t('.city'), input_html: { class: 'form-control', placeholder: t('.city_placeholder') } %>
+      <%= a.input :city,
+              label: t(".city"),
+              input_html: {
+                class: "form-control",
+                placeholder: t(".city_placeholder")
+              } %>
     </div>
     <div class="col-6 form-group">
-      <%= a.input :state, label: t('.state'), input_html: { class: 'form-control', placeholder: t('.state_placeholder') } %>
+      <%= a.input :state,
+              label: t(".state"),
+              input_html: {
+                class: "form-control",
+                placeholder: t(".state_placeholder")
+              } %>
     </div>
     <div class="col-6 form-group">
-      <%= a.input :country, label: t('.country'), as: :country, priority: ["CH"], input_html: { class: 'form-control' } %>
+      <%= a.input :country,
+              label: t(".country"),
+              as: :country,
+              priority: ["CH"],
+              input_html: {
+                class: "form-control"
+              } %>
     </div>
   <% end %>
-
   <div class="col-12 form-group">
-    <%= f.button :submit, t('.submit'), class: 'btn btn-primary' %>
+    <%= f.button :submit, t(".submit"), class: "btn btn-primary" %>
   </div>
 <% end %>

@@ -1,39 +1,66 @@
 <%= notice %>
-
 <div class="card">
-
   <div class="card-body">
-    <h2 class="card-title">👤 <%= @patient.name %></h2>
-      <% if @patient.address.latitude.nil? || @patient.address.longitude.nil? %>
-        <h4><%= t('.no_location') %></h4>
-      <% else %>
-        <div class="card-body d-grid justify-content-center gap-2">
-          <%= static_map([{latitude: @patient.address.latitude, longitude: @patient.address.longitude}], width: 300, height: 300, alt: "Map of the patient's address") %>
-        </div>
-      <% end %>
-    <p class="card-text">📍 <%= @patient.address.nice_address %></p>
-    <a href="https://www.google.com/maps/dir/?api=1&amp;destination=<%= @patient.address.latitude %>,
-      <%= @patient.address.longitude %>&amp;travelmode=driving" target="_blank" class="btn btn-primary mb-3"><%= t('.drive_me', name: @patient.name) %></a>
+    <h2 class="card-title">👤<%= @patient.name %></h2>
+    <% if @patient.address.latitude.nil? || @patient.address.longitude.nil? %>
+      <h4><%= t(".no_location") %></h4>
+    <% else %>
+      <div class="card-body d-grid justify-content-center gap-2">
+        <%= static_map(
+          [
+            {
+              latitude: @patient.address.latitude,
+              longitude: @patient.address.longitude
+            }
+          ],
+          width: 300,
+          height: 300,
+          alt: "Map of the patient's address"
+        ) %>
+      </div>
+    <% end %>
+    <p class="card-text">📍<%= @patient.address.nice_address %></p>
+    <a
+      href="https://www.google.com/maps/dir/?api=1&amp;destination=<%= @patient.address.latitude %>,
+      <%= @patient.address.longitude %>&amp;travelmode=driving"
+      target="_blank"
+      class="btn btn-primary mb-3"
+    ><%= t(".drive_me", name: @patient.name) %></a>
     <p class="card-text">
-      <strong><%= t('.total_appointments') %>:</strong> <%= @patient.appointments.count %>
+      <strong><%= t(".total_appointments") %>:</strong>
+      <%= @patient.appointments.count %>
     </p>
     <p class="card-text">
-      <strong><%= t('.time_spent') %>:</strong> <%= @total_time_spent_with_patient %> <%= t('.hours') %>
+      <strong><%= t(".time_spent") %>:</strong>
+      <%= @total_time_spent_with_patient %>
+      <%= t(".hours") %>
     </p>
     <p class="card-text">
       <ul class="list-group list-group-flush">
         <% @patient.appointments.sort_by(&:start_time).reverse.each do |appointment| %>
-          <li class="list-group-item"> ☀️
-            <%= l(appointment.start_time, format: :long) %> -
-            <%= ((appointment.end_time - appointment.start_time) / 60).to_i %> <%= t('.minutes') %>
+          <li class="list-group-item bg-transparent">
+            ☀️
+            <%= l(appointment.start_time, format: :long) %>
+            <%= ((appointment.end_time - appointment.start_time) / 60).to_i %><%= t(".minutes") %>
           </li>
         <% end %>
       </ul>
     </p>
   </div>
   <ul class="list-group list-group-flush">
-    <li class="list-group-item"><%= link_to t('.back_to_patients'), patients_path%></li>
-    <li class="list-group-item"><%= link_to t('.edit_patient'), edit_patient_path(@patient) %></li>
-    <li class="list-group-item"><%= button_to t('.delete_patient'), @patient, method: :delete, data: { confirm: t('.confirm_delete') }, class: "btn btn-danger", title: t('.delete') %></li>
+    <li class="list-group-item bg-transparent">
+      <%= link_to t(".back_to_patients"), patients_path, class: "btn btn-secondary" %>
+    </li>
+    <li class="list-group-item bg-transparent">
+      <%= link_to t(".edit_patient"), edit_patient_path(@patient), class: "btn btn-warning" %>
+    </li>
+    <li class="list-group-item bg-transparent"><%= button_to t(".delete_patient"),
+      @patient,
+      method: :delete,
+      data: {
+        confirm: t(".confirm_delete")
+      },
+      class: "btn btn-danger",
+      title: t(".delete") %></li>
   </ul>
 </div>

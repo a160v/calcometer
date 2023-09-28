@@ -1,6 +1,7 @@
-<h1 class="text-center my-4"> <%= t(".all_patients") %></h1>
+<h1 class="text-center my-4">
+  <%= t(".all_patients") %></h1>
 
-<%= link_to t(".new_patient"), new_patient_path, class:"btn btn-primary mb-3" %>
+<%= link_to t(".new_patient"), new_patient_path, class: "btn btn-primary mb-3" %>
 
 <div id="patients" class="row">
   <% @patients.each do |patient| %>

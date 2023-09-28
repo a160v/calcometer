@@ -1,39 +1,57 @@
-<nav class="navbar navbar-expand-sm border-bottom border-dark sticky-top navbar-css mb-3">
+<nav
+  class="
+    navbar
+    navbar-expand-sm
+    border-bottom
+    border-dark
+    navbar-css
+  "
+>
   <div class="container-fluid">
-    <a href="/" class="navbar-brand"><strong><%= t('.home') %></strong></a>
+    <a href="/" class="navbar-brand"><strong><%= t(".home") %></strong></a>
     <button
       class="navbar-toggler text-dark"
       type="button"
       data-bs-toggle="collapse"
       data-bs-target="#collapseWidthNavbar"
       aria-expanded="false"
-      aria-controls="collapseWidthNavbar">
-      <strong><%= t('.menu') %></strong>
+      aria-controls="collapseWidthNavbar"
+    >
+      <strong><%= t(".menu") %></strong>
     </button>
     <div class="collapse navbar-collapse" id="collapseWidthNavbar">
       <% if user_signed_in? %>
         <ul class="nav">
           <li class="nav-item">
-            <%= link_to t('.new_appointment'), daily_index_appointments_path, class: "nav-link" %>
+            <%= link_to t(".new_appointment"), daily_index_appointments_path, class: "nav-link" %>
           </li>
           <li class="nav-item">
-            <%= link_to t('.appointments'), appointments_path, class: "nav-link" %>
+            <%= link_to t(".appointments"), appointments_path, class: "nav-link" %>
           </li>
           <li class="nav-item">
             <div class="dropdown-center btn-group">
-              <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                <strong><%= t('.my_account') %></strong>
+              <a
+                class="nav-link dropdown-toggle"
+                href="#"
+                role="button"
+                data-bs-toggle="dropdown"
+                aria-expanded="false"
+              >
+                <strong><%= t(".my_account") %></strong>
               </a>
               <ul class="dropdown-menu dropdown-menu-end outline-dark">
                 <li>
-                  <%= link_to t('.patients'), patients_path, class: "dropdown-item" %>
+                  <%= link_to t(".patients"), patients_path, class: "dropdown-item" %>
                 </li>
                 <li>
-                  <%= link_to t('.edit_profile'), edit_user_registration_path, class: "dropdown-item" %>
+                  <%= link_to t(".edit_profile"), edit_user_registration_path, class: "dropdown-item" %>
                 </li>
                 <li><hr class="dropdown-divider"></li>
                 <li>
-                  <%= button_to t('.log_out'), destroy_user_session_path, method: :delete, class: "dropdown-item" %>
+                  <%= button_to t(".log_out"),
+                  destroy_user_session_path,
+                  method: :delete,
+                  class: "dropdown-item" %>
                 </li>
               </ul>
             </div>
@@ -41,12 +59,24 @@
         </ul>
       <% else %>
         <ul class="nav">
-          <li class="nav-item nav-link"><%= link_to t('.log_in'), new_user_session_path, class: "btn btn-outline-dark" %></li>
-          <li class="nav-item nav-link"><%= link_to t('.sign_up'), new_user_registration_path, class: "btn btn-primary" %></li>
+          <li class="nav-item nav-link"><%= link_to t(".log_in"), new_user_session_path, class: "btn btn-outline-dark" %></li>
+          <li class="nav-item nav-link"><%= link_to t(".sign_up"), new_user_registration_path, class: "btn btn-primary" %></li>
           <li class="nav-item nav-link">
             <div class="dropdown mb-1">
-              <a class="dropdown-toggle text-dark form-control text-decoration-none" href="#" role="button" id="localeDropdown" data-bs-toggle="dropdown" aria-expanded="false">
-                <%= t('.language') %>
+              <a
+                class="
+                  dropdown-toggle
+                  text-dark
+                  form-control
+                  text-decoration-none
+                "
+                href="#"
+                role="button"
+                id="localeDropdown"
+                data-bs-toggle="dropdown"
+                aria-expanded="false"
+              >
+                <%= t(".language") %>
               </a>
               <ul class="dropdown-menu" aria-labelledby="localeDropdown">
                 <%= link_to "Italiano", url_for(locale: :it), class: "dropdown-item" %>

@@ -3,19 +3,20 @@
     <%= link_to appointment, class: "text-decoration-none" do %>
       <div class="card-body">
         <h2 class="card-title">
-          <%=
-            unless appointment.patient
-              "🚫 Deleted patient"
-            else
-              "👤 #{appointment.patient.name}"
-            end %>
+          <%= appointment.patient ? " #{appointment.patient.name}" : "🚫 Deleted patient" %>
         </h2>
         <p class="card-title">
-          <%="📍 #{appointment.patient.address.nice_address}" %>
+          <%= "📍 #{appointment.patient.address.nice_address}" %>
         </p>
         <ul class="list-group list-group-flush">
-          <li class="list-group-item"><%= t(".arrived_at", time: l(appointment.start_time, format: :short, zone: current_user.time_zone)) %></li>
-          <li class="list-group-item"><%= t(".left_at", time: l(appointment.end_time, format: :short, zone: current_user.time_zone)) %></li>
+          <li class="list-group-item bg-transparent"><%= t(
+              ".arrived_at",
+              time: l(appointment.start_time, format: :short, zone: current_user.time_zone)
+            ) %></li>
+          <li class="list-group-item bg-transparent"><%= t(
+              ".left_at",
+              time: l(appointment.end_time, format: :short, zone: current_user.time_zone)
+            ) %></li>
         </ul>
       </div>
     <% end %>
