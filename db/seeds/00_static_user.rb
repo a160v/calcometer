@@ -3,6 +3,8 @@ user = User.create(
   first_name: 'Aleks',
   last_name: 'Starlord',
   email: 'aleks@starlord.com',
+  time_zone: 'Zurich',
+  locale: 'it',
   password: 'stropass123',
   password_confirmation: 'stropass123'
 )
