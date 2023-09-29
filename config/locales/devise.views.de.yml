@@ -107,7 +107,9 @@ de:
         select_time_zone: Auswahl einer Zeitzone
         select_language: Wählen Sie eine Sprache
         language: '%{selected_language}'
+        confirm_delete: Sind Sie sicher?
         delete_account: Seien Sie vorsichtig, die folgende Aktion ist unwiderruflich. Wenn Sie sich entscheiden, Ihr Konto zu löschen, können wir es nicht wiederherstellen und Sie verlieren alle Ihre Daten.
+        delete_account_button: Konto löschen
       new:
         title: Sie erstellen ein neues Profil
         sign_up: Registrieren

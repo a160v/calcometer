@@ -23,6 +23,7 @@ it:
       back_to_appointments: "Torna agli appuntamenti"
       delete_appointment: "Elimina questo appuntamento"
       delete: "Elimina"
+      confirm_delete: "Sei sicuro?"
       deleted_patient: "Paziente cancellato"
     index:
       title: "Tutti gli appuntamenti"

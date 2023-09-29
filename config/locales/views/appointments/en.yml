@@ -22,6 +22,7 @@ en:
     show:
       back_to_appointments: "Back to appointments"
       delete_appointment: "Delete this appointment"
+      confirm_delete: "Are you sure?"
       delete: "Delete"
       deleted_patient: "Deleted patient"
     index:

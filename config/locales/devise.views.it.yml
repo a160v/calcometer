@@ -107,7 +107,9 @@ it:
         select_time_zone: Seleziona il fuso orario
         select_language: Seleziona la lingua
         language: '%{selected_language}'
+        confirm_delete: Sei sicuro?
         delete_account: Attenzione, la seguente azione è irreversibile. Se decidi di cancellare il tuo account, non saremo in grado di recuperarlo e perderai tutti i tuoi dati.
+        delete_account_button: Cancella account
       new:
         title: Stai creando un nuovo profilo
         sign_up: Registrati

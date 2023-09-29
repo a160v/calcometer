@@ -107,7 +107,9 @@ en:
         select_time_zone: Select your time zone
         select_language: Select your language
         language: '%{selected_language}'
+        confirm_delete: Are you sure?
         delete_account: Be careful, the following action is not reverisble. If you decide to delete your account, we will not be able to recover it and you will lose all your data.
+        delete_account_button: Delete account
       new:
         title: You are creating a new account
         sign_up: Sign up

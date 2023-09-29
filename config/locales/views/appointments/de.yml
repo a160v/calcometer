@@ -22,6 +22,7 @@ de:
     show:
       back_to_appointments: "Zurück zu den Terminen"
       delete_appointment: "Diesen Termin löschen"
+      confirm_delete: "Sind Sie sicher?"
       delete: "Löschen"
       deleted_patient: "Gelöschter Patient"
     index:
