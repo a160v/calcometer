@@ -54,13 +54,12 @@
     <li class="list-group-item bg-transparent">
       <%= link_to t(".edit_patient"), edit_patient_path(@patient), class: "btn btn-warning" %>
     </li>
-    <li class="list-group-item bg-transparent"><%= button_to t(".delete_patient"),
-      @patient,
+    <li class="list-group-item bg-transparent">
+      <%= button_to t(".delete_patient"),
+      patient_path(@patient),
       method: :delete,
-      data: {
-        confirm: t(".confirm_delete")
-      },
-      class: "btn btn-danger",
-      title: t(".delete") %></li>
+      data: {turbo_confirm: t(".confirm_delete")},
+      class: "btn btn-danger" %>
+    </li>
   </ul>
 </div>
