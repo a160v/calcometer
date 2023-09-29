@@ -1,7 +1,7 @@
 de:
   shared:
     navbar:
-      home: "Startseite"
+      home: "Hallo %{username}"
       menu: "Menü"
       new_appointment: "Neue Termin"
       appointments: "Alle Termine"

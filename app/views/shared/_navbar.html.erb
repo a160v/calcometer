@@ -8,7 +8,7 @@
   "
 >
   <div class="container-fluid">
-    <a href="/" class="navbar-brand"><strong><%= t(".home") %></strong></a>
+    <a href="/" class="navbar-brand"><strong><%= t(".home", username: current_user.first_name) %></strong></a>
     <button
       class="navbar-toggler text-dark"
       type="button"
