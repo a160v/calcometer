@@ -58,11 +58,6 @@ gem "omniauth"
 gem "omniauth-google-oauth2" # Login with Google
 gem "omniauth-rails_csrf_protection"
 
-# Modern encryption for Ruby and Rails
-# https://github.com/ankane/lockbox
-gem "lockbox"
-
-### MAPPING related gems
 # Geocoder is a complete Ruby geocoding solution
 # https://github.com/alexreisner/geocoder
 gem "geocoder"
