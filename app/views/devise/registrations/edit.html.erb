@@ -19,11 +19,11 @@
     <% end %>
 
     <%= f.input :password,
-                hint: "Leave blank if you don't want to change it",
+                hint: t(".leave_blank_if_you_don_t_want_to_change_it"),
                 required: false,
                 input_html: { autocomplete: "off" } %>
     <%= f.input :current_password,
-                hint: "Input your password to confirm the changes.",
+                hint: t(".input_your_password_to_confirm_the_changes"),
                 required: false,
                 input_html: { autocomplete: "off" } %>
   </div>
