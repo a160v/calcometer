@@ -10,14 +10,32 @@ addresses = [
   'Bodenackerstrasse 8, 8304 Wallisellen, Zurich, Switzerland'
 ]
 
-address_data.each do |data|
-  address = Address.find_or_create_by(data)
+addresses.each do |full_address|
+  parts = full_address.split(', ')
+  street_and_number = parts[0].split(' ')
+  number = street_and_number.pop
+  street = street_and_number.join(' ')
+  zip_code = parts[1].split(' ')[0]
+  city = parts[1].split(' ')[1]
+  state = parts[2]
+  country = parts[3]
+
+  address_attrs = {
+    street: street,
+    number: number,
+    zip_code: zip_code,
+    city: city,
+    state: state,
+    country: country
+  }
+
+  address = Address.create(address_attrs)
 
   if address.persisted?
-    patient = patients.create(name: Faker::Name.name, address: address)
+    patient = Patient.new(name: Faker::Name.name, address_id: address.id)
 
-    if patient.persisted?
-      puts "💊 Created patient #{patient.name}"
+    if patient.save
+      puts "💊 Created patient #{patient.name} at #{address.street} #{address.number}, #{address.zip_code} #{address.city}, #{address.state}, #{address.country}"
     else
       puts "⛔️ Failed to create patient: #{patient.errors.full_messages.join(', ')}"
     end
@@ -25,8 +43,11 @@ address_data.each do |data|
     puts "⛔️ Failed to create address: #{address.errors.full_messages.join(', ')}"
   end
 
-sleep(2) # Wait for 2 seconds
+  sleep(2) # Wait for 2 seconds
 end
 
 puts "#############################################"
+puts "Addresses and patients created! 🎉"
+puts "Now it is your turn to create appointments and trips 🚗"
+puts "Enjoy Calcometer ^___^ 👋"
 puts "#############################################"
