@@ -58,6 +58,9 @@ gem "omniauth"
 gem "omniauth-google-oauth2" # Login with Google
 gem "omniauth-rails_csrf_protection"
 
+# Prevents brute force attacks
+gem 'rack-attack'
+
 # Geocoder is a complete Ruby geocoding solution
 # https://github.com/alexreisner/geocoder
 gem "geocoder"

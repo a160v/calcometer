@@ -246,6 +246,8 @@ GEM
       nio4r (~> 2.0)
     racc (1.7.1)
     rack (2.2.8)
+    rack-attack (6.7.0)
+      rack (>= 1.0, < 4)
     rack-protection (3.1.0)
       rack (~> 2.2, >= 2.2.4)
     rack-test (2.1.0)
@@ -407,6 +409,7 @@ DEPENDENCIES
   omniauth-rails_csrf_protection
   pg (~> 1.5)
   puma (~> 5.0)
+  rack-attack
   rails (~> 7.0.4, >= 7.0.4.3)
   rails-i18n (~> 7.0.0)
   rubocop
