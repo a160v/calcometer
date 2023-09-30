@@ -12,11 +12,19 @@ class Address < ApplicationRecord
   before_validation :geocode, if: :address_changed?
   geocoded_by :full_address
 
+  # Encryption
+  encrypts :street, deterministic: true # is deterministic so it can be queuered
+  encrypts :number, deterministic: true # is deterministic so it can be queuered
+  encrypts :zip_code, deterministic: true # is deterministic so it can be queuered
+  encrypts :city, deterministic: true # is deterministic so it can be queuered
+  encrypts :state, deterministic: true # is deterministic so it can be queuered
+  encrypts :country, deterministic: true # is deterministic so it can be queuered
+
   # Validation method to check if the address is geocoded
   def found_address_presence
     return unless latitude.blank? || longitude.blank?
 
-    errors.add(:address, "wasn't found.")
+    errors.add(:address, I18n.t("was_not_found"))
   end
 
   # Method to concatenate full address
@@ -45,7 +53,7 @@ class Address < ApplicationRecord
       self.latitude = geo.latitude
       self.longitude = geo.longitude
     else
-      errors.add(:address, "wasn't found.")
+      errors.add(:address, I18n.t("was_not_found"))
     end
   end
 

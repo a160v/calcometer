@@ -16,6 +16,10 @@ module Calcometer
     # Initialize configuration defaults for originally generated Rails version.
     config.load_defaults 7.0
 
+    # Enable query encryption
+    config.active_record.encryption.extend_queries = true
+    config.active_record.encryption.support_unencrypted_data = true # required for devise to work
+
     # Where the I18n library should search for translation files
     I18n.load_path += Dir[Rails.root.join('lib', 'locales', '*.{rb,yml}')]
 

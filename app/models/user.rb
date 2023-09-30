@@ -11,6 +11,13 @@ class User < ApplicationRecord
   # Validations
   validates :email, uniqueness: true
 
+  # Encryption
+  encrypts :email, deterministic: true, downcase: true # is deterministic so it can be queuered
+  encrypts :time_zone, deterministic: true # is deterministic so it can be queuered
+  encrypts :locale, deterministic: true # is deterministic so it can be queuered
+  encrypts :first_name
+  encrypts :last_name
+
   def self.from_omniauth(access_token)
     data = access_token.info
     user = User.where(email: data['email']).first
