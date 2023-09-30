@@ -11,11 +11,11 @@ class Appointment < ApplicationRecord
   # Validation method to ensure that the end_time is after the start_time
   def validate_time
     if end_time < start_time
-      errors.add(:end_time, "must be after start time")
+      errors.add(:end_time, I18n.t(".must_be_after_start_time"))
     elsif end_time == start_time
-      errors.add(:start_time, "cannot be equal to start time")
+      errors.add(:start_time, I18n.t(".cannot_be_equal_to_start_time"))
     elsif Appointment.where(user_id:, start_time:).where.not(id:).exists?
-      errors.add(:start_time, "| You have already created another appointment for this time today.")
+      errors.add(:start_time, I18n.t("you_have_already_created_another_appointment_for_this_time_today."))
     end
   end
 
@@ -30,7 +30,7 @@ class Appointment < ApplicationRecord
 
     return unless overlapping_appointments.exists?
 
-    errors.add(:start_time, "The appointment period overlaps with another existing appointment.")
+    errors.add(:start_time, I18n.t("the_appointment_period_overlaps_with_another_existing_appointment"))
   end
 
   # Retrieve and transform longitude and latitude from address

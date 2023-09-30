@@ -220,3 +220,8 @@ it:
   patient_created_success: Il paziente é stato creato ✅
   patient_updated_success: Il paziente é stato modificato.
   patient_deleted_success: Il paziente é stato eliminato.
+  must_be_after_start_time: deve essere dopo l'orario di inizio
+  cannot_be_equal_to_start_time: non può essere uguale all'orario di inizio
+  you_have_already_created_another_appointment_for_this_time_today: Hai già creato un altro appuntamento per questo orario
+  the_appointment_period_overlaps_with_another_existing_appointment: Gli orari dell'appuntamento si sovrappone ad un altro appuntamento esistente
+  was_not_found: non é stato trovato

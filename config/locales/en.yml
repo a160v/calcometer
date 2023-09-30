@@ -222,3 +222,8 @@ en:
   patient_created_success: The patient was created ✅
   patient_updated_success: The patient was updated.
   patient_deleted_success: The patient was deleted.
+  must_be_after_start_time: must be after start time
+  cannot_be_equal_to_start_time: cannot be equal to start time
+  you_have_already_created_another_appointment_for_this_time_today: You have already created another appointment for this time today
+  the_appointment_period_overlaps_with_another_existing_appointment: The appointment period overlaps with another existing appointment
+  was_not_found: was not found

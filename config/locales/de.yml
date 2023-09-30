@@ -224,10 +224,13 @@ de:
       long: "%A, %d. %B %Y, %H:%M Uhr"
       short: "%d. %b, %H:%M Uhr"
     pm: nachmittags
-  notice:
-    appointment_created_success: Der Termin wurde erstellt ✅
-    appointment_deleted_success: Der Termin wurde gelöscht.
-    patient_created_success: Der Patient wurde angelegt ✅
-    patient_updated_success: Der Patient wurde aktualisiert.
-    patient_deleted_success: Der Patient wurde gelöscht.
-  alert:
+  appointment_created_success: Der Termin wurde erstellt ✅
+  appointment_deleted_success: Der Termin wurde gelöscht.
+  patient_created_success: Der Patient wurde angelegt ✅
+  patient_updated_success: Der Patient wurde aktualisiert.
+  patient_deleted_success: Der Patient wurde gelöscht.
+  must_be_after_start_time: muss nach dem Starttermin liegen
+  cannot_be_equal_to_start_time: darf nicht mit dem Starttermin identisch sein
+  you_have_already_created_another_appointment_for_this_time_today: Sie haben heute bereits einen anderen Termin für diese Zeit erstellt
+  the_appointment_period_overlaps_with_another_existing_appointment: Der Termin überschneidet sich mit einem anderen bestehenden Termin
+  was_not_found: wurde nicht gefunden
