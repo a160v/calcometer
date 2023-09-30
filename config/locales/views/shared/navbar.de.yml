@@ -1,7 +1,7 @@
 de:
   shared:
     navbar:
-      home: "Hallo %{username}"
+      home: "Calcometer"
       menu: "Menü"
       new_appointment: "Neue Termin"
       appointments: "Alle Termine"
