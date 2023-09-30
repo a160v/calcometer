@@ -8,15 +8,14 @@ class AppointmentsController < ApplicationController
 
     # Fetch selected appointments and trips based on the given dates
     fetch_appointments_and_trips
-
-    # Calculate total distance and duration using the Trip model's method
-    @total_distance, @total_duration = Trip.calculate_total_distance_and_duration(@start_date, @end_date)
   end
 
   def daily_index
     # Set the start_date and end_date to today
     @start_date = Date.today
     @end_date = Date.today
+
+    # Fetch selected appointments and trips based on the given dates
     fetch_appointments_and_trips
   end
 
@@ -74,8 +73,8 @@ class AppointmentsController < ApplicationController
     @appointments = SetDailyAppointments.new(current_user, @start_date, @end_date).appointments
     @trips = SetDailyTrips.new(current_user, @start_date, @end_date).trips
 
-    # Since the date range is only for today, we can directly assign driving_distance
-    @driving_distance = @trips.first&.driving_distance if @trips.any?
+    # Calculate total distance and duration using the Trip model's method
+    @total_distance, @total_duration = Trip.calculate_total_distance_and_duration(@start_date, @end_date)
   end
 
   def appointment_params
