@@ -411,7 +411,6 @@ DEPENDENCIES
   stimulus-rails
   strip_attributes
   turbo-rails
-  tzinfo-data
   web-console
   webdrivers
 

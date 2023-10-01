@@ -34,7 +34,7 @@
         <p class="my-1"><%= t(".select_time_zone") %></p>
         <%= f.time_zone_select :time_zone,
                     ActiveSupport::TimeZone.country_zones('CH'),
-                    {default: browser_time_zone},
+                    {default: user_time_zone},
                     {:class => 'form-control py-1'} %>
 
         <%= f.input :password,

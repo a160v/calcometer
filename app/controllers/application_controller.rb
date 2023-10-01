@@ -6,18 +6,17 @@ class ApplicationController < ActionController::Base
   # Validations
   before_action :set_locale
   before_action :configure_permitted_parameters, if: :devise_controller?
+  before_action :set_user_time_zone
 
   # Make browser_time_zone method available to all views
-  helper_method :browser_time_zone
+  helper_method :user_time_zone
 
-  # Use the jstz Javascript timezone library to help auto-detect and set the user's time zone
-  def browser_time_zone
-    browser_tz = ActiveSupport::TimeZone.find_tzinfo(cookies[:browser_time_zone])
-    ActiveSupport::TimeZone.all.find { |zone| zone.tzinfo == browser_tz } || Time.zone
-    # Rescue two exceptions thrown by browser_tz
-  rescue TZInfo::UnknownTimezone, TZInfo::InvalidTimezoneIdentifier
-    # Else return the default time zone (UTC)
-    Time.zone
+  def set_user_time_zone
+    Time.zone = current_user.time_zone if user_signed_in?
+  end
+
+  def user_time_zone
+    user_signed_in? ? current_user.time_zone : 'Europe/Zurich'
   end
 
   def default_url_options
@@ -32,7 +31,11 @@ class ApplicationController < ActionController::Base
   protected
 
   def configure_permitted_parameters
-    devise_parameter_sanitizer.permit(:sign_up) { |u| u.permit(:first_name, :last_name, :email, :time_zone, :locale, :password) }
-    devise_parameter_sanitizer.permit(:account_update) { |u| u.permit(:first_name, :last_name, :email, :time_zone, :locale, :password) }
+    devise_parameter_sanitizer.permit(:sign_up) do |u|
+      u.permit(:first_name, :last_name, :email, :time_zone, :locale, :password)
+    end
+    devise_parameter_sanitizer.permit(:account_update) do |u|
+      u.permit(:first_name, :last_name, :email, :time_zone, :locale, :password)
+    end
   end
 end

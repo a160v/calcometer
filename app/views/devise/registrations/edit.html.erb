@@ -9,7 +9,7 @@
     <%= f.input :email, required: true, autofocus: true %>
 
     <p class="my-1"><%= t(".select_time_zone") %></p>
-    <%= f.time_zone_select :time_zone, nil, {default: browser_time_zone.name}, {:class => 'form-control'} %>
+    <%= f.time_zone_select :time_zone, nil, {default: user_time_zone}, {:class => 'form-control'} %>
 
     <p class="my-1"><%= t(".select_language") %></p>
     <%= f.select :locale, I18n.available_locales.map(&:to_s), {}, class: 'form-control' %>
