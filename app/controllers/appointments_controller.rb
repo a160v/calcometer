@@ -74,7 +74,7 @@ class AppointmentsController < ApplicationController
     @trips = SetDailyTrips.new(current_user, @start_date, @end_date).trips
 
     # Calculate total distance and duration using the Trip model's method
-    @total_distance, @total_duration = Trip.calculate_total_distance_and_duration(@start_date, @end_date)
+    @total_distance, @total_duration = Trip.calculate_total_distance_and_duration(@start_date, @end_date, @current_user)
   end
 
   def appointment_params

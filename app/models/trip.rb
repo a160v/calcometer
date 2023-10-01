@@ -7,19 +7,15 @@ class Trip < ApplicationRecord
     trip = Trip.find_by("DATE(created_at) = ?", today)
 
     if trip
-      trip.update(driving_distance: driving_distance,
-                  driving_duration: driving_duration,
-                  user_id: user_id)
+      trip.update(driving_distance:, driving_duration:, user_id:)
     else
-      Trip.create(driving_distance: driving_distance,
-                  driving_duration: driving_duration,
-                  user_id: user_id)
+      Trip.create(driving_distance:, driving_duration:, user_id:)
     end
   end
 
-  def self.calculate_total_distance_and_duration(start_date, end_date)
+  def self.calculate_total_distance_and_duration(start_date, end_date, user_id = @current_user)
     # Fetch all trips between start_date and end_date
-    trips = Trip.where(updated_at: start_date.beginning_of_day...end_date.end_of_day)
+    trips = Trip.where(updated_at: start_date.beginning_of_day...end_date.end_of_day, user_id:)
                 .pluck(:driving_distance, :driving_duration)
 
     # Sum and return the values within the arrays
@@ -28,5 +24,4 @@ class Trip < ApplicationRecord
 
     [total_distance.round(2), total_duration.round]
   end
-
 end
