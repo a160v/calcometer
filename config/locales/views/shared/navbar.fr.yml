@@ -6,7 +6,7 @@ fr:
       new_appointment: "Nouveau rendez-vous"
       appointments: "Mes rendez-vous"
       patients: "Patients"
-      my_account: "Mon compte"
+      my_account: "%{name}"
       edit_profile: "Modifier compte"
       log_out: "Se déconnecter"
       log_in: "Connexion"
