@@ -93,7 +93,6 @@ gem 'json'
 gem "strip_attributes"
 
 # Production-ready gems
-gem "autoprefixer-rails"
 gem 'bundler', '~> 2.4', '>= 2.4.12'
 gem 'bundler-audit', '~> 0.9.1'
 
