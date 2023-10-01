@@ -42,6 +42,7 @@ it:
       default: "%d/%m/%Y"
       long: "%d %B %Y"
       short: "%d %b"
+      long_without_time: "%d %B %Y"
     month_names:
     -
     - gennaio

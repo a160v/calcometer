@@ -1,9 +1,5 @@
-<h1 class="text-center"><%= t(".title", date: l(Time.current.localtime, format: :short)) %></h1>
-
-<%= link_to t(".new_appointment"),
-new_appointment_path,
-class: "btn btn-primary mb-3" %>
-
+<h1 class="text-center"><%= t(".title", date: l(Date.current.in_time_zone(current_user.time_zone).to_date, format: :long_without_time)) %></h1>
+<%= link_to t(".new_appointment"), new_appointment_path, class: "btn btn-primary mb-3" %>
 <div id="appointments" class="row mb-5">
   <% @appointments.sort_by(&:start_time).each do |appointment| %>
     <div class="col-md-4 mb-3">

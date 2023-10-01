@@ -1,12 +1,4 @@
-<nav
-  class="
-    navbar
-    navbar-expand-sm
-    border-bottom
-    border-dark
-    navbar-css
-  "
->
+<nav class="navbar navbar-expand-sm border-bottom border-dark navbar-css">
   <div class="container-fluid">
     <a href="/" class="navbar-brand"><strong><%= t(".home") %></strong></a>
     <button
@@ -37,7 +29,7 @@
                 data-bs-toggle="dropdown"
                 aria-expanded="false"
               >
-                <strong><%= t(".my_account") %></strong>
+                <strong><%= t(".my_account", name: current_user.first_name) %></strong>
               </a>
               <ul class="dropdown-menu dropdown-menu-end outline-dark">
                 <li>

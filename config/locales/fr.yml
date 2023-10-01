@@ -5,10 +5,8 @@ fr:
       messages:
         record_invalid: 'La validation a échoué : %{errors}'
         restrict_dependent_destroy:
-          has_one: Vous ne pouvez pas supprimer l'enregistrement car un(e) %{record}
-            dépendant(e) existe
-          has_many: Vous ne pouvez pas supprimer l'enregistrement parce que les %{record}
-            dépendants existent
+          has_one: Vous ne pouvez pas supprimer l'enregistrement car un(e) %{record} dépendant(e) existe
+          has_many: Vous ne pouvez pas supprimer l'enregistrement parce que les %{record} dépendants existent
   date:
     abbr_day_names:
     - dim
@@ -44,6 +42,7 @@ fr:
       default: "%d/%m/%Y"
       long: "%-d %B %Y"
       short: "%-d %b"
+      long_without_time: "%-d %B %Y"
     month_names:
     -
     - janvier

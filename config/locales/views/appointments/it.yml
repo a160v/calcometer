@@ -8,7 +8,7 @@ it:
       driving_distance: "%{driving_distance} km"
       driving_duration: "%{driving_duration} minuti"
       distance_and_duration: "%{distance} km & %{duration} minuti"
-      click_to_calculate_distance: "Clicca per calcolare distanza e tempo"
+      click_to_calculate_distance: "Ricalcola distanza e tempo"
     new:
       new_appointment: "Stai creando un nuovo appuntamento"
       select_patient: "Seleziona paziente"
