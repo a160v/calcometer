@@ -1,7 +1,7 @@
 fr:
   shared:
     navbar:
-      home: "Calcometer"
+      home: "Calcometer DEMO"
       menu: "Menu"
       new_appointment: "Nouveau rendez-vous"
       appointments: "Mes rendez-vous"
