@@ -47,6 +47,9 @@ gem "sassc-rails"
 gem 'bootstrap-sass', '~> 3.4.1'
 gem "font-awesome-sass", "~> 6.1"
 
+# Foreman to run multiple processes
+gem 'foreman'
+
 # Use Active Storage variants [https://guides.rubyonrails.org/active_storage_overview.html#transforming-images]
 # gem "image_processing", "~> 1.2"
 
@@ -98,10 +101,6 @@ gem 'bundler-audit', '~> 0.9.1'
 # https://github.com/svenfuchs/rails-i18n
 gem 'rails-i18n', '~> 7.0.0'
 
-# Gem to enhance translation management
-# https://github.com/glebm/i18n-tasks
-gem 'i18n-tasks', '~> 1.0.12'
-
 group :development, :test do
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem
   gem "debug", platforms: %i[mri mingw x64_mingw]
@@ -132,3 +131,9 @@ group :test do
   gem "selenium-webdriver"
   gem "webdrivers"
 end
+
+gem "dockerfile-rails", ">= 1.5", :group => :development
+
+gem "sentry-ruby", "~> 5.11"
+
+gem "sentry-rails", "~> 5.11"

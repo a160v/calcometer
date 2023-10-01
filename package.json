@@ -13,5 +13,6 @@
   },
   "scripts": {
     "build": "esbuild app/javascript/*.* --bundle --sourcemap --outdir=app/assets/builds"
-  }
+  },
+  "packageManager": "yarn@1.22.19"
 }
