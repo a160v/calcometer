@@ -15,7 +15,6 @@ function findTimeZone() {
     window.Intl = oldIntl;
     return tz;
   } catch (e) {
-    // sometimes (on android) you can't override intl
     return jstz.determine().name();
   }
 }

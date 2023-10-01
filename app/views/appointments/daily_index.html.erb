@@ -1,4 +1,4 @@
-<h1 class="text-center"><%= t(".title", date: l(Time.new, format: :short)) %></h1>
+<h1 class="text-center"><%= t(".title", date: l(Time.current.localtime, format: :short)) %></h1>
 
 <%= link_to t(".new_appointment"),
 new_appointment_path,
