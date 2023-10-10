@@ -1,34 +1,50 @@
-<h1 class="text-center"><%= t(".title") %></h1>
+<h3 class="text-center"><%= t(".title") %></h3>
 <%# Container with date selection %>
-<div
-  class="container text-center my-2 border border-dark rounded"
-  style="--bs-border-opacity: .1;"
->
+<div class="container text-center my-2 border border-dark rounded" style="--bs-border-opacity: .1;">
   <div id="date-selection" data-controller="date-range">
     <%= form_tag appointments_path, method: :get, class: 'form-inline justify-content-center' do %>
-      <div class="form-group">
-        <%= label_tag :start_date, t(".start_date"), class: "mr-2" %>
-        <%= date_field_tag :start_date,
-        @start_date,
-        required: true,
-        data: {
-          action: "change->date-range#updateEndDateMin",
-          date_range_target: "startDate"
-        },
-        class: "form-control mr-2" %>
-        <%= label_tag :end_date, t(".end_date"), class: "mr-2" %>
-        <%= date_field_tag :end_date,
-        @end_date,
-        required: true,
-        data: {
-          date_range_target: "endDate"
-        },
-        class: "form-control mr-2 mb-2" %>
-        <%= submit_tag t(".submit"), class: "w-100 btn btn-dark" %>
+      <div class="row"> <!-- Add a row container -->
+
+        <!-- Start Date Column -->
+        <div class="col-6"> <!-- Use half the width for medium screens and up -->
+          <div class="form-group">
+            <%= label_tag :start_date, t(".start_date"), class: "mr-2" %>
+            <%= date_field_tag :start_date,
+            @start_date,
+            required: true,
+            data: {
+              action: "change->date-range#updateEndDateMin",
+              date_range_target: "startDate"
+            },
+            class: "form-control mr-2" %>
+          </div>
+        </div>
+
+        <!-- End Date Column -->
+        <div class="col-6"> <!-- Use half the width for medium screens and up -->
+          <div class="form-group">
+            <%= label_tag :end_date, t(".end_date"), class: "mr-2" %>
+            <%= date_field_tag :end_date,
+            @end_date,
+            required: true,
+            data: {
+              date_range_target: "endDate"
+            },
+            class: "form-control mr-2 mb-2" %>
+          </div>
+        </div>
+
+      </div> <!-- End of row container -->
+
+      <!-- Submit Button -->
+      <div class="form-group w-100 mt-2">
+        <%= submit_tag t(".submit"), class: "btn btn-primary" %>
       </div>
+
     <% end %>
   </div>
 </div>
+
 <%# Tabs for distance and appointments %>
 <ul class="nav nav-pills mb-3 nav-justified" id="pills-tab" role="tablist">
   <%# Distance tab button %>
@@ -67,15 +83,6 @@
     aria-labelledby="pills-first-tab"
     tabindex="0"
   >
-    <div class="text-center my-4">
-      <h4><%= t(".during_this_period") %></h4>
-      <h3><strong><%= t(
-            ".distance_and_duration",
-            distance: @total_distance,
-            duration: @total_duration
-          ) %></strong></h3>
-      <h3><%= t(".for_appointments", count: @appointments.count) %></h3>
-    </div>
     <div class="row">
       <% @appointments.sort_by(&:start_time).each do |appointment| %>
         <div class="col-md-4 mb-3 appointment-card">
@@ -107,3 +114,14 @@
     </div>
   </div>
 </div>
+<footer class="fixed-bottom border-top border-dark footer-css">
+  <div class="text-center">
+    <h6><%= t(".during_this_period") %></h6>
+    <h5><strong><%= t(
+          ".distance_and_duration",
+          distance: @total_distance,
+          duration: @total_duration
+        ) %></strong></h5>
+    <h5><%= t(".for_appointments", count: @appointments.count) %></h5>
+  </div>
+</footer>
