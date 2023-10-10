@@ -28,8 +28,8 @@ de:
     index:
       title: "Alle Termine"
       today: "Heute"
-      start_date: "Startdatum"
-      end_date: "Enddatum"
+      start_date: "Von"
+      end_date: "Bis"
       submit: "Absenden"
       distance: "Entfernung"
       appointments: "Termine"

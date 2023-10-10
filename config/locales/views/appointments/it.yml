@@ -28,8 +28,8 @@ it:
     index:
       title: "Tutti gli appuntamenti"
       today: "Oggi"
-      start_date: "Data di inizio"
-      end_date: "Data di fine"
+      start_date: "Dal"
+      end_date: "Al"
       submit: "Invia"
       distance: "Distanza"
       appointments: "Appuntamenti"

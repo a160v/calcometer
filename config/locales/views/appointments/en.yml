@@ -28,8 +28,8 @@ en:
     index:
       title: "All Appointments"
       today: "Today"
-      start_date: "Start Date"
-      end_date: "End Date"
+      start_date: "From"
+      end_date: "Until"
       submit: "Submit"
       distance: "Distance"
       appointments: "Appointments"

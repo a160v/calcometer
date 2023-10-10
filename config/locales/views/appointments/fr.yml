@@ -28,8 +28,8 @@ fr:
     index:
       title: "Tous mes rendez-vous"
       today: "Aujourd'hui"
-      start_date: "Date de début"
-      end_date: "Date de fin"
+      start_date: "Á partir du"
+      end_date: "Jusqu'au"
       submit: "Soumettre"
       distance: "Distance"
       appointments: "Rendez-vous"
