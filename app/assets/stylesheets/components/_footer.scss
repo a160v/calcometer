@@ -1,6 +1,18 @@
 .footer-css {
+  z-index: 1; // Set a z-index to ensure the footer content is above the blurred background
   justify-content: center;
-  background: transparent;
-  backdrop-filter: blur(7px);
-  padding: 1rem;
+  padding: 0.5rem;
+  background: transparent; // The footer itself remains transparent
+
+  &::before {
+    content: ""; // Necessary for the pseudo-element to be generated
+    position: absolute; // Absolute positioning
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0; // These four properties ensure the pseudo-element covers the entire footer
+    background: rgba(255, 255, 255, 0.9); // Semi-transparent white background
+    filter: blur(7px); // Apply the blur effect
+    z-index: -1; // Place the blurred background behind the footer content
+  }
 }

@@ -1,27 +1,38 @@
 .navbar-css {
-  justify-content:space-evenly;
+  justify-content: space-evenly;
   background: transparent;
-  backdrop-filter: blur(5px);
   position: fixed;
   top: 0;
   width: 100%;
   z-index: 1000;
   margin-bottom: 25px;
-}
 
-.navbar-css .navbar-collapse {
-  flex-grow: 0;
-}
+  &::before {
+    content: ""; // Necessary for the pseudo-element to be generated
+    position: absolute; // Absolute positioning
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0; // These four properties ensure the pseudo-element covers the entire navbar
+    background: rgba(255, 255, 255, 0.7); // Semi-transparent white background
+    filter: blur(5px); // Apply the blur effect
+    z-index: -1; // Place the blurred background behind the navbar content
+  }
 
-.navbar-css .nav-item .nav-link {
-  cursor: pointer;
-  -webkit-transition: all ease-in .2s;
-  transition: all ease-in .2s;
+  .navbar-collapse {
+    flex-grow: 0;
+  }
 
-  &:hover {
+  .nav-item .nav-link {
+    cursor: pointer;
+    -webkit-transition: all ease-in .2s;
+    transition: all ease-in .2s;
+
+    &:hover {
       color: #fff;
       background-color: #2b78e4;
       border-radius: 5px;
       border-color: #2b78e4;
     }
+  }
 }
