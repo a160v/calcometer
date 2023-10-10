@@ -1,6 +1,6 @@
 # Calcometer
 
-The purpose of the app is to help healthcare workers keep track of the distance and time they spend traveling by car between patients.
+Calcometer helps healthcare workers keep track of distances and time they spend traveling by car between patients. Calcometer is an easy to use app that helps
 
 The application has the following core models:
 
@@ -12,10 +12,10 @@ The application has the following core models:
 
 The application calculates the travel distance and duration between patients using the `Directions API` by [OpenRoute Service](https://openrouteservice.org/dev/#/api-docs/v2/directions/%7Bprofile%7D/json/post). The API returns a route between two or more locations for a selected profile and its settings as JSON. From the `summary' of the parsed result, the distance and duration are extracted and displayed to the user.
 
-This app is a proof of concept for building:
-- responsive full-stack app with RoR and StimulusJS
-- open source high quality
-- solve a real life problem with a simple and elegant solution
+This app is a proof of concept to:
+- solve a real life need with a simple and elegant solution
+- build a responsive full-stack app with Ruby on Rails and StimulusJS
+- share a high quality app with the open source community
 
 # Initial setup
 
@@ -35,17 +35,42 @@ bundle && yarn
 ```
 bundle update && yarn upgrade
 ```
-4_ Open `app/db/seeds.rb` in your code editor and set how many users, patients and appointments you want to set as per initial database.
 
-5_ Set up the database (creation + migration):
+4_ Encrypt database
+```
+bin/rails db:encryption:init
+```
+4a_ You will see something like this:
+```
+active_record_encryption:
+  primary_key: EGY8WhulUOXixybod7ZWwMIL68R9o5kC
+  deterministic_key: aPA5XyALhf75NNnMzaspW7akTfZp0lPY
+  key_derivation_salt: xEY0dt6TZcAMg52K7O84wYzkjvbA62Hz
+```
+
+5_ Copy the newly created keys and save them in your target environment. The following command will allow you to edit your credentials through VS Code:
+
+```
+EDITOR="code --wait" rails credentials:edit
+```
+
+5_ Open `app/db/seeds.rb` in your code editor and set how many users, patients and appointments you want to set as per initial database.
+
+6_ Set up the database (creation + migration):
 ```
 rails db:setup
 ```
-6_ Launch a development server
+7_ Launch a development server
 ```
 bin/dev
 ```
-6a_ If you cloned this repo to your machine, you can create a new (public) repo in your github account (requires `gh` installed)
+7a_ If you cloned this repo to your machine, you can create a new (public) repo in your github account (requires `gh` installed)
 ```
 gh repo create --public --source=.
 ```
+
+TIP: if you don't want users to sign up, you need to:
+1. remove sign up buttons from navbar and homepage
+2. remove (devise) ':registerable' argument from User model.
+3. remove registration routes
+Keep the sessions as users they still need to sign in.
