@@ -26,7 +26,7 @@ en:
       patient_name: "Patient Name"
       name_placeholder: "Jane Doe"
       street: "Address"
-      street_placeholder: "Bahnofstrasse"
+      street_placeholder: "Bahnhofstrasse"
       number: "Number"
       number_placeholder: "8"
       zip_code: "ZIP"
