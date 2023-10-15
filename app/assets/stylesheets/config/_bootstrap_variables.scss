@@ -19,22 +19,23 @@ $danger: $red;
 $warning: $orange;
 
 // Buttons & inputs' radius
-$border-radius: 5px;
-$border-radius-lg: 5px;
-$border-radius-sm: 5px;
+$border-radius: 25px;
+$border-radius-lg: 25px;
+$border-radius-sm: 25px;
 
 // Override other variables below!
 $dropdown-border-radius: 5px;
 $dropdown-min-width: 8rem;
 $min-contrast-ratio: 3 !default;
+
 .btn-primary {
   width: 100%;
   cursor: pointer;
   -webkit-transition: all ease-in .3s;
   transition: all ease-in .3s
 }
-.btn-outline-dark {
-  width: 100%;
+.btn-outline-success {
+  width: 50%;
   cursor: pointer;
   -webkit-transition: all ease-in .3s;
   transition: all ease-in .3s
