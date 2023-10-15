@@ -1,6 +1,6 @@
 # Calcometer
 
-Calcometer helps healthcare workers keep track of distances and time they spend traveling by car between patients. Calcometer is an easy to use app that helps
+Calcometer helps healthcare workers keep track of distances and time they spend traveling by car between patients. Have a look at the [walkthrough video](https://www.youtube.com/watch?v=P50Yu_BbbCo).
 
 The application has the following core models:
 
