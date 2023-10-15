@@ -32,8 +32,38 @@
           </a>
         </div>
       </div>
+      <!-- Button trigger modal -->
+      <div class="col-12 p-2">
+        <div class="card border-dark">
+          <button type="button" class="btn btn-light" data-bs-toggle="modal" data-bs-target="#videoModal">
+            <h2><%= t(".walkthrough_video") %></h2>
+          </button>
+        </div>
+      </div>
+      <!-- Modal -->
+      <div class="modal fade" id="videoModal" tabindex="-1" aria-labelledby="videoModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h1 class="modal-title fs-5" id="videoModalLabel">How Calcometer works</h1>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+              <div class="modal-body">
+                  <div class="container-fluid">
+                    <div class="row">
+                      <iframe class="col-12" data-modal-target="" width="315" height="500" src="https://www.youtube.com/embed/P50Yu_BbbCo" frameborder="0" allowfullscreen></iframe>
+                    </div>
+                  </div>
+              </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal"><%= t(".close_modal") %></button>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
+
   <footer class="fixed-bottom footer-css">
     <h4 class="d-flex justify-content-around">Made with ❤️‍🔥 by Aleks in Zurich 🇨🇭</h4>
   </footer>

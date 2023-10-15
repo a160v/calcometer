@@ -8,6 +8,8 @@ fr:
       patients: "Patients"
       export_data: "Exporter mes rendez-vous"
       share_feedback: "Partager mon avis"
+      walkthrough_video: "Comment utiliser Calcometer"
+      close_modal: "Fermer cette fenêtre"
       calcometer: "Calcometer"
       tagline: "Rendez-vous, distances et temps de trajet en toute simplicité."
       features: "Fonctionnalités"

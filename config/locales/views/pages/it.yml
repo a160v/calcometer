@@ -8,6 +8,8 @@ it:
       patients: "Pazienti"
       export_data: "Esportare appuntamenti"
       share_feedback: "Aiutaci a migliorare"
+      walkthrough_video: "Video tutorial"
+      close_modal: "Chiudi questo popup"
       calcometer: "Calcometer"
       tagline: "Appuntamenti, distanze e tempi di percorrenza con facilità."
       features: "Funzionalità"

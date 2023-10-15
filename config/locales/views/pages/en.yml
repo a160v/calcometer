@@ -8,6 +8,8 @@ en:
       patients: "Patients"
       export_data: "Export appointments"
       share_feedback: "Help us improve"
+      walkthrough_video: "Walkthrough video"
+      close_modal: "Close this modal"
       calcometer: "Calcometer"
       tagline: "Appointments, distances and travel time management just got easier."
       features: "Features"
