@@ -6,7 +6,7 @@
           <%= appointment.patient ? " #{appointment.patient.name}" : "🚫 Deleted patient" %>
         </h2>
         <p class="card-title">
-          <%= "📍 #{appointment.patient.address.nice_address}" %>
+          <%= "📍 #{appointment.patient&.address&.nice_address}" %>
         </p>
         <ul class="list-group list-group-flush">
           <li class="list-group-item bg-transparent"><%= t(

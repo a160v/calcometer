@@ -61,7 +61,7 @@ class AppointmentsController < ApplicationController
   private
 
   def set_appointment
-    @appointment = Appointment.find(params[:id])
+    @appointment = current_user.appointments.find(params[:id])
   end
 
   def set_dates
@@ -78,6 +78,6 @@ class AppointmentsController < ApplicationController
   end
 
   def appointment_params
-    params.require(:appointment).permit(:user_id, :patient_id, :start_time, :end_time)
+    params.require(:appointment).permit(:patient_id, :start_time, :end_time)
   end
 end
