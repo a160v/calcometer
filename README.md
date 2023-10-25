@@ -36,7 +36,16 @@ bundle && yarn
 bundle update && yarn upgrade
 ```
 
-4_ Encrypt database
+4_ Create and migrate the database
+```
+rails db:create
+```
+then
+```
+rails db:migrate
+```
+
+4a- Encrypt database
 ```
 bin/rails db:encryption:init
 ```
@@ -54,11 +63,11 @@ active_record_encryption:
 EDITOR="code --wait" rails credentials:edit
 ```
 
-5_ Open `app/db/seeds.rb` in your code editor and set how many users, patients and appointments you want to set as per initial database.
+5_ Open `app/db/seeds.rb` in your code editor and set how many users, patients and appointments you want to set as per initial database. It is important to seed after the database has been encrypted for data integrity.
 
-6_ Set up the database (creation + migration):
+6_ Seed the database:
 ```
-rails db:setup
+rails db:seed
 ```
 7_ Launch a development server
 ```
